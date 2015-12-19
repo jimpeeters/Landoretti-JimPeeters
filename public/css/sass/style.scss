@@ -1,9 +1,11 @@
 $blauw : #21398b;
 $groen : #009e9c;
 $lgrijs: #eaeaea;
-$dgrijs: #bebebd;
+$dgrijs: #757575;
 $zwart : #000000;
 $txtcolor : #4e4e4e;
+$ldgrijs : #f4f4f4;
+
 
 
 body {
@@ -14,7 +16,7 @@ body {
     position: absolute;
     left: 200px;
     top: 0px;
-    box-shadow: 5px 5px 5px rgba(136, 136, 136, 0.46);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.40);
     z-index: 100;
 }
 
@@ -284,3 +286,291 @@ body {
         }
     }
 }
+
+
+/* Newest item section */ 
+.new-auction-section {
+    background-position: center;
+    -webkit-background-size: cover;
+}
+.auction-caption{
+
+    background-color: rgba(33, 57, 139, 0.7);
+    padding: 0px;
+    margin: 40px 0px 40px 0px;
+
+    h3, p {
+        padding : 5px 20px 5px 20px;
+    }
+
+    h3 {
+        color: white;
+    }
+    p {
+            color: white;
+            text-align: left;
+    }
+
+    .visit-auction {
+        background-color: white;
+        padding : 15px 20px 15px 20px;
+
+        a{
+            color: $groen;
+        }
+
+    }
+}
+
+/*breacrumbs */ 
+
+.breadcrumbs {
+    p {
+        padding : 20px 0px 10px 0px;
+        color: $groen;
+        a{
+            color: $groen;
+        }
+    }
+}
+
+/* Details */
+.details {
+
+    .top-details {
+        i{
+            padding-left: 10px;
+            color: $blauw;
+        }
+        a{
+            color: $blauw;
+        }
+    }
+
+    .big-image {
+        width: 100%;
+        height: 350px;
+        margin-left: 15px;
+        background-position: center;
+        -webkit-background-size: cover;
+    }
+
+    .small-images
+    {
+        margin-top: 15px;
+
+        .small-image{
+            width : 100%;
+            float: left;
+            height: 110px;
+            background-position: center;
+            -webkit-background-size: cover;
+        }
+
+    }
+
+    .short-details {
+        text-align: right;
+        padding-left: 80px;
+
+        h3 {
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+
+        .age {
+            color: $blauw;
+        }
+
+        .time-left{
+            color: $groen;
+            margin-bottom: 0px;
+        }
+
+        .date {
+            color: $dgrijs;
+        }
+        .text{
+            margin-bottom: 0px;
+        }
+
+        .more {
+            color: $zwart;
+            text-decoration: underline;
+            margin-bottom: 30px;
+            display:block;
+            font-weight: bold;
+
+            &:hover{
+                text-decoration: none;
+            }
+        }
+
+
+        .bid-now {
+            border: 1px solid $lgrijs;
+            padding-right : 15px;
+
+            h5, h3 {
+                color: $blauw;
+            }
+
+
+            .buy-now {
+                color: $groen;
+                text-decoration: underline;
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+
+            .bid-now-sub {
+                margin-right: -15px;
+                background-color: $groen;
+                color: white;
+                padding: 10px 15px 10px 0px;
+
+                p{
+                    margin-bottom: 0px;
+                    font-weight: bold;
+                }
+
+                input {
+                    width : 100px;
+                    color: $zwart;
+                    margin-right: 20px;
+                }
+            }
+
+            .add-watchlist{
+                padding: 10px 0px 0px 0px;
+                text-align: center;
+                margin-right: -15px;
+                
+                a{
+                    color: $blauw;
+                    text-decoration: underline;
+
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
+
+
+                i{
+                    padding-right: 10px;
+                }
+            }
+        }
+    }
+
+        .description {
+            margin : 45px 0px 10px 15px;
+            border: 1px solid $lgrijs;
+            display: inline-block;
+
+            h6 {
+                font-weight: bold;
+                margin-bottom: 0px;
+                margin-top: 0px;
+            }
+
+            .left {
+                padding: 20px 45px 20px 15px;
+            }
+
+            .right{
+                border-left: 1px solid $lgrijs;
+                margin-top : 20px;
+                padding: 5px 0px 5px 20px;
+
+                p {
+                    margin-bottom: 0px;
+                }
+
+                div{
+                    margin-top: 40px;
+                    margin-right: 20px;
+                    background-color: $dgrijs;
+                    color:white;
+                    padding: 5px 10px 5px 10px;
+                    text-align: center;
+                    font-weight: bold;
+                }
+            }
+        }
+}
+
+.related-items {
+    padding-bottom: 50px;
+    background-color:  $ldgrijs;
+
+    h3 {
+        color: $blauw;
+        margin-top: 40px;
+    }
+
+    h4{
+        margin: 0px;
+    }
+
+    .small-image{
+        margin-top: 35px;
+        width : 100%;
+        padding-top: 100%;
+        background-position: center;
+        -webkit-background-size: cover;
+    }
+
+    .date {
+        color: $blauw;
+        margin-bottom: 0px;
+    }
+
+    .visit-auction {
+
+    }
+
+    .details-related {
+
+        color: $txtcolor;
+        padding: 10px;
+
+        .related-bottom {
+            width: 100%;
+
+
+                .left{
+                    float: left;
+                    font-size: 0.8em;
+                    padding-top: 10px;
+                    padding-right: 10px;
+                    border-bottom: solid 1px #e5e5e5;
+                }
+
+                .right{
+                    float: left;
+                    padding: 10px 5px 10px 5px;
+                    color: $blauw;
+                    border: solid 1px  #e5e5e5;
+                    font-size: 0.7em;
+                    float: left;
+
+
+                    a{
+                        font-weight: bold;
+                        color: $blauw;
+                        text-decoration: none;
+                        &:hover{
+                            text-decoration: underline;
+                        }
+                    }
+                }
+        }
+        
+    }
+}
+
+
+
+

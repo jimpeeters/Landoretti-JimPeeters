@@ -53,8 +53,7 @@
 </div>
 
 <div class="row">
-	<div class="col-md-2"></div>
-	<div class="info-home col-md-8">
+	<div class="info-home col-md-8 col-md-offset-2">
 		<h1>How does it work?</h1>
 		<div class="col-md-4">
 			<img src="images/icon-pencil.png" alt="an icon shaped as a pencil">
@@ -72,21 +71,18 @@
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt debitis excepturi similique corporis rem distinctio.</p>
 		</div>
 	</div>
-	<div class="col-md-2"></div>
 </div>
 
 <div class="row">
 	<div class="popular-home col-md-12">
 		<h1>Most popular this week</h1>
-		<div class="col-md-2"></div>
-		<div class="col-md-3">
+		<div class="col-md-3 col-md-offset-2">
 			<div class="popular-image" style="background-image:url('http://lorempixel.com/400/200/');"></div>
 			<div class="popular-image" style="background-image:url('http://lorempixel.com/400/200/');"></div>
 		</div>
 		<div class="col-md-5">
 			<div class="popular-image-big" style="background-image:url('http://lorempixel.com/400/200/');"></div>
 		</div>
-		<div class="col-md-2"></div>
 	</div>
 </div>
 
