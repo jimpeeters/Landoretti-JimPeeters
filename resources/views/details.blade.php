@@ -50,7 +50,7 @@
 				<a class="buy-now" href="#">Buy now for &euro; 15.000</a>
 				<p>bids: 7 </p>
 				<div class="bid-now-sub">
-					<p><input>BID NOW > </p>
+					<p><input>BID NOW<i class="fa fa-angle-right"></i></p>
 				</div>
 				<p class="add-watchlist"><a href="#"><i class="fa fa-bars"></i>add to my watchlist</a></p>
 			</div>
@@ -95,15 +95,15 @@
 		<div class="col-md-2 col-md-offset-2">
 			<div  class="small-image" style="background-image:url('http://lorempixel.com/400/200/');"></div>
 			<div class="details-related">
-				<p class="date">1979, Salvador Dali</p>
+				<p class="age">1979, Salvador Dali</p>
 				<h4>Dance of Time III</h4>
 				<h4>&euro; 8.900</h4>
 				<div class="related-bottom">
 					<div class="left">
-						<p>25d 14u 44m</p>
+						<p class="time-left">25d 14u 44m</p>
 					</div>
 					<div class="right">
-						<a href="#">VISIT AUCTION ></a>
+						<a href="#">VISIT AUCTION<i class="fa fa-angle-right"></i></a>
 					</div>
 				</div>
 			</div>
@@ -111,15 +111,15 @@
 		<div class="col-md-2">
 			<div  class="small-image" style="background-image:url('http://lorempixel.com/400/200/');"></div>
 			<div class="details-related">
-				<p class="date">1979, Salvador Dali</p>
+				<p class="age">1979, Salvador Dali</p>
 				<h4>Dance of Time III</h4>
 				<h4>&euro; 8.900</h4>
 				<div class="related-bottom">
 					<div class="left">
-						<p>25d 14u 44m</p>
+						<p class="time-left">25d 14u 44m</p>
 					</div>
 					<div class="right">
-						<a href="#">VISIT AUCTION ></a>
+						<a href="#">VISIT AUCTION<i class="fa fa-angle-right"></i></a>
 					</div>
 				</div>
 			</div>
@@ -127,15 +127,15 @@
 		<div class="col-md-2">
 			<div  class="small-image" style="background-image:url('http://lorempixel.com/400/200/');"></div>
 			<div class="details-related">
-				<p class="date">1979, Salvador Dali</p>
+				<p class="age">1979, Salvador Dali</p>
 				<h4>Dance of Time III</h4>
 				<h4>&euro; 8.900</h4>
 				<div class="related-bottom">
 					<div class="left">
-						<p>25d 14u 44m</p>
+						<p class="time-left">25d 14u 44m</p>
 					</div>
 					<div class="right">
-						<a href="#">VISIT AUCTION ></a>
+						<a href="#">VISIT AUCTION<i class="fa fa-angle-right"></i></a>
 					</div>
 				</div>
 			</div>
@@ -143,15 +143,15 @@
 		<div class="col-md-2">
 			<div  class="small-image" style="background-image:url('http://lorempixel.com/400/200/');"></div>
 			<div class="details-related">
-				<p class="date">1979, Salvador Dali</p>
+				<p class="age">1979, Salvador Dali</p>
 				<h4>Dance of Time III</h4>
 				<h4>&euro; 8.900</h4>
 				<div class="related-bottom">
 					<div class="left">
-						<p>25d 14u 44m</p>
+						<p class="time-left">25d 14u 44m</p>
 					</div>
 					<div class="right">
-						<a href="#">VISIT AUCTION ></a>
+						<a href="#">VISIT AUCTION<i class="fa fa-angle-right"></i></a>
 					</div>
 				</div>
 			</div>
