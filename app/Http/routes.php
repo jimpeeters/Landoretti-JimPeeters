@@ -22,3 +22,7 @@ Route::get('/details', function () {
 Route::get('/myauctions', function () {
     return view('my-auctions');
 });
+
+Route::get('/watchlist', function () {
+    return view('watchlist');
+});
