@@ -7,18 +7,18 @@ $txtcolor : #4e4e4e;
 $ldgrijs : #f4f4f4;
 
 
+.container {
+    position: relative;
+    width : 1030px;
+}
+
+.container-full {
+    width: 100%;
+}
 
 body {
     font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
     color: $txtcolor;
-}
-
-#main-logo {
-    position: absolute;
-    left: 200px;
-    top: 0px;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.40);
-    z-index: 100;
 }
 
 /* Main classes */
@@ -39,31 +39,48 @@ body {
     font-size: 0.9em;
 }
 
+#main-logo {
+    position: absolute;
+    left: 0px;
+    top: -4px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.40);
+    z-index: 100;
+}
 
 /* NAVIGATION */ 
+
+.section-nav {
+    border-top: 4px solid $groen;
+    z-index: 10;
+}
+
+.section-subnav {
+    background-color: $lgrijs;
+}
+
 .navigation {
 
     color: $blauw;
 
-    div{
-        padding: 15px;
-    }
-
-    hr {
-        margin: 0px;
-        border-bottom: 4px solid $groen;
-        color : $groen;
-        height: 1px;
-        margin-top: -2px;
-    }
-
     a{
         text-align: center;
         color : $blauw;
+        margin: 20px 0px 20px 0px; 
+        display : block;
+        float: left;
+
+        &:nth-child(1){
+            padding-right : 40px;
+            border-right: 1px solid $blauw;
+        }
+
+        &:nth-child(2){
+            padding-left : 40px;
+        }
 
         &:hover{
             color : $blauw;
-            text-decoration: none;
+            text-decoration:underline;
         }
 
     }
@@ -73,20 +90,23 @@ body {
         font-style: italic;
         border : 1px solid $dgrijs;
         padding: 5px 10px 5px 10px;
+        margin: 14px 0px;
+    }
+
+    i{
+        margin: 23px 0px;
     }
 
 }
 
 .sub-navigation {
 
-    background-color: $lgrijs;
-
-    div{
-        padding: 15px;
-    }
-
     a{
+        font-weight: bold;
         color : $txtcolor;
+        display: block;
+        float: left;
+        padding: 20px 30px 20px 0px;
 
         &:hover{
             color : $txtcolor;
@@ -96,11 +116,14 @@ body {
     }
 
     .language-link {
+        font-weight: normal;
         color : $blauw;
-        padding-left: 15px;
+        padding-right: 0px;
+        padding-left: 25px;
 
         &:hover{
             color : $blauw;
+            font-weight: bold;
         }
     }
 }
@@ -180,10 +203,14 @@ body {
 
 /* popular BLOCK */ 
 
+.section-popular {
+    background-color: $lgrijs;
+    margin-top: 40px;
+}
+
 .popular-home {
     width: 100%;
     left: 0;
-    background-color: $lgrijs;
     margin-top: 15px;
     padding-bottom: 99px;
 
@@ -206,16 +233,25 @@ body {
         height : 305px;
     }
 
+    .popular-left {
+        padding-right: 0px;
+    }
+
+    .popular-right {
+        padding-left: 5px;
+    }
+
 }
 
 
 
 /* Footer */
+.section-footer {
+    border-top: 1px solid $lgrijs;
+    margin-top: 100px;
+}
 
 .footer {
-
-    margin-top: 100px;
-    border-top: 1px solid $lgrijs;
     a {
         color: $groen;
         text-align: left;
@@ -235,6 +271,7 @@ body {
     .copyright-text{
         margin-top : 100px;
         padding-bottom: 20px;
+        font-size: 0.9em;
     }
     .email-link {
         display: inline;
@@ -256,6 +293,7 @@ body {
     }
     .left-border {
         border-left: 1px solid $lgrijs;
+        padding-left: 30px;
     }
     .social-logos {
         padding-top: 20px;
@@ -267,46 +305,22 @@ body {
     }
 
 }
-    #footer-logo {
-        position: absolute;
-        margin-top: -90px;
-        left: 200px;
-        box-shadow: 5px 5px 5px rgba(136, 136, 136, 0.46);
-        z-index: 100;
-    }
+#footer-logo {
+    position: absolute;
+    left: 0px;
+    box-shadow: 5px 5px 5px rgba(136, 136, 136, 0.46);
+    z-index: 100;
+    bottom: 0px;
+}
 
-.sub-navigation-footer {
-
-    background-color: $lgrijs;
-    border-bottom: solid 4px $groen;
-
-    div{
-        padding: 15px;
-    }
-
-    a{
-        color : $txtcolor;
-
-        &:hover{
-            color : $txtcolor;
-            text-decoration: none;
-        }
-
-    }
-
-    .language-link {
-        color : $blauw;
-        padding-left: 15px;
-
-        &:hover{
-            color : $blauw;
-        }
-    }
+.section-footer-subnav {
+    border-bottom: 4px solid $groen;
 }
 
 
 /* Newest item section */ 
-.new-auction-section {
+
+.section-newest {
     background-position: center;
     -webkit-background-size: cover;
 
@@ -314,11 +328,14 @@ body {
         padding-left: 5px;
     }
 }
+
+
 .auction-caption{
 
     background-color: rgba(33, 57, 139, 0.7);
     padding: 0px;
-    margin: 40px 0px 40px 0px;
+    margin-top: 50px;
+    margin-bottom: 50px;
 
     h3, p {
         padding : 5px 20px 5px 20px;
@@ -376,21 +393,27 @@ body {
     .big-image {
         width: 100%;
         height: 350px;
-        margin-left: 15px;
         background-position: center;
         -webkit-background-size: cover;
     }
 
     .small-images
     {
-        margin-top: 15px;
+        margin-top: 10px;
+        padding-left: 0px;
+        padding-right: 0px;
 
         .small-image{
-            width : 100%;
+            width : 32%;
             float: left;
             height: 110px;
             background-position: center;
             -webkit-background-size: cover;
+
+            &:nth-child(2){
+                margin-left: 2%;
+                margin-right: 2%;
+            }
         }
 
     }
@@ -486,49 +509,66 @@ body {
             }
         }
     }
-
-        .description {
-            margin : 45px 0px 10px 15px;
-            border: 1px solid $lgrijs;
-            display: inline-block;
-
-            h6 {
-                font-weight: bold;
-                margin-bottom: 0px;
-                margin-top: 30px;
-                color: black;
-            }
+    .description-auction{
+        border: 1px solid $lgrijs;
+        margin: 45px 0px 45px 0px;
+        padding: 35px 5px 35px 5px;
+        display: inline-block;
 
 
-            .left {
-                padding: 0px 45px 20px 15px;
-            }
+        h6 {
+            font-weight: bold;
+            margin-bottom: 0px;
+            color: black;
+        }
 
-            .right{
-                border-left: 1px solid $lgrijs;
-                margin-top : 20px;
-                padding: 5px 0px 5px 20px;
+
+        .description-left {
+                padding: 0px 45px 0px 15px;
+
+        }
+
+        .description-right{
+                padding-left: 25px;
 
                 p {
                     margin-bottom: 0px;
                 }
 
                 div{
-                    margin-top: 40px;
-                    margin-right: 20px;
+                    margin-top: 60px;
                     background-color: $dgrijs;
                     color:white;
                     padding: 5px 10px 5px 10px;
                     text-align: center;
                     font-weight: bold;
                 }
-            }
         }
+    }
 }
 
-.related-items {
-    padding-bottom: 50px;
+.section-related {
     background-color:  $ldgrijs;
+    padding-bottom: 50px;
+}
+.related-items {
+
+    .block {
+        width: 25%;
+        padding-right: 10px;
+        padding-left: 0px;
+        display: block;
+        float: left;
+
+        &:nth-child(1){
+            margin-left: 0px;
+        }
+
+        &:nth-child(4){
+            margin-right: 0px;
+            padding-right: 10px;
+        }
+    }
 
     h3 {
         color: $blauw;
@@ -539,7 +579,7 @@ body {
         margin: 0px;
     }
 
-    .small-image{
+    .image{
         margin-top: 35px;
         width : 100%;
         padding-top: 100%;
@@ -552,14 +592,10 @@ body {
         margin-bottom: 0px;
     }
 
-    .visit-auction {
-
-    }
-
     .details-related {
 
         color: $txtcolor;
-        padding: 10px;
+        padding: 25px 20px 25px 20px;
 
         .related-bottom {
             width: 100%;
@@ -567,19 +603,16 @@ body {
 
                 .left{
                     float: left;
-                    padding: 9px 10px 8px 0px;
+                    padding: 9px 10px 9px 0px;
                     border-bottom: solid 1px #e5e5e5;
-
-                    .time-left {
-                    }
                 }
 
                 .right{
                     float: left;
-                    padding: 10px 5px 10px 5px;
+                    padding: 10px 10px 10px 10px;
                     color: $blauw;
                     border: solid 1px  #e5e5e5;
-                    font-size: 0.7em;
+                    font-size: 0.8em;
                     float: left;
     
 
@@ -766,3 +799,4 @@ body {
         }
     }
 }
+

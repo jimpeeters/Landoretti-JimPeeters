@@ -1,53 +1,35 @@
-<img id="main-logo" src="images/logo.png" alt="Landoretti ART logo">
-<div class="navigation row">
-	<hr>
-	<div class="col-md-3"></div>
 
-	<div class="col-md-1">
-		<a href="#">REGISTER </a>
-	</div>
-	<div class="col-md-1">
-		<a href="#">LOGIN</a>
-	</div>
-	<div class="col-md-3"></div>
-
-	<div class="col-md-2">
-		<input class="search-field" placeholder="Search">
-		<i class="fa fa-search"></i>
-	</div>
-	<div class="col-md-2">
-		
+<div class="section-nav">
+	<div class="container">
+		<img id="main-logo" src="images/logo.png" alt="Landoretti ART logo">
+		<div class="navigation row">
+			<div class="col-md-3 col-md-offset-2">
+				<a href="#">REGISTER </a>
+				<a href="#">LOGIN</a>
+			</div>
+			<div class="col-md-3 col-md-offset-4">
+				<i class="fa fa-search pull-right"></i>
+				<input class="search-field pull-right" placeholder="Search">
+			</div>
+		</div>
 	</div>
 </div>
 
-<div class="sub-navigation row">
-	<div class="col-md-3"></div>
-
-	<div class="col-md-1">
-		<a href="#">HOME</a>
+<div class="section-subnav">
+	<div class="container">
+		<div class="sub-navigation row">
+			<div class="col-md-6 col-md-offset-2">
+				<a href="#">HOME</a>
+				<a href="#">ART</a>
+				<a href="#">MYAUCTIONS</a>
+				<a href="#">MYBIDS</a>
+				<a href="#">CONTACT</a>
+			</div>
+			<div class="col-md-2 col-md-offset-2">
+				<a class="pull-right language-link" href="#">NL</a>
+				<a class="pull-right language-link" href="#">EN</a>
+			</div>
+		</div>
 	</div>
-	<div class="col-md-1">
-		<a href="#">ART</a>
-	</div>
-	<div class="col-md-1">
-		<a href="#">MYAUCTIONS</a>
-	</div>
-	<div class="col-md-1">
-		<a href="#">MYBIDS</a>
-	</div>
-	<div class="col-md-1">
-		<a href="#">CONTACT</a>
-	</div>
-
-
-	<div class="col-md-2">
-		<a class="pull-right language-link" href="#">NL</a>
-		<a class="pull-right language-link" href="#">EN</a>
-	</div>
-	<div class="col-md-2">
-		
-	</div>
-
 </div>
-
 

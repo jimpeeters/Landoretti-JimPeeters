@@ -23,6 +23,8 @@ class AuthController extends Controller
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
+    protected $redirectPath = '/';
+
     /**
      * Create a new authentication controller instance.
      *
@@ -45,6 +47,14 @@ class AuthController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
+            'country'         => 'required|max:255',
+            'address'         => 'required|max:255',
+            'account-number'  => 'required|max:255',
+            'payment-methods' => 'required|max:255',
+            'zipcode'         => 'required|max:255',
+            'city'            => 'required|max:255',
+            'number'          => 'required|max:255',
+            'vat-number'      => 'required|max:255',
         ]);
     }
 
@@ -57,9 +67,17 @@ class AuthController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+            'name'            => $data['name'],
+            'email'           => $data['email'],
+            'password'        => bcrypt($data['password']),
+            'country'         => $data['country'],
+            'address'         => $data['address'],
+            'account-number'  => $data['account-number'],
+            'payment-methods' => $data['payment-methods'],
+            'zipcode'         => $data['zipcode'],
+            'city'            => $data['city'],
+            'number'          => $data['number'],
+            'vat-number'      => $data['vat-number'],
         ]);
     }
 }
