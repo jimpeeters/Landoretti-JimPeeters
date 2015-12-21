@@ -35,3 +35,13 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 // Registration routes...
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
+
+
+Route::resource('user', 'UserController');
+Route::resource('auction', 'AuctionController');
+Route::resource('artist', 'ArtistController');
+Route::resource('color', 'ColorController');
+Route::resource('style', 'StyleController');
+Route::resource('category', 'CategoryController');
+Route::resource('era', 'EraController');
+Route::resource('faq', 'FaqController');
