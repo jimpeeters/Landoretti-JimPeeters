@@ -5,11 +5,16 @@
 		<div class="navigation row">
 			<div class="col-md-3 col-md-offset-2">
 				<a href="#">REGISTER </a>
-				<a href="#">LOGIN</a>
+				<a id="login-button" href="#">LOGIN</a>
+				<div class="login-block hide">
+					<input placeholder="User">
+					<input placeholder="Password">
+					<i class="fa fa-angle-right"></i>
+				</div>
 			</div>
 			<div class="col-md-3 col-md-offset-4">
 				<i class="fa fa-search pull-right"></i>
-				<input class="search-field pull-right" placeholder="Search">
+					<input class="search-field pull-right" placeholder="Search">
 			</div>
 		</div>
 	</div>

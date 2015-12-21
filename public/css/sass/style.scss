@@ -60,6 +60,9 @@ body {
 
 .navigation {
 
+    .login-block {
+    }
+
     color: $blauw;
 
     a{
@@ -71,11 +74,11 @@ body {
 
         &:nth-child(1){
             padding-right : 40px;
-            border-right: 1px solid $blauw;
         }
 
         &:nth-child(2){
             padding-left : 40px;
+            border-left: 1px solid $blauw;
         }
 
         &:hover{
@@ -127,6 +130,8 @@ body {
         }
     }
 }
+
+/*   ---------------   Homepage --------------------- */ 
 
 /* SLIDER */
 
@@ -227,10 +232,14 @@ body {
         margin: 0px auto;
         display : block;
         margin-bottom: 5px;
+        background-position: center;
+        -webkit-background-size: cover;
     }
 
     .popular-image-big {
         height : 305px;
+        background-position: center;
+        -webkit-background-size: cover;
     }
 
     .popular-left {
@@ -372,7 +381,7 @@ body {
     }
 }
 
-/* Details */
+/* Details  pagina */
 .details {
 
 
@@ -529,6 +538,8 @@ body {
         }
 
         .description-right{
+
+                border-left: 1px solid $lgrijs;
                 padding-left: 25px;
 
                 p {
@@ -634,7 +645,7 @@ body {
     }
 }
 
-/* Watchlist and Auctions */ 
+/* Watchlist and Auctions gemeenschappelijke classes*/ 
 
 .my-auctions, .my-watchlist {
     color : $txtcolor;
@@ -799,4 +810,3 @@ body {
         }
     }
 }
-

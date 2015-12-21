@@ -27,6 +27,22 @@ Route::get('/watchlist', function () {
     return view('watchlist');
 });
 
+Route::get('/create', function () {
+    return view('create');
+});
+
+Route::get('/profile', function () {
+    return view('profile');
+});
+
+Route::get('/register', function () {
+    return view('register');
+});
+
+/*Route::get('/register', function () {
+    return view('users');
+});
+*/
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');

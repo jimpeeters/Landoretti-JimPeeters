@@ -26,6 +26,5 @@
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/script.js"></script>
 
-  @yield('scripts')
 </body>
 </html>
