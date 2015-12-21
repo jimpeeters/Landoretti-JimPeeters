@@ -38,6 +38,16 @@ class CreateForeignKeys extends Migration {
 						->onDelete('restrict')
 						->onUpdate('restrict');
 		});
+		Schema::table('faqs_faqs-categories', function(Blueprint $table) {
+			$table->foreign('FK_faq_id')->references('id')->on('faqs')
+						->onDelete('restrict')
+						->onUpdate('restrict');
+		});
+		Schema::table('faqs_faqs-categories', function(Blueprint $table) {
+			$table->foreign('FK_faq-category_id')->references('id')->on('faq-categories')
+						->onDelete('restrict')
+						->onUpdate('restrict');
+		});
 	}
 
 	public function down()
@@ -59,6 +69,12 @@ class CreateForeignKeys extends Migration {
 		});
 		Schema::table('auctions', function(Blueprint $table) {
 			$table->dropForeign('auctions_FK_era_id_foreign');
+		});
+		Schema::table('faqs_faqs-categories', function(Blueprint $table) {
+			$table->dropForeign('faqs_faqs-categories_FK_faq_id_foreign');
+		});
+		Schema::table('faqs_faqs-categories', function(Blueprint $table) {
+			$table->dropForeign('faqs_faqs-categories_FK_faq-category_id_foreign');
 		});
 	}
 }
