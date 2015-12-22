@@ -8,10 +8,12 @@
 
     <title>@yield('title')</title>
     
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.5.9/slick.css"/>
     <link rel="stylesheet" href="/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/dropzone.min.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/stylesheets/style.css">
+
 
 </head>
 <body>
@@ -22,9 +24,14 @@
 
 @include('footer')
 
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.5.9/slick.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
-<script src="/js/script.js"></script>
+<script src="/js/bootstrap-filestyle.min.js"></script>
+
+@yield('scripts')
 
 </body>
 </html>

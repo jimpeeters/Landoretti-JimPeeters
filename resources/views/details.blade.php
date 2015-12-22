@@ -80,66 +80,64 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-3 block">
-					<div class="image" style="background-image:url('http://lorempixel.com/400/200/');"></div>
-					<div class="details-related">
-						<p class="age">1979, Salvador Dali</p>
-						<h4>Dance of Time III</h4>
-						<h4>&euro; 8.900</h4>
-						<div class="related-bottom">
-							<div class="left">
-								<p class="time-left">25d 14u 44m</p>
-							</div>
-							<div class="right">
-								<a href="#">VISIT AUCTION<i class="fa fa-angle-right"></i></a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 block">
-					<div class="image" style="background-image:url('http://lorempixel.com/400/200/');"></div>
-					<div class="details-related">
-						<p class="age">1979, Salvador Dali</p>
-						<h4>Dance of Time III</h4>
-						<h4>&euro; 8.900</h4>
-						<div class="related-bottom">
-							<div class="left">
-								<p class="time-left">25d 14u 44m</p>
-							</div>
-							<div class="right">
-								<a href="#">VISIT AUCTION<i class="fa fa-angle-right"></i></a>
+				<div class="col-md-12">
+					<div class="auction-preview">
+						<a href="#" class="auction-image" style="background-image:url('http://lorempixel.com/400/400/');"><span class="overlay"><i class="fa fa-search"></i></span></a>
+
+						<div class="auction-info">
+							<span class="artist">1979, Salvador Dali</span>
+							<span class="title">Dance of Time III</span>
+							<span class="price">&euro; 8.900</span>
+
+							<div class="call-to-action clearfix">
+								<span class="timeleft">25d 14u 44m</span>
+
+								<a href="#" class="btn btn-visit-auction">Visit Auction ></a>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="col-md-3 block">
-					<div class="image" style="background-image:url('http://lorempixel.com/400/200/');"></div>
-					<div class="details-related">
-						<p class="age">1979, Salvador Dali</p>
-						<h4>Dance of Time III</h4>
-						<h4>&euro; 8.900</h4>
-						<div class="related-bottom">
-							<div class="left">
-								<p class="time-left">25d 14u 44m</p>
-							</div>
-							<div class="right">
-								<a href="#">VISIT AUCTION<i class="fa fa-angle-right"></i></a>
+					<div class="auction-preview">
+						<a href="#" class="auction-image" style="background-image:url('http://lorempixel.com/400/400/');"><span class="overlay"><i class="fa fa-search"></i></span></a>
+
+						<div class="auction-info">
+							<span class="artist">1979, Salvador Dali</span>
+							<span class="title">Dance of Time III</span>
+							<span class="price">&euro; 8.900</span>
+
+							<div class="call-to-action clearfix">
+								<span class="timeleft">25d 14u 44m</span>
+
+								<a href="#" class="btn btn-visit-auction">Visit Auction ></a>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="col-md-3 block">
-					<div class="image" style="background-image:url('http://lorempixel.com/400/200/');"></div>
-					<div class="details-related">
-						<p class="age">1979, Salvador Dali</p>
-						<h4>Dance of Time III</h4>
-						<h4>&euro; 8.900</h4>
-						<div class="related-bottom">
-							<div class="left">
-								<p class="time-left">25d 14u 44m</p>
+					<div class="auction-preview">
+						<a href="#" class="auction-image" style="background-image:url('http://lorempixel.com/400/400/');"><span class="overlay"><i class="fa fa-search"></i></span></a>
+
+						<div class="auction-info">
+							<span class="artist">1979, Salvador Dali</span>
+							<span class="title">Dance of Time III</span>
+							<span class="price">&euro; 8.900</span>
+
+							<div class="call-to-action clearfix">
+								<span class="timeleft">25d 14u 44m</span>
+
+								<a href="#" class="btn btn-visit-auction">Visit Auction ></a>
 							</div>
-							<div class="right">
-								<a href="#">VISIT AUCTION<i class="fa fa-angle-right"></i></a>
+						</div>
+					</div>
+					<div class="auction-preview">
+						<a href="#" class="auction-image" style="background-image:url('http://lorempixel.com/400/400/');"><span class="overlay"><i class="fa fa-search"></i></span></a>
+
+						<div class="auction-info">
+							<span class="artist">1979, Salvador Dali</span>
+							<span class="title">Dance of Time III</span>
+							<span class="price">&euro; 8.900</span>
+
+							<div class="call-to-action clearfix">
+								<span class="timeleft">25d 14u 44m</span>
+
+								<a href="#" class="btn btn-visit-auction">Visit Auction ></a>
 							</div>
 						</div>
 					</div>

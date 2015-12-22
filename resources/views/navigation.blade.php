@@ -3,19 +3,52 @@
 	<div class="container">
 		<img id="main-logo" src="images/logo.png" alt="Landoretti ART logo">
 		<div class="navigation row">
-			<div class="col-md-3 col-md-offset-2">
+			<div class="col-md-5 col-md-offset-2">
 				<a href="#">REGISTER </a>
 				<a id="login-button" href="#">LOGIN</a>
+
 				<div class="login-block hide">
-					<input placeholder="User">
-					<input placeholder="Password">
-					<i class="fa fa-angle-right"></i>
+
+				{!! Form::open(['url' => 'auth/login']) !!}
+					<input type="email" name="email" class="form-control" id="email" placeholder="User">
+					<input type="password" name="password" class="form-control" id="password" placeholder="Password">
+					<a href="#" type="submit" class="login-btn">>
+					</a>
+				{!! Form::close() !!}
+
+
 				</div>
+
+
 			</div>
-			<div class="col-md-3 col-md-offset-4">
+			<div class="col-md-3 col-md-offset-2">
 				<i class="fa fa-search pull-right"></i>
 					<input class="search-field pull-right" placeholder="Search">
 			</div>
+
+				@section('scripts')
+				<script>
+					$(document).ready(function(){
+
+					    $("#login-button").click(function(){
+
+					     $(this).animate({
+					        paddingLeft: '50px',
+					        opacity: '0'
+						  }, 500, function() {
+						    $(this).addClass('hide');
+						    $(".login-block").removeClass('hide');
+						    $(".login-block").animate({
+						        opacity: '1'
+							 }, 500);
+
+						 });
+
+					    });
+
+					});
+				</script>
+				@stop
 		</div>
 	</div>
 </div>

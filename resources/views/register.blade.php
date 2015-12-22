@@ -4,15 +4,15 @@
 
 @section('content')
 
-	@include('includes.header')
-	@include('includes.breadcrumbs')
+	@include('newest-auction-section')
+	@include('breadcrumbs')
 
 
 	<div class="container">
 		
 		<h1>Register</h1>
 
-		{!! Form::open(['route' => 'postRegister']) !!}
+		{!! Form::open(['url' => 'auth/register']) !!}
 
 			<div class="row">
 				<div class="col-md-6">
@@ -90,7 +90,7 @@
 				</label>
 			</div>
 			<button type="submit" class="btn btn-primary">Register</button>
-
+			
 		{!! Form::close() !!}
 
 	</div>

@@ -4,8 +4,8 @@
 
 @section('content')
 
-	@include('includes.header')
-	@include('includes.breadcrumbs')
+	@include('newest-auction-section')
+	@include('breadcrumbs')
 
 
 	<div class="container">
