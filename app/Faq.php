@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+use Faq_faqsCategory;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,7 +12,7 @@ class Faq extends Model {
 
 	public function categories()
 	{
-		return $this->hasMany('Faq_faqs-category', 'FK_faq_id');
+		return $this->belongsToMany('App\FaqCategory', 'faqs_faqs-categories', 'id', 'id');
 	}
 
 }

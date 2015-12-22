@@ -39,10 +39,12 @@ Route::get('/register', function () {
     return view('register');
 });
 
-/*Route::get('/register', function () {
-    return view('users');
-});
-*/
+
+/* Faq pagina */ 
+
+Route::get('/FAQ',array('as' => 'faq','uses' => 'FaqController@index'));
+
+
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
