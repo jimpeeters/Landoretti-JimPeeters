@@ -18,11 +18,11 @@
 
 					<div class="login-block hide">
 
-					{!! Form::open(['url' => 'auth/login']) !!}
+					{!! Form::open(array('url' => 'auth/login', 'method' => 'post')) !!}
+
 						<input type="email" name="email" class="form-control" id="email" placeholder="User">
 						<input type="password" name="password" class="form-control" id="password" placeholder="Password">
-						<a href="#" type="submit" class="login-btn">>
-						</a>
+						<button type="submit">Login</button>
 					{!! Form::close() !!}
 					</div>
 				</div>
@@ -65,7 +65,7 @@
 			<div class="col-md-6 col-md-offset-2">
 				<a href="/">HOME</a>
 				<a href="#">ART</a>
-				<a href="/myauctions">MYAUCTIONS</a>
+				<a href="/myAuctions">MYAUCTIONS</a>
 				<a href="#">MYBIDS</a>
 				<a href="#">CONTACT</a>
 			</div>

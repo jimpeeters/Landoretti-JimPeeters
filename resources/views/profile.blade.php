@@ -5,7 +5,6 @@
 @section('content')
 
 	@include('newest-auction-section')
-	@include('breadcrumbs')
 
 
 	<div class="container">

@@ -11,17 +11,28 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+/* Home */ 
+Route::get('/',array('as' => 'home','uses' => 'HomeController@index'));
+
+/* Registreren */ 
+
+Route::get('/register',array('as' => 'register','uses' => 'RegisterController@index'));
+Route::post('/register','Auth\AuthController@register');
+
+/* Faq  */ 
+
+Route::get('/FAQ',array('as' => 'faq','uses' => 'FaqController@index'));
+
+/* My auctions */
+
+Route::get('/myAuctions',array('as' => 'myAuctions','uses' => 'AuctionController@index'));
+
+
 
 Route::get('/details', function () {
     return view('details');
 });
 
-Route::get('/myauctions', function () {
-    return view('my-auctions');
-});
 
 Route::get('/watchlist', function () {
     return view('watchlist');
@@ -35,15 +46,6 @@ Route::get('/profile', function () {
     return view('profile');
 });
 
-
-/* Registreren */ 
-
-Route::get('/register',array('as' => 'register','uses' => 'RegisterController@index'));
-Route::post('/register','Auth\AuthController@register');
-
-/* Faq pagina */ 
-
-Route::get('/FAQ',array('as' => 'faq','uses' => 'FaqController@index'));
 
 
 // Authentication routes...

@@ -9,7 +9,7 @@
 					<h4>HELP</h4>
 					<a href="#">Terms of Service</a>
 					<a href="#">Privacy Policy</a>
-					<a href="#">FAQ</a>
+					<a href="/FAQ">FAQ</a>
 					<a href="#">Contact Us</a>
 					<a href="#">About Us</a>
 					<br>

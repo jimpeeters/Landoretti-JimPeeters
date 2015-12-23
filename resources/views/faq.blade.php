@@ -3,7 +3,15 @@
 @section('content')
 
 	@include('newest-auction-section')
-	@include('breadcrumbs')
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			{!! Breadcrumbs::render('FAQ') !!}
+		</div>
+	</div>
+</div>
+
 
 <div class="container faqs">
 	<div class="row">

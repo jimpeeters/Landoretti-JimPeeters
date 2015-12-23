@@ -1,4 +1,7 @@
 <?php namespace App\Http\Controllers;
+use View;
+use App\Auction;
+use App\Artist;
 
 class AuctionController extends Controller {
 
@@ -9,7 +12,12 @@ class AuctionController extends Controller {
    */
   public function index()
   {
-    
+    $auctions = Auction::get();  
+    $artists = Artist::get();
+
+    return View::make('my-auctions')
+              ->with('auctions', $auctions)
+              ->with('artists', $artists);
   }
 
   /**

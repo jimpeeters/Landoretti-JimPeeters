@@ -3,7 +3,16 @@
 @section('content')
 
 	@include('newest-auction-section')
-	@include('breadcrumbs')
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			{!! Breadcrumbs::render('myAuctions') !!}
+		</div>
+	</div>
+</div>
+
+@if(isset($auctions) &&  $auctions->count() > 0)
 
 <div class="container">
 	<div class="my-auctions">
@@ -33,40 +42,33 @@
 					  <th>End date</th>
 					  <th>Remaining time</th>
 					</tr>
-					<tr>
-						<td class="img-preview" style="background-image:url('http://lorempixel.com/400/200/');"></td>
-						<td>
-							<h3>Dance of Time III</h3>
-							<p class="age">1979, Salvador Dali</p>
-						</td>
-						<td>
-							<h3>&euro; 8.900</h3>
-						</td>
-						<td>
-							<p class="date">September 09, 2013</p>
-							<p class="date">13:00 p.m. (EST)</p>
-						</td>
-						<td>
-							<p>25d 14u 44m</p>
-						</td>
-					</tr>
-					<tr>
-						<td class="img-preview" style="background-image:url('http://lorempixel.com/400/200/');"></td>
-						<td>
-							<h3>Dance of Time III</h3>
-							<p class="age">1979, Salvador Dali</p>
-						</td>
-						<td>
-							<h3>&euro; 8.900</h3>
-						</td>
-						<td>
-							<p class="date">September 09, 2013</p>
-							<p class="date">13:00 p.m. (EST)</p>
-						</td>
-						<td>
-							<p>25d 14u 44m</p>
-						</td>
-					</tr>
+					@foreach($auctions as $auction)
+						@if($auction->FK_status_id == 1)
+							<tr>
+								<td class="img-preview" style="background-image:url('{{$auction->imageArtwork}}');"></td>
+								<td>
+									<h3>{{$auction->title}}</h3>
+									<p class="age">{{$auction->year}}, 
+										@foreach($artists as $artist)
+											@if($artist->id == $auction->FK_artist_id)
+												{{$artist->name}}
+											@endif
+										@endforeach
+									</p>
+								</td>
+								<td>
+									<h3>&euro;{{$auction->minPrice}}</h3>
+								</td>
+								<td>
+									<p class="date">{{$auction->enddate}}</p>
+									<p class="date">13:00 p.m. (EST)</p>
+								</td>
+								<td>
+									<p>25d 14u 44m</p>
+								</td>
+							</tr>
+						@endif
+					@endforeach
 				</table>
 			</div>
 
@@ -82,31 +84,75 @@
 					  <th>End date</th>
 					  <th>Remaining time</th>
 					</tr>
-					<tr>
-						<td class="img-preview" style="background-image:url('http://lorempixel.com/400/200/');"></td>
-						<td>
-							<h3>Dance of Time III</h3>
-							<p class="age">1979, Salvador Dali</p>
-						</td>
-						<td>
-							<h3>&euro; 8.900</h3>
-						</td>
-						<td>
-							<p class="date">September 09, 2013</p>
-							<p class="date">13:00 p.m. (EST)</p>
-						</td>
-						<td>
-							<p>X</p>
-						</td>
-					</tr>
+					@foreach($auctions as $auction)
+						@if($auction->FK_status_id == 2)
+							<tr>
+								<td class="img-preview" style="background-image:url('{{$auction->imageArtwork}}');"></td>
+								<td>
+									<h3>{{$auction->title}}</h3>
+									<p class="age">{{$auction->year}}, 
+										@foreach($artists as $artist)
+											@if($artist->id == $auction->FK_artist_id)
+												{{$artist->name}}
+											@endif
+										@endforeach
+									</p>
+								</td>
+								<td>
+									<h3>&euro;{{$auction->minPrice}}</h3>
+								</td>
+								<td>
+									<p class="date">{{$auction->enddate}}</p>
+									<p class="date">13:00 p.m. (EST)</p>
+								</td>
+								<td>
+									<p>25d 14u 44m</p>
+								</td>
+							</tr>
+						@endif
+					@endforeach
 				</table>
 			</div>
-
 			<div class="col-md-12">
 				<h3>Active</h3>
 			</div>
 			<div class="col-md-12">
-				<p>You currently have no active auctions. Please add a new auction or wait for approval.</p>
+				<table class="table table-bordered">
+					<tr>
+					  <th></th>
+					  <th>Auction details</th>
+					  <th>Estimated price</th>
+					  <th>End date</th>
+					  <th>Remaining time</th>
+					</tr>
+					@foreach($auctions as $auction)
+						@if($auction->FK_status_id == 3)
+							<tr>
+								<td class="img-preview" style="background-image:url('{{$auction->imageArtwork}}');"></td>
+								<td>
+									<h3>{{$auction->title}}</h3>
+									<p class="age">{{$auction->year}}, 
+										@foreach($artists as $artist)
+											@if($artist->id == $auction->FK_artist_id)
+												{{$artist->name}}
+											@endif
+										@endforeach
+									</p>
+								</td>
+								<td>
+									<h3>&euro;{{$auction->minPrice}}</h3>
+								</td>
+								<td>
+									<p class="date">{{$auction->enddate}}</p>
+									<p class="date">13:00 p.m. (EST)</p>
+								</td>
+								<td>
+									<p>25d 14u 44m</p>
+								</td>
+							</tr>
+						@endif
+					@endforeach
+				</table>
 			</div>
 
 			<div class="col-md-12">
@@ -121,23 +167,33 @@
 					  <th>End date</th>
 					  <th>Remaining time</th>
 					</tr>
-					<tr>
-						<td class="img-preview" style="background-image:url('http://lorempixel.com/400/200/');"></td>
-						<td>
-							<h3>Dance of Time III</h3>
-							<p class="age">1979, Salvador Dali</p>
-						</td>
-						<td>
-							<h3>&euro; 8.900</h3>
-						</td>
-						<td>
-							<p class="date">September 09, 2013</p>
-							<p class="date">13:00 p.m. (EST)</p>
-						</td>
-						<td>
-							<p>X</p>
-						</td>
-					</tr>
+					@foreach($auctions as $auction)
+						@if($auction->FK_status_id == 4)
+							<tr>
+								<td class="img-preview" style="background-image:url('{{$auction->imageArtwork}}');"></td>
+								<td>
+									<h3>{{$auction->title}}</h3>
+									<p class="age">{{$auction->year}}, 
+										@foreach($artists as $artist)
+											@if($artist->id == $auction->FK_artist_id)
+												{{$artist->name}}
+											@endif
+										@endforeach
+									</p>
+								</td>
+								<td>
+									<h3>&euro;{{$auction->minPrice}}</h3>
+								</td>
+								<td>
+									<p class="date">{{$auction->enddate}}</p>
+									<p class="date">13:00 p.m. (EST)</p>
+								</td>
+								<td>
+									<p>25d 14u 44m</p>
+								</td>
+							</tr>
+						@endif
+					@endforeach
 				</table>
 			</div>
 
@@ -146,68 +202,65 @@
 			</div>
 			<div class="col-md-12">
 				<table class="table table-bordered">
-					<tr>
-					  <th></th>
-					  <th>Auction details</th>
-					  <th>Estimated price</th>
-					  <th>End date</th>
-					  <th>Remaining time</th>
-					</tr>
-					<tr>
-						<td class="img-preview" style="background-image:url('http://lorempixel.com/400/200/');"></td>
-						<td>
-							<h3>Dance of Time III</h3>
-							<p class="age">1979, Salvador Dali</p>
-						</td>
-						<td>
-							<h3>&euro; 8.900</h3>
-						</td>
-						<td>
-							<p class="date">September 09, 2013</p>
-							<p class="date">13:00 p.m. (EST)</p>
-						</td>
-						<td>
-							<p>sold</p>
-						</td>
-					</tr>
-					<tr>
-						<td class="img-preview" style="background-image:url('http://lorempixel.com/400/200/');"></td>
-						<td>
-							<h3>Dance of Time III</h3>
-							<p class="age">1979, Salvador Dali</p>
-						</td>
-						<td>
-							<h3>&euro; 8.900</h3>
-						</td>
-						<td>
-							<p class="date">September 09, 2013</p>
-							<p class="date">13:00 p.m. (EST)</p>
-						</td>
-						<td>
-							<p>sold</p>
-						</td>
-					</tr>
-					<tr>
-						<td class="img-preview" style="background-image:url('http://lorempixel.com/400/200/');"></td>
-						<td>
-							<h3>Dance of Time III</h3>
-							<p class="age">1979, Salvador Dali</p>
-						</td>
-						<td>
-							<h3>&euro; 8.900</h3>
-						</td>
-						<td>
-							<p class="date">September 09, 2013</p>
-							<p class="date">13:00 p.m. (EST)</p>
-						</td>
-						<td>
-							<p>sold</p>
-						</td>
-					</tr>
-				</table>
+						<tr>
+						  <th></th>
+						  <th>Auction details</th>
+						  <th>Estimated price</th>
+						  <th>End date</th>
+						  <th>Remaining time</th>
+						</tr>
+						@foreach($auctions as $auction)
+							@if($auction->FK_status_id == 5)
+								<tr>
+									<td class="img-preview" style="background-image:url('{{$auction->imageArtwork}}');"></td>
+									<td>
+										<h3>{{$auction->title}}</h3>
+										<p class="age">{{$auction->year}}, 
+											@foreach($artists as $artist)
+												@if($artist->id == $auction->FK_artist_id)
+													{{$artist->name}}
+												@endif
+											@endforeach
+										</p>
+									</td>
+									<td>
+										<h3>&euro;{{$auction->minPrice}}</h3>
+									</td>
+									<td>
+										<p class="date">{{$auction->enddate}}</p>
+										<p class="date">13:00 p.m. (EST)</p>
+									</td>
+									<td>
+										<p>25d 14u 44m</p>
+									</td>
+								</tr>
+							@endif
+						@endforeach
+					</table>
+				</div>
 			</div>
+		</div>
+	</div>
+
+@else
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h1>You currently have no auctions ! </h1>
 
 		</div>
 	</div>
+	<div class="row">
+		<div class="col-md-3">
+			<a href="#" class="add-button">
+				ADD NEW AUCTION<i class="fa fa-angle-right"></i>
+			</a>
+		</div>
+	</div>
 </div>
+
+@endif
+
+
 @stop
