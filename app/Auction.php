@@ -34,4 +34,9 @@ class Auction extends Model {
 		return $this->hasOne('Category', 'FK_category_id');
 	}
 
+	public function status()
+	{
+		return $this->hasOne('Status', 'FK_status_id');
+	}
+
 }

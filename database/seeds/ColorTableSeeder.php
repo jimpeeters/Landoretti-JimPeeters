@@ -11,33 +11,33 @@ class ColorTableSeeder extends Seeder {
 		$colors = array(
 
 		array(
-				'color-dutch' => 'blauw',
-				'color-english' => 'blue'
+				'colorDutch' => 'blauw',
+				'colorEnglish' => 'blue'
 			),
 
 		array(
-				'color-dutch' => 'geel',
-				'color-english' => 'yellow'
+				'colorDutch' => 'geel',
+				'colorEnglish' => 'yellow'
 			),
 
 		array(
-				'color-dutch' => 'groen',
-				'color-english' => 'green'
+				'colorDutch' => 'groen',
+				'colorEnglish' => 'green'
 			),
 
 		array(
-				'color-dutch' => 'rood',
-				'color-english' => 'red'
+				'colorDutch' => 'rood',
+				'colorEnglish' => 'red'
 			),
 
 		array(
-				'color-dutch' => 'paars',
-				'color-english' => 'purple'
+				'colorDutch' => 'paars',
+				'colorEnglish' => 'purple'
 			),
 
 		array(
-				'color-dutch' => 'oranje',
-				'color-english' => 'orange'
+				'colorDutch' => 'oranje',
+				'colorEnglish' => 'orange'
 			),
 		);
 

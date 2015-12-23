@@ -13,13 +13,12 @@ class CreateUsersTable extends Migration {
             $table->string('name', 255);
             $table->string('email', 255)->unique();
             $table->string('password', 60);
-            $table->string('country', 255);
             $table->string('address', 255);
             $table->integer('zipcode');
             $table->string('city', 255);
             $table->mediumInteger('number');
             $table->integer('FK_country_id')->unsigned();
-            $table->integer('FK_auction_id')->unsigned();
+            $table->integer('FK_watchlist_id')->unsigned()->nullable(); //je hoeft geen Watchlist te hebben
 
             $table->rememberToken();
         });

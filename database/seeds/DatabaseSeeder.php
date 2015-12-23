@@ -36,6 +36,10 @@ class DatabaseSeeder extends Seeder {
 		$this->call('CountryTableSeeder');
 		$this->command->info('Country table seeded!');
 
+		$this->call('UserTableSeeder');
+		$this->call('StatusTableSeeder');
+		$this->call('AuctionTableSeeder');
+
         Model::reguard();
 	}
 }

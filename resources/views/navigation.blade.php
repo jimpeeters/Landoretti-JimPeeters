@@ -63,9 +63,9 @@
 	<div class="container">
 		<div class="sub-navigation row">
 			<div class="col-md-6 col-md-offset-2">
-				<a href="#">HOME</a>
+				<a href="/">HOME</a>
 				<a href="#">ART</a>
-				<a href="#">MYAUCTIONS</a>
+				<a href="/myauctions">MYAUCTIONS</a>
 				<a href="#">MYBIDS</a>
 				<a href="#">CONTACT</a>
 			</div>

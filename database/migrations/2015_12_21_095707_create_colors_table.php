@@ -10,8 +10,8 @@ class CreateColorsTable extends Migration {
 		Schema::create('colors', function(Blueprint $table) {
 			$table->increments('id');
 			$table->timestamps();
-			$table->string('color-dutch');
-			$table->string('color-english');
+			$table->string('colorDutch');
+			$table->string('colorEnglish');
 		});
 	}
 
