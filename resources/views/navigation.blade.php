@@ -3,25 +3,31 @@
 	<div class="container">
 		<img id="main-logo" src="images/logo.png" alt="Landoretti ART logo">
 		<div class="navigation row">
-			<div class="col-md-5 col-md-offset-2">
-				<a href="#">REGISTER </a>
-				<a id="login-button" href="#">LOGIN</a>
 
-				<div class="login-block hide">
-
-				{!! Form::open(['url' => 'auth/login']) !!}
-					<input type="email" name="email" class="form-control" id="email" placeholder="User">
-					<input type="password" name="password" class="form-control" id="password" placeholder="Password">
-					<a href="#" type="submit" class="login-btn">>
-					</a>
-				{!! Form::close() !!}
-
-
+			@if(Auth::check()) 
+				<div class="col-md-6 col-md-offset-2 dashboard">
+					<a href="/watchlist"><i class="fa fa-bars"></i>WATCHLIST</a>
+					<a href="/profile"><i class="fa fa-user"></i>PROFILE</a>
+					<a href="/auth/logout">LOGOUT</a>
 				</div>
 
+			@else
+				<div class="col-md-6 col-md-offset-2">
+					<a href="/register">REGISTER </a>
+					<a id="login-button" href="#">LOGIN</a>
 
-			</div>
-			<div class="col-md-3 col-md-offset-2">
+					<div class="login-block hide">
+
+					{!! Form::open(['url' => 'auth/login']) !!}
+						<input type="email" name="email" class="form-control" id="email" placeholder="User">
+						<input type="password" name="password" class="form-control" id="password" placeholder="Password">
+						<a href="#" type="submit" class="login-btn">>
+						</a>
+					{!! Form::close() !!}
+					</div>
+				</div>
+			@endif
+			<div class="col-md-3 col-md-offset-1">
 				<i class="fa fa-search pull-right"></i>
 					<input class="search-field pull-right" placeholder="Search">
 			</div>

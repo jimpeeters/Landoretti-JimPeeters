@@ -33,6 +33,9 @@ class DatabaseSeeder extends Seeder {
 		$this->call('Faq_faqscategoryTableSeeder');
 		$this->command->info('Faq_faqs-category table seeded!');
 
+		$this->call('CountryTableSeeder');
+		$this->command->info('Country table seeded!');
+
         Model::reguard();
 	}
 }

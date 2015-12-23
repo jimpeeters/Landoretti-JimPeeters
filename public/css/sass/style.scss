@@ -61,7 +61,7 @@ body {
 
     color: $blauw;
 
-    a{
+    a {
         text-align: center;
         color : $blauw;
         margin: 20px 0px 20px 0px; 
@@ -69,19 +69,41 @@ body {
         float: left;
 
         &:nth-child(1){
-            padding-right : 40px;
+                padding-right : 40px;
         }
 
         &:nth-child(2){
-            padding-left : 40px;
-            border-left: 1px solid $blauw;
+                padding-left : 40px;
+                border-left: 1px solid $blauw;
         }
+
 
         &:hover{
-            color : $blauw;
-            text-decoration:underline;
+                color : $blauw;
+                text-decoration:underline;
         }
 
+
+    }
+
+    .dashboard {
+        i { 
+            margin : 0px;
+            padding-right: 10px;
+        }
+
+        a { 
+
+            &:nth-child(2){
+                padding-right : 40px;
+            }
+
+            &:nth-child(3){
+                padding-left : 40px;
+                border-left: 1px solid $blauw;
+            }
+
+        }
     }
 
     .search-field{
@@ -907,7 +929,7 @@ form {
     }
 
     select.form-control {
-        padding: 0 15px;
+        padding: 10px 15px;
 
         option {
             padding: 10px 15px;
@@ -1111,4 +1133,15 @@ form {
     hr {
         margin: 0px;
     }
+}
+
+/* errors */
+
+.alert-danger {
+    color : red;
+    border: 0px;
+}
+
+.alert {
+    border-radius: 0px;
 }

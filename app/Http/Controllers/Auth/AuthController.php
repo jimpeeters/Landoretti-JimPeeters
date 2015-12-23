@@ -7,6 +7,11 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use App\Http\Controllers\Auth\Input;
+use Auth;
+use View;
+use Illuminate\Http\Request;
+use Hash;
 
 class AuthController extends Controller
 {
@@ -35,49 +40,62 @@ class AuthController extends Controller
         $this->middleware('guest', ['except' => 'getLogout']);
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
+    public function register(Request $request)
     {
-        return Validator::make($data, [
+
+        $validator = Validator::make($request->all(), [
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
-            'country'         => 'required|max:255',
+            'password_confirmation' => 'required|min:6',
+            'country' => 'required|not_in:0',
             'address'         => 'required|max:255',
-            'account-number'  => 'required|max:255',
-            'payment-methods' => 'required|max:255',
             'zipcode'         => 'required|max:255',
             'city'            => 'required|max:255',
             'number'          => 'required|max:255',
-            'vat-number'      => 'required|max:255',
         ]);
+
+        if ($validator->fails()) 
+        {
+            return redirect()->back()
+                        ->withErrors($validator)
+                        ->withInput()
+                        ->with('registerFail', ['fail']);
+        }
+
+        $input = $request->all();
+
+        $user = new User();
+        $user->name = $input['name'];
+        $user->email = $input['email'];
+        $user->city    = $input['city'];
+        $user->address    = $input['address'];
+        $user->zipcode    = $input['zipcode'];
+        $user->number   = $input['number'];
+        $user->password  = Hash::make($input['password']);
+
+        $country = explode(',', $input['country']);
+        $user->country     = $country[0];
+
+        $user->save();
+
+        Auth::login($user);
+
+        return redirect('/')->with('success','Account successvol aangemaakt!');
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return User
-     */
-    protected function create(array $data)
-    {
-        return User::create([
-            'name'            => $data['name'],
-            'email'           => $data['email'],
-            'password'        => bcrypt($data['password']),
-            'country'         => $data['country'],
-            'address'         => $data['address'],
-            'account-number'  => $data['account-number'],
-            'payment-methods' => $data['payment-methods'],
-            'zipcode'         => $data['zipcode'],
-            'city'            => $data['city'],
-            'number'          => $data['number'],
-            'vat-number'      => $data['vat-number'],
-        ]);
+    public function login(request $request)
+    {   
+        $input = $request->all();
+
+        if (Auth::attempt(['email' => $input['email'], 'password' => $input['password']]))
+        {
+            return redirect('/');
+        }
+        else
+        {
+            return redirect('/')->with('loginFail', ['fail']);
+        }
     }
+
 }

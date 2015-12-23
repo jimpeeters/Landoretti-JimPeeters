@@ -15,12 +15,11 @@ class CreateUsersTable extends Migration {
             $table->string('password', 60);
             $table->string('country', 255);
             $table->string('address', 255);
-            $table->mediumInteger('account-number');
-            $table->string('payment-methods');
             $table->integer('zipcode');
             $table->string('city', 255);
             $table->mediumInteger('number');
-            $table->mediumInteger('vat-number');
+            $table->integer('FK_country_id')->unsigned();
+            $table->integer('FK_auction_id')->unsigned();
 
             $table->rememberToken();
         });
