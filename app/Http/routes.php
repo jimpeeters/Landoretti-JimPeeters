@@ -23,10 +23,16 @@ Route::post('/register','Auth\AuthController@register');
 
 Route::get('/FAQ',array('as' => 'faq','uses' => 'FaqController@index'));
 
-/* My auctions */
 
-Route::get('/myAuctions',array('as' => 'myAuctions','uses' => 'AuctionController@index'));
+Route::group(['middleware' => 'auth'], function () {  //moet ingelogd zijn
 
+	/* My auctions */
+	Route::get('/myAuctions',array('as' => 'myAuctions','uses' => 'AuctionController@index'));
+
+	/* My profile */ 
+	Route::get('/myProfile',array('as' => 'myProfile','uses' => 'UserController@myProfile'));
+
+});
 
 
 Route::get('/details', function () {
@@ -42,9 +48,6 @@ Route::get('/create', function () {
     return view('create');
 });
 
-Route::get('/profile', function () {
-    return view('profile');
-});
 
 
 

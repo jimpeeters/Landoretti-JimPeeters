@@ -1,6 +1,12 @@
 <?php
 
 namespace App;
+use Artist;
+use Era;
+use Color;
+use Style;
+use Category;
+use Status;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,32 +17,38 @@ class Auction extends Model {
 
 	public function era()
 	{
-		return $this->hasOne('Era', 'FK_era_id');
+		return $this->belongsTo('App\Era', 'FK_era_id');
 	}
 
 	public function artist()
-	{
-		return $this->hasOne('Artist', 'FK_artist_id');
-	}
+    {
+        return $this->belongsTo('App\Artist', 'FK_artist_id');
+    }
 
 	public function color()
 	{
-		return $this->hasOne('Color', 'FK_color_id');
+		return $this->belongsTo('App\Color', 'FK_color_id');
 	}
 
 	public function style()
 	{
-		return $this->hasOne('Style', 'FK_style_id');
+		return $this->belongsTo('App\Style', 'FK_style_id');
 	}
 
 	public function category()
 	{
-		return $this->hasOne('Category', 'FK_category_id');
+		return $this->belongsTo('App\Category', 'FK_category_id');
 	}
 
 	public function status()
 	{
-		return $this->hasOne('Status', 'FK_status_id');
+		return $this->belongsTo('App\Status', 'FK_status_id');
 	}
+
+	public function user()
+	{
+		return $this->belongsTo('App\User', 'FK_user_id');
+	}
+
 
 }

@@ -7,7 +7,7 @@
 			@if(Auth::check()) 
 				<div class="col-md-6 col-md-offset-2 dashboard">
 					<a href="/watchlist"><i class="fa fa-bars"></i>WATCHLIST</a>
-					<a href="/profile"><i class="fa fa-user"></i>PROFILE</a>
+					<a href="/myProfile"><i class="fa fa-user"></i>PROFILE</a>
 					<a href="/auth/logout">LOGOUT</a>
 				</div>
 

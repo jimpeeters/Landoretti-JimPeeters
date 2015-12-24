@@ -49,11 +49,7 @@
 								<td>
 									<h3>{{$auction->title}}</h3>
 									<p class="age">{{$auction->year}}, 
-										@foreach($artists as $artist)
-											@if($artist->id == $auction->FK_artist_id)
-												{{$artist->name}}
-											@endif
-										@endforeach
+										{{$auction->artist->name}}
 									</p>
 								</td>
 								<td>
@@ -91,11 +87,7 @@
 								<td>
 									<h3>{{$auction->title}}</h3>
 									<p class="age">{{$auction->year}}, 
-										@foreach($artists as $artist)
-											@if($artist->id == $auction->FK_artist_id)
-												{{$artist->name}}
-											@endif
-										@endforeach
+										{{$auction->artist->name}}
 									</p>
 								</td>
 								<td>
@@ -132,11 +124,7 @@
 								<td>
 									<h3>{{$auction->title}}</h3>
 									<p class="age">{{$auction->year}}, 
-										@foreach($artists as $artist)
-											@if($artist->id == $auction->FK_artist_id)
-												{{$artist->name}}
-											@endif
-										@endforeach
+										{{$auction->artist->name}}
 									</p>
 								</td>
 								<td>
@@ -174,11 +162,7 @@
 								<td>
 									<h3>{{$auction->title}}</h3>
 									<p class="age">{{$auction->year}}, 
-										@foreach($artists as $artist)
-											@if($artist->id == $auction->FK_artist_id)
-												{{$artist->name}}
-											@endif
-										@endforeach
+										{{$auction->artist->name}}
 									</p>
 								</td>
 								<td>
@@ -216,11 +200,7 @@
 									<td>
 										<h3>{{$auction->title}}</h3>
 										<p class="age">{{$auction->year}}, 
-											@foreach($artists as $artist)
-												@if($artist->id == $auction->FK_artist_id)
-													{{$artist->name}}
-												@endif
-											@endforeach
+											{{$auction->artist->name}}
 										</p>
 									</td>
 									<td>

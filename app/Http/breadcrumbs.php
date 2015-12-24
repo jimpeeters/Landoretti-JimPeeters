@@ -1,7 +1,7 @@
 <?php
 
 // Home
-Breadcrumbs::register('home', function($breadcrumbs)
+Breadcrumbs::register('Home', function($breadcrumbs)
 {
     $breadcrumbs->push('Home', route('home'));
 });
@@ -10,16 +10,25 @@ Breadcrumbs::register('home', function($breadcrumbs)
 // Home > FAQ
 Breadcrumbs::register('FAQ', function($breadcrumbs)
 {
-    $breadcrumbs->parent('home');
+    $breadcrumbs->parent('Home');
     $breadcrumbs->push('FAQ', route('faq'));
 });
 
 // Home > myAuctions
 Breadcrumbs::register('myAuctions', function($breadcrumbs)
 {
-    $breadcrumbs->parent('home');
+    $breadcrumbs->parent('Home');
     $breadcrumbs->push('My auctions', route('myAuctions'));
 });
+
+
+// Home > Profile
+Breadcrumbs::register('myProfile', function($breadcrumbs)
+{
+    $breadcrumbs->parent('Home');
+    $breadcrumbs->push('My Profile', route('myProfile'));
+});
+
 
 
 

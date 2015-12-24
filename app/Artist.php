@@ -9,4 +9,7 @@ class Artist extends Model {
 	protected $table = 'artists';
 	public $timestamps = true;
 
+
+
+
 }

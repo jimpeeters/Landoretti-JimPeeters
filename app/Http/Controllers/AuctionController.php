@@ -2,6 +2,8 @@
 use View;
 use App\Auction;
 use App\Artist;
+use Auth;
+
 
 class AuctionController extends Controller {
 
@@ -12,12 +14,10 @@ class AuctionController extends Controller {
    */
   public function index()
   {
-    $auctions = Auction::get();  
-    $artists = Artist::get();
+    $auctions = Auction::where('FK_user_id','=', Auth::user()->id)->with('artist')->get(); 
 
     return View::make('my-auctions')
-              ->with('auctions', $auctions)
-              ->with('artists', $artists);
+              ->with('auctions', $auctions);
   }
 
   /**
