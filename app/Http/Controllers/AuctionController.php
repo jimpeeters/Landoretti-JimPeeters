@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Validator;
 use Input;
 use File;
+use Illuminate\Support\Facades\Redirect;
 
 
 class AuctionController extends Controller {
@@ -46,7 +47,7 @@ class AuctionController extends Controller {
 
 
         $validator = Validator::make($request->all(), [
-            'title' => 'required|max:255',
+            'title' => 'required|max:255|alpha_dash',
             'width' => 'required|max:20',
             'year' => 'required|integer|max:2016',
             'height' => 'required|max:20',
@@ -82,6 +83,7 @@ class AuctionController extends Controller {
         $input = $request->all();
 
         $auction = new Auction();
+        $auction->FK_user_id = Auth::user()->id;
         $auction->title = $input['title'];
         $auction->width = $input['width'];
         $auction->year = $input['year'];
@@ -108,59 +110,89 @@ class AuctionController extends Controller {
         $category = explode(',', $input['category']);
         $auction->FK_category_id     = $category[0];
 
- 
-
-        //image validatie : geldig image bestand voor security
-        //image opslagen Artwork
-
         $directory = public_path().'/images/uploads/'.Auth::user()->email.'/';
         File::makeDirectory($directory, 0777, true,true);
 
-
         $file = array('image' => $input['imageArtwork']);
 
-                if (isset($file['image'])) 
-                {
-                    //dd("file isset"); 
+        if (isset($file['image'])) 
+        {
+            $img_rule = array('imageArtwork' => 'image');
+            $img_validator = Validator::make($file, $img_rule);
 
-                    $img_rule = array('imageArtwork' => 'image');
-                    $img_validator = Validator::make($file, $img_rule);
+            if ($img_validator->fails()) 
+            {
+                return Redirect::route('createAuction')
+                                ->withErrors($img_validator);
+            }
+            else
+            {
+               $extension = null;
+               $extension = $input['imageArtwork']->getClientOriginalExtension();
 
-                    if ($img_validator->fails()) 
-                    {
-                        return Redirect::route('createAuction')
-                                        ->withErrors($img_validator);
-                    }
-                    else
-                    {
-                       $ext = pathinfo($input['imageArtwork'], PATHINFO_EXTENSION);
+               $filename = "Artwork_".$input['title'].".".$extension;
 
-                       $imageName = $auction->id.'.'.$ext;
+               Input::file('imageArtwork')->move($directory, $filename);
 
-                       $request->file('imageArtwork')->move($directory, $imageName);
+               $auction->imageArtwork  = $directory.$filename;
+            }
+        }
 
-                       $auction->imageArtwork  = $directory.$imageName;
+        $file = array('image' => $input['imageSignature']);
 
-                       $successMessage = "Auction is succesfully added.";
-                       return Redirect::route('createAuction')->with('successMessage', $successMessage);
+        if (isset($file['image'])) 
+        {
+            $img_rule = array('imageSignature' => 'image');
+            $img_validator = Validator::make($file, $img_rule);
 
-                       //dd($directory.'/_Artwork'.$filename.'.'.$ext);
+            if ($img_validator->fails()) 
+            {
+                return Redirect::route('createAuction')
+                                ->withErrors($img_validator);
+            }
+            else
+            {
+               $extension = null;
+               $extension = $input['imageSignature']->getClientOriginalExtension();
 
-                    }
-                }
+               $filename = "Signature_".$input['title'].".".$extension;
 
-    /*
+               Input::file('imageSignature')->move($directory, $filename);
 
-      if($input['imageOptional'] != null)
-      {
+               $auction->imageSignature = $directory.$filename;
+            }
+        }
 
+        if(Input::file('file_url') != null)
+        {
+              $file = array('image' => $input['imageOptional']);
 
-      }*/
+              if (isset($file['image'])) 
+              {
+                  $img_rule = array('imageOptional' => 'image');
+                  $img_validator = Validator::make($file, $img_rule);
 
-        $auction->imageSignature = 'test';
+                  if ($img_validator->fails()) 
+                  {
+                      return Redirect::route('createAuction')
+                                      ->withErrors($img_validator);
+                  }
+                  else
+                  {
+                     $extension = null;
+                     $extension = $input['imageOptional']->getClientOriginalExtension();
+
+                     $filename = "Optional_".$input['title'].".".$extension;
+
+                     Input::file('imageOptional')->move($directory, $filename);
+
+                     $auction->imageOptional = $directory.$filename;
+                  }
+              }
+        }
+
         $auction->save();
-        $successMessage = "Auction is succesfully added.";
-        return Redirect::route('createAuction')->with('successMessage', $successMessage);
+        return Redirect::route('createAuction')->with('success','Auction succesfully added!');
 
   }
 

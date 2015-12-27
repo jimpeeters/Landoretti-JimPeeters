@@ -49,9 +49,6 @@ Route::group(['middleware' => 'auth'], function () {
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
 
-
-
-
 Route::get('/details', function () {
     return view('details');
 });
@@ -59,8 +56,4 @@ Route::get('/details', function () {
 
 Route::get('/watchlist', function () {
     return view('watchlist');
-});
-
-Route::get('/create', function () {
-    return view('create');
 });

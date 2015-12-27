@@ -29,14 +29,19 @@
 		            @endforeach
 		        </ul>
 		    </div>
-		   	@if (Session::get('successMessage') != null)
-				<div class="alert alert-success"> {{Session::get('successMessage')}}</div>
-			@endif
 		</div>
 		</div>
 	@endif
+   	@if (isset($success))
+	   	<div class="row">
+	   		<div class="col-md-12">
+				<div class="alert alert-success">{{$success}}</div>
+			</div>
+		</div>
+	@endif
 
-	{!! Form::open(array('url' => '/myAuctions/add', 'method' => 'post')) !!}
+	<form action="/myAuctions/add" method="post" enctype="multipart/form-data">
+
 
 		<div class="row">
 			<div class="col-md-6">
@@ -171,17 +176,17 @@
 
 			<div class="col-md-3">
 				<div class="form-group fileupload">
-					<input type="file" name="imageArtwork" class="filestyle" data-input="false" data-icon="false" data-buttonText="Upload image <br>of the artwork" value="{{ old('imageArtwork') }}" required>
+					<input type="file" name="imageArtwork" class="filestyle" data-input="false" data-icon="false" data-buttonText="Upload image <br>of the artwork" required>
 				</div>
 			</div>
 			<div class="col-md-3">
 				<div class="form-group fileupload">
-					<input type="file" name="imageSignature" class="filestyle" data-input="false" data-icon="false" data-buttonText="Upload image <br> of the signature" value="{{ old('imageSignature') }}" required>
+					<input type="file" name="imageSignature" class="filestyle" data-input="false" data-icon="false" data-buttonText="Upload image <br> of the signature" required>
 				</div>
 			</div>
 			<div class="col-md-3">
 				<div class="form-group fileupload">
-					<input type="file" name="imageOptional" class="filestyle" data-input="false" data-icon="false" data-buttonText="Optional image" value="{{ old('imageOptional') }}" >
+					<input type="file" name="imageOptional" class="filestyle" data-input="false" data-icon="false" data-buttonText="Optional image">
 				</div>
 			</div>
 		</div>
@@ -240,7 +245,8 @@
 				<a href="#">Ask a question<i class="fa fa-angle-right"></i></a>
 			</div>
 		</div>
-	{!! Form::close() !!}
+		<input type="hidden" value="{{ csrf_token() }}" name="_token">
+	</form>
 
 </div>
 

@@ -19,10 +19,10 @@
 					<div class="login-block hide">
 
 					{!! Form::open(array('url' => 'auth/login', 'method' => 'post')) !!}
-					{!! csrf_field() !!}
 						<input type="email" name="email" class="form-control" id="email" placeholder="User">
 						<input type="password" name="password" class="form-control" id="password" placeholder="Password">
 						<button type="submit">Login</button>
+						<input type="hidden" value="{{ csrf_token() }}" name="_token">
 					{!! Form::close() !!}
 					</div>
 				</div>
