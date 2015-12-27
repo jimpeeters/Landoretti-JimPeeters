@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 use App\FaqCategory;
+use App\Auction;
 use View;
 
 class FaqController extends Controller {

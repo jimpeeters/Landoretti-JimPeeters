@@ -12,6 +12,7 @@ use Auth;
 use View;
 use Illuminate\Http\Request;
 use Hash;
+use App\Country;
 
 class AuthController extends Controller
 {
@@ -29,6 +30,16 @@ class AuthController extends Controller
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
     protected $redirectPath = '/';
+
+
+    public function index()
+    {
+        $countries =  ['default'=>'Kies een land'] + Country::orderby('nameDutch', 'ASC')->lists('nameDutch', 'id')->all();  
+       // $countriesEnglish = ['default'=>'Choose a country'] + Country::orderby('nameEnglish', 'ASC')->lists('nameEnglish', 'id')->all();  
+
+        return View::make('register')
+            ->with('countries', $countries);
+    }
 
     /**
      * Create a new authentication controller instance.

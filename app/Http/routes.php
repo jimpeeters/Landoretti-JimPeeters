@@ -16,23 +16,40 @@ Route::get('/',array('as' => 'home','uses' => 'HomeController@index'));
 
 /* Registreren */ 
 
-Route::get('/register',array('as' => 'register','uses' => 'RegisterController@index'));
+Route::get('/register',array('as' => 'register','uses' => 'Auth\AuthController@index'));
 Route::post('/register','Auth\AuthController@register');
 
 /* Faq  */ 
 
 Route::get('/FAQ',array('as' => 'faq','uses' => 'FaqController@index'));
 
+/* ingelogd */
 
-Route::group(['middleware' => 'auth'], function () {  //moet ingelogd zijn
+Route::group(['middleware' => 'auth'], function () {  
 
 	/* My auctions */
 	Route::get('/myAuctions',array('as' => 'myAuctions','uses' => 'AuctionController@index'));
 
+	/* Add new auction pagina*/
+	Route::get('/myAuctions/add',array('as' => 'createAuction','uses' => 'AuctionController@create'));
+
+	/* Auction toevoegen */
+	Route::post('/myAuctions/add',array('as' => 'storeAuction','uses' => 'AuctionController@store'));
+
 	/* My profile */ 
 	Route::get('/myProfile',array('as' => 'myProfile','uses' => 'UserController@myProfile'));
 
+	/* uitloggen */
+	Route::get('auth/logout', 'Auth\AuthController@getLogout');
+
 });
+
+
+// Authentication routes...
+Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+
+
 
 
 Route::get('/details', function () {
@@ -47,23 +64,3 @@ Route::get('/watchlist', function () {
 Route::get('/create', function () {
     return view('create');
 });
-
-
-
-
-// Authentication routes...
-Route::get('auth/login', 'Auth\AuthController@getLogin');
-Route::post('auth/login', 'Auth\AuthController@postLogin');
-Route::get('auth/logout', 'Auth\AuthController@getLogout');
-
-
-
-
-Route::resource('user', 'UserController');
-Route::resource('auction', 'AuctionController');
-Route::resource('artist', 'ArtistController');
-Route::resource('color', 'ColorController');
-Route::resource('style', 'StyleController');
-Route::resource('category', 'CategoryController');
-Route::resource('era', 'EraController');
-Route::resource('faq', 'FaqController');

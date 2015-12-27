@@ -12,7 +12,6 @@
 		<h1>Register</h1>
 
 		{!! Form::open(array('url' => '/register', 'method' => 'post')) !!}
-			 {!! csrf_field() !!}
 
 			@if (count($errors) > 0)
 			<div class="row">

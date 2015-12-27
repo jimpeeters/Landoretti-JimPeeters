@@ -23,7 +23,7 @@
 		</div>
 		<div class="row">
 			<div class="col-md-3 col-md-offset-9">
-				<a href="#" class="add-button">
+				<a href="/myAuctions/add" class="add-button">
 					ADD NEW AUCTION<i class="fa fa-angle-right"></i>
 				</a>
 			</div>
