@@ -38,10 +38,12 @@ class AuctionTableSeeder extends Seeder
 				'minPrice' => '2000',
 				'maxPrice' => '5000',
 				'buyoutPrice' => '10000',
-				'currentPrice' => '',
+				'currentPrice' => null,
 				'enddate' => date('2016-01-15 20:00:00'),
 				'originDutch' => 'Spanje',
-				'originEnglish' => 'Spain'
+				'originEnglish' => 'Spain',
+				'created_at' => new DateTime,
+				'updated_at' => new DateTime,
 			),
 		array(
 				'FK_user_id' => '1',
@@ -66,10 +68,12 @@ class AuctionTableSeeder extends Seeder
 				'minPrice' => '2000',
 				'maxPrice' => '5000',
 				'buyoutPrice' => '10000',
-				'currentPrice' => '',
+				'currentPrice' => null,
 				'enddate' => date('2016-01-15 20:00:00'),
 				'originDutch' => 'Spanje',
-				'originEnglish' => 'Spain'
+				'originEnglish' => 'Spain',
+				'created_at' => new DateTime,
+				'updated_at' => new DateTime,
 			),
 		array(
 				'FK_user_id' => '1',
@@ -94,10 +98,12 @@ class AuctionTableSeeder extends Seeder
 				'minPrice' => '2000',
 				'maxPrice' => '5000',
 				'buyoutPrice' => '10000',
-				'currentPrice' => '',
+				'currentPrice' => null,
 				'enddate' => date('2016-01-15 20:00:00'),
 				'originDutch' => 'Spanje',
-				'originEnglish' => 'Spain'
+				'originEnglish' => 'Spain',
+				'created_at' => new DateTime,
+				'updated_at' => new DateTime,
 			),
 		array(
 				'FK_user_id' => '1',
@@ -122,10 +128,12 @@ class AuctionTableSeeder extends Seeder
 				'minPrice' => '2000',
 				'maxPrice' => '5000',
 				'buyoutPrice' => '10000',
-				'currentPrice' => '',
+				'currentPrice' => null,
 				'enddate' => date('2016-01-15 20:00:00'),
 				'originDutch' => 'Spanje',
-				'originEnglish' => 'Spain'
+				'originEnglish' => 'Spain',
+				'created_at' => new DateTime,
+				'updated_at' => new DateTime,
 			),
 		array(
 				'FK_user_id' => '1',
@@ -150,10 +158,12 @@ class AuctionTableSeeder extends Seeder
 				'minPrice' => '2000',
 				'maxPrice' => '5000',
 				'buyoutPrice' => '10000',
-				'currentPrice' => '',
+				'currentPrice' => null,
 				'enddate' => date('2016-01-15 20:00:00'),
 				'originDutch' => 'Spanje',
-				'originEnglish' => 'Spain'
+				'originEnglish' => 'Spain',
+				'created_at' => new DateTime,
+				'updated_at' => new DateTime,
 			),
 		array(
 				'FK_user_id' => '1',
@@ -178,10 +188,12 @@ class AuctionTableSeeder extends Seeder
 				'minPrice' => '2000',
 				'maxPrice' => '5000',
 				'buyoutPrice' => '10000',
-				'currentPrice' => '',
+				'currentPrice' => null,
 				'enddate' => date('2016-01-15 20:00:00'),
 				'originDutch' => 'Spanje',
-				'originEnglish' => 'Spain'
+				'originEnglish' => 'Spain',
+				'created_at' => new DateTime,
+				'updated_at' => new DateTime,
 			),
 
 

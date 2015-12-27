@@ -7,11 +7,14 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use View;
+use App\Auction;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        return View::make('home');
+    	$recentAuctions = Auction::orderBy('created_at', 'desc')->take(4)->get();
+
+        return View::make('home')->with('recentAuctions', $recentAuctions);
     }
 }

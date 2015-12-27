@@ -11,34 +11,24 @@
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                 <li data-target="#myCarousel" data-slide-to="1"></li>
                 <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="3"></li>
             </ol>
 
             <!-- Wrapper for Slides -->
             <div class="carousel-inner">
-                <div class="item active">
-                    <!-- Set the first background image using inline CSS below. -->
-                    <div class="fill" style="background-image:url('/images/home-image.png');"></div>
+                @foreach($recentAuctions as $key => $recentAuction)
+                @if($key == 1)
+                    <div class="item active">
+                @else
+                    <div class="item">
+                @endif
+                    <div class="fill" style="background-image:url('{{$recentAuction->imageArtwork}}');"></div>
                     <div class="carousel-caption">
                     	<img class="icon-slider" src="images/icon-slider.png" alt="decorative circle to give attention to the artwork details.">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam temporibus aperiam quia officiis a consequuntur illo voluptate non cum iste itaque, nam, eaque, velit dolore autem asperiores tempora odit fugiat. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti et hic odit tempora dolorum, corrupti, tenetur dolorem adipisci voluptate nihil laboriosam eius harum quisquam quaerat dolore numquam velit. Ipsum, fugit.</p>
+                        <p>{{$recentAuction->descriptionEnglish}}</p>
                     </div>
                 </div>
-                <div class="item">
-                    <!-- Set the second background image using inline CSS below. -->
-                    <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Two');"></div>
-                    <div class="carousel-caption">
-                    	<img class="icon-slider" src="images/icon-slider.png" alt="decorative circle to give attention to the artwork details.">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam temporibus aperiam quia officiis a consequuntur illo voluptate non cum iste itaque, nam, eaque, velit dolore autem asperiores tempora odit fugiat. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat facere magnam repudiandae nobis nisi ut quas est quia laboriosam fugiat fugit expedita sit reprehenderit incidunt quasi commodi illo, iusto quae!</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <!-- Set the third background image using inline CSS below. -->
-                    <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Three');"></div>
-                    <div class="carousel-caption">
-                    	<img class="icon-slider" src="images/icon-slider.png" alt="decorative circle to give attention to the artwork details.">
-                    	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam temporibus aperiam quia officiis a consequuntur illo voluptate non cum iste itaque, nam, eaque, velit dolore autem asperiores tempora odit fugiat. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero doloremque ut suscipit similique quam! Non corporis, suscipit, ipsa quos, animi dolorem totam neque eveniet odit debitis quisquam, sit vitae officiis!</p>
-                    </div>
-                </div>
+                @endforeach
             </div>
 
             <!-- Controls -->

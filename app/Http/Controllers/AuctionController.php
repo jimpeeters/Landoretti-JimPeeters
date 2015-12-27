@@ -109,6 +109,7 @@ class AuctionController extends Controller {
         $auction->FK_style_id     = $style[0];
         $category = explode(',', $input['category']);
         $auction->FK_category_id     = $category[0];
+        $auction->FK_status_id = '1'; //pending
 
         $directory = public_path().'/images/uploads/'.Auth::user()->email.'/';
         File::makeDirectory($directory, 0777, true,true);
