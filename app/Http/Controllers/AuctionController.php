@@ -19,10 +19,12 @@ class AuctionController extends Controller {
 
   public function index()
   {
-    $auctions = Auction::where('FK_user_id','=', Auth::user()->id)->with('artist')->get(); 
+    $auctions = Auction::where('FK_user_id','=', Auth::user()->id)->with('artist')->get();
+    $newestAuction = Auction::orderBy('created_at', 'desc')->first();
 
     return View::make('my-auctions')
-              ->with('auctions', $auctions);
+              ->with('auctions', $auctions)
+              ->with('newestAuction', $newestAuction);
   }
 
   public function create()
@@ -203,9 +205,35 @@ class AuctionController extends Controller {
    * @param  int  $id
    * @return Response
    */
-  public function show($id)
+  public function showdetails($id)
   {
-    
+    $auction = Auction::with('artist')->with('color')->with('style')->with('category')->findOrFail($id);
+
+    $relatedAuctions = Auction::with('artist')
+                              ->with('color')
+                              ->with('style')
+                              ->with('category')
+                              ->where('artist', '=', $auction->artist->name)
+                              ->get();
+
+      dd($relatedAuctions);
+/*    $auctionsToCompare = Auction::with('artist')->with('style')->with('category')->get();*/
+
+/*    foreach($auctionsToCompare as $auctionTocompare)
+    {
+      if($auctionTocompare->artist->name == $auction->artist->name)
+      {
+        $relatedAuctions->push($auctionTocompare);
+      }
+    }*/
+
+    dd($relatedAuctions);
+
+    $newestAuction = Auction::orderBy('created_at', 'desc')->first();
+
+    return View::make('details')
+                  ->with('auction', $auction)
+                  ->with('newestAuction', $newestAuction);
   }
 
   /**

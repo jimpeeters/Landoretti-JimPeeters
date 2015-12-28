@@ -15,22 +15,19 @@
 Route::get('/',array('as' => 'home','uses' => 'HomeController@index'));
 
 /* Registreren */ 
-
 Route::get('/register',array('as' => 'register','uses' => 'Auth\AuthController@index'));
 Route::post('/register','Auth\AuthController@register');
 
 /* Faq  */ 
-
 Route::get('/FAQ',array('as' => 'faq','uses' => 'FaqController@index'));
 
 /* ingelogd */
-
 Route::group(['middleware' => 'auth'], function () {  
 
 	/* My auctions */
 	Route::get('/myAuctions',array('as' => 'myAuctions','uses' => 'AuctionController@index'));
 
-	/* Add new auction pagina*/
+	/* Add new auction pagina */
 	Route::get('/myAuctions/add',array('as' => 'createAuction','uses' => 'AuctionController@create'));
 
 	/* Auction toevoegen */
@@ -44,15 +41,13 @@ Route::group(['middleware' => 'auth'], function () {
 
 });
 
+//Show details
+Route::get('/auction/{id}', array('as' => 'auctionDetails','uses' =>'AuctionController@showdetails'));
+
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
-
-Route::get('/details', function () {
-    return view('details');
-});
-
 
 Route::get('/watchlist', function () {
     return view('watchlist');
