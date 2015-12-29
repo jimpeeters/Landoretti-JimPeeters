@@ -1,6 +1,8 @@
 <?php
 
 namespace App;
+use Auction;
+use User;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,9 +12,15 @@ class Watchlist extends Model
 	public $timestamps = true;
 
 
-    public function auctions()
+    public function auction()
     {
-        return $this->hasMany('App\Auction', 'FK_auction_id');
+        return $this->hasOne('App\Auction', 'FK_auction_id');
+    }
+
+
+    public function user()
+    {
+        return $this->hasOne('App\User', 'FK_user_id');
     }
 
 }

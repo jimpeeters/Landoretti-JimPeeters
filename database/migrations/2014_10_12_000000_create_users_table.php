@@ -18,7 +18,6 @@ class CreateUsersTable extends Migration {
             $table->string('city', 255);
             $table->mediumInteger('number');
             $table->integer('FK_country_id')->unsigned();
-            $table->integer('FK_watchlist_id')->unsigned()->nullable(); //je hoeft geen Watchlist te hebben
 
             $table->rememberToken();
         });

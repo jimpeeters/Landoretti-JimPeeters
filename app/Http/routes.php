@@ -42,6 +42,12 @@ Route::group(['middleware' => 'auth'], function () {
 	/* My bids */
 	Route::get('/myBids',array('as' => 'myBids','uses' => 'UserController@myBids'));
 
+	/* My watchlist */
+	Route::get('/myWatchlist',array('as' => 'myWatchlist','uses' => 'WatchlistController@index'));
+
+	/* Auction aan watchlist toevoegen */
+	Route::get('/watchlist/add/{id}',array('as' => 'addToWatchlist','uses' => 'WatchlistController@addToWatchlist'));
+
 	/* uitloggen */
 	Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
@@ -54,7 +60,3 @@ Route::get('/auction/{id}', array('as' => 'auctionDetails','uses' =>'AuctionCont
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
-
-Route::get('/watchlist', function () {
-    return view('watchlist');
-});

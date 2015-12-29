@@ -93,7 +93,7 @@
 							</div>
 						@endif
 
-						<p class="add-watchlist"><a href="#"><i class="fa fa-bars"></i>add to my watchlist</a></p>
+						<p class="add-watchlist"><a href="/watchlist/add/{{$auction->id}}"><i class="fa fa-bars"></i>add to my watchlist</a></p>
 					</div>
 			</div>
 		</div>

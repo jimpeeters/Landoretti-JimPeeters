@@ -1072,7 +1072,7 @@ form .askquestion a {
   margin: 0px;
 }
 
-/* errors */
+/* errors en meldingen */
 /* line 1153, ../sass/style.scss */
 .alert-danger {
   color: red;
@@ -1084,21 +1084,26 @@ form .askquestion a {
   border-radius: 0px;
 }
 
+/* line 1162, ../sass/style.scss */
+.infoBlock {
+  margin-top: 20px;
+}
+
 /* My bids pagina */
-/* line 1166, ../sass/style.scss */
+/* line 1170, ../sass/style.scss */
 .my-bids .bid {
   padding: 20px 0px;
   border-bottom: 1px solid #eaeaea;
 }
-/* line 1171, ../sass/style.scss */
+/* line 1175, ../sass/style.scss */
 .my-bids .bid h4 {
   color: #21398b;
 }
-/* line 1175, ../sass/style.scss */
+/* line 1179, ../sass/style.scss */
 .my-bids .bid .positive {
   color: green;
 }
-/* line 1179, ../sass/style.scss */
+/* line 1183, ../sass/style.scss */
 .my-bids .bid .negative {
   color: red;
 }

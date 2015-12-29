@@ -1148,7 +1148,7 @@ form {
     }
 }
 
-/* errors */
+/* errors en meldingen */
 
 .alert-danger {
     color : red;
@@ -1157,6 +1157,10 @@ form {
 
 .alert {
     border-radius: 0px;
+}
+
+.infoBlock {
+    margin-top: 20px;
 }
 
 /* My bids pagina */

@@ -11,6 +11,7 @@ class CreateWatchlistTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->integer('FK_auction_id')->unsigned();
+            $table->integer('FK_user_id')->unsigned();
         });
     }
 

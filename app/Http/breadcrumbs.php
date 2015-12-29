@@ -35,6 +35,14 @@ Breadcrumbs::register('myBids', function($breadcrumbs)
     $breadcrumbs->push('My bids', route('myBids'));
 });
 
+// Home > Profile > myWatchlist
+Breadcrumbs::register('myWatchlist', function($breadcrumbs)
+{
+    $breadcrumbs->parent('myProfile');
+    $breadcrumbs->push('My Watchlist', route('myWatchlist'));
+});
+
+
 // Home > Profile > myAuctions > New auction
 Breadcrumbs::register('addAuction', function($breadcrumbs)
 {

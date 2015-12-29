@@ -3,14 +3,41 @@
 @section('content')
 
 	@include('newest-auction-section')
+
+
 	
 <div class="container">
+
+	@if(isset($success))
+	   	<div class="row infoBlock">
+	   		<div class="col-md-12">
+				<div class="alert alert-success">{{$success}}</div>
+			</div>
+		</div>
+	@endif
+	@if (isset($warning))
+	   	<div class="row infoBlock">
+	   		<div class="col-md-12">
+				<div class="alert alert-warning">{{$warning}}</div>
+			</div>
+		</div>
+	@endif
+
+	<div class="row">
+		<div class="col-md-12">
+			{!! Breadcrumbs::render('myWatchlist') !!}
+		</div>
+	</div>
+
 	<div class="my-watchlist">
 		<div class="row">
 			<div class="col-md-12">
 				<h1>My watchlist</h1>
 			</div>
 		</div>
+
+	@if(count($watchlist) > 0)
+
 		<div class="row">
 			<div class="col-md-3 col-md-offset-6">
 				<a href="#" class="add-button">
@@ -42,15 +69,16 @@
 					  <th>End date</th>
 					  <th>Remaining time</th>
 					</tr>
+					@foreach($watchlist as $watchedItem)
 					<tr>
 						<td><input type="checkbox" name="checkbox"></td>
-						<td class="img-preview" style="background-image:url('http://lorempixel.com/400/200/');"></td>
+						<td class="img-preview" style="background-image:url('');"></td>
 						<td>
-							<h3>Dance of Time III</h3>
+							<h3></h3>
 							<p class="age">1979, Salvador Dali</p>
 						</td>
 						<td>
-							<h3>&euro; 8.900</h3>
+							<h3>&euro; </h3>
 						</td>
 						<td>
 							<p class="date">September 09, 2013</p>
@@ -60,63 +88,14 @@
 							<p>25d 14u 44m</p>
 						</td>
 					</tr>
-					<tr>
-						<td><input type="checkbox"></td>
-						<td class="img-preview" style="background-image:url('http://lorempixel.com/400/200/');"></td>
-						<td>
-							<h3>Dance of Time III</h3>
-							<p class="age">1979, Salvador Dali</p>
-						</td>
-						<td>
-							<h3>&euro; 8.900</h3>
-						</td>
-						<td>
-							<p class="date">September 09, 2013</p>
-							<p class="date">13:00 p.m. (EST)</p>
-						</td>
-						<td>
-							<p>25d 14u 44m</p>
-						</td>
-					</tr>
-					<tr>
-						<td><input type="checkbox"></td>
-						<td class="img-preview" style="background-image:url('http://lorempixel.com/400/200/');"></td>
-						<td>
-							<h3>Dance of Time III</h3>
-							<p class="age">1979, Salvador Dali</p>
-						</td>
-						<td>
-							<h3>&euro; 8.900</h3>
-						</td>
-						<td>
-							<p class="date">September 09, 2013</p>
-							<p class="date">13:00 p.m. (EST)</p>
-						</td>
-						<td>
-							<p>25d 14u 44m</p>
-						</td>
-					</tr>
-					<tr>
-						<td><input type="checkbox"></td>
-						<td class="img-preview" style="background-image:url('http://lorempixel.com/400/200/');"></td>
-						<td>
-							<h3>Dance of Time III</h3>
-							<p class="age">1979, Salvador Dali</p>
-						</td>
-						<td>
-							<h3>&euro; 8.900</h3>
-						</td>
-						<td>
-							<p class="date">September 09, 2013</p>
-							<p class="date">13:00 p.m. (EST)</p>
-						</td>
-						<td>
-							<p>25d 14u 44m</p>
-						</td>
-					</tr>
+					@endforeach
 				</table>
 			</div>
 		</div>
+	@else
+		<h3>You don't have a watchlist !</h3>
+
+	@endif
 	</div>
 </div>
 @stop
