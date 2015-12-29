@@ -1158,3 +1158,26 @@ form {
 .alert {
     border-radius: 0px;
 }
+
+/* My bids pagina */
+
+.my-bids{
+
+    .bid {
+
+        padding: 20px 0px;
+        border-bottom: 1px solid $border;
+
+        h4 {
+            color: $blauw;
+        }
+
+        .positive {
+            color: green;
+        }
+
+        .negative {
+            color: red;
+        }
+    }
+}

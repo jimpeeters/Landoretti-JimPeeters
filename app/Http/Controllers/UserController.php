@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 use App\User;
 use App\Auction;
+use App\Bidder;
 use Auth;
 use View;
 
@@ -14,6 +15,14 @@ class UserController extends Controller {
 
       return view('profile')->with('user', $user)->with('newestAuction', $newestAuction);
     
+  }
+
+  public function myBids()
+  {
+      $bids = Bidder::where('FK_user_id', '=', Auth::user()->id)->with('auction')->orderBy('bidAmount', 'desc')->get();
+      $newestAuction = Auction::orderBy('created_at', 'desc')->first();
+
+      return view('my-bids')->with('bids', $bids)->with('newestAuction', $newestAuction);
   }
 
 

@@ -39,6 +39,9 @@ Route::group(['middleware' => 'auth'], function () {
 	/* My profile */ 
 	Route::get('/myProfile',array('as' => 'myProfile','uses' => 'UserController@myProfile'));
 
+	/* My bids */
+	Route::get('/myBids',array('as' => 'myBids','uses' => 'UserController@myBids'));
+
 	/* uitloggen */
 	Route::get('auth/logout', 'Auth\AuthController@getLogout');
 

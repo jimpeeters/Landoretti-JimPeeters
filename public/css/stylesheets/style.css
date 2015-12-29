@@ -1083,3 +1083,22 @@ form .askquestion a {
 .alert {
   border-radius: 0px;
 }
+
+/* My bids pagina */
+/* line 1166, ../sass/style.scss */
+.my-bids .bid {
+  padding: 20px 0px;
+  border-bottom: 1px solid #eaeaea;
+}
+/* line 1171, ../sass/style.scss */
+.my-bids .bid h4 {
+  color: #21398b;
+}
+/* line 1175, ../sass/style.scss */
+.my-bids .bid .positive {
+  color: green;
+}
+/* line 1179, ../sass/style.scss */
+.my-bids .bid .negative {
+  color: red;
+}

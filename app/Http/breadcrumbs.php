@@ -28,6 +28,13 @@ Breadcrumbs::register('myAuctions', function($breadcrumbs)
     $breadcrumbs->push('My auctions', route('myAuctions'));
 });
 
+// Home > Profile > myBids
+Breadcrumbs::register('myBids', function($breadcrumbs)
+{
+    $breadcrumbs->parent('myProfile');
+    $breadcrumbs->push('My bids', route('myBids'));
+});
+
 // Home > Profile > myAuctions > New auction
 Breadcrumbs::register('addAuction', function($breadcrumbs)
 {

@@ -91,10 +91,10 @@
 		<div class="sub-navigation row">
 			<img id="footer-logo" src="images/logo.png" alt="Landoretti ART logo">
 			<div class="col-md-6 col-md-offset-2">
-				<a href="#">HOME</a>
+				<a href="/">HOME</a>
 				<a href="#">ART</a>
-				<a href="#">MYAUCTIONS</a>
-				<a href="#">MYBIDS</a>
+				<a href="/myAuctions">MYAUCTIONS</a>
+				<a href="/myBids">MYBIDS</a>
 				<a href="#">CONTACT</a>
 			</div>
 			<div class="col-md-2 col-md-offset-2">

@@ -66,7 +66,7 @@
 				<a href="/">HOME</a>
 				<a href="#">ART</a>
 				<a href="/myAuctions">MYAUCTIONS</a>
-				<a href="#">MYBIDS</a>
+				<a href="/myBids">MYBIDS</a>
 				<a href="#">CONTACT</a>
 			</div>
 			<div class="col-md-2 col-md-offset-2">
