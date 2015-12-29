@@ -33,6 +33,9 @@ Route::group(['middleware' => 'auth'], function () {
 	/* Auction toevoegen */
 	Route::post('/myAuctions/add',array('as' => 'storeAuction','uses' => 'AuctionController@store'));
 
+	/* Bod plaatsen */
+	Route::post('/auction/bid/{id}',array('as' => 'placeBid','uses' => 'AuctionController@placeBid'));
+
 	/* My profile */ 
 	Route::get('/myProfile',array('as' => 'myProfile','uses' => 'UserController@myProfile'));
 

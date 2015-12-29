@@ -7,6 +7,7 @@ use Color;
 use Style;
 use Category;
 use Status;
+use Bidder;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -49,6 +50,11 @@ class Auction extends Model {
 	{
 		return $this->belongsTo('App\User', 'FK_user_id');
 	}
+
+	public function bidders()
+    {
+        return $this->hasMany('App\Bidder', 'FK_auction_id');
+    }
 
 
 }

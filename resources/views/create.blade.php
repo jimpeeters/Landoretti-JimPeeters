@@ -32,10 +32,10 @@
 		</div>
 		</div>
 	@endif
-   	@if (isset($success))
+	@if (session()->has('success'))
 	   	<div class="row">
 	   		<div class="col-md-12">
-				<div class="alert alert-success">{{$success}}</div>
+				<div class="alert alert-success">{{ Session::get('success') }}</div>
 			</div>
 		</div>
 	@endif

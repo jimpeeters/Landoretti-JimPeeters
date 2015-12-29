@@ -4,6 +4,7 @@ use App\Auction;
 use App\Artist;
 use App\Color;
 use App\Style;
+use App\Bidder;
 use App\Category;
 use App\Era;
 use App\User;
@@ -78,8 +79,7 @@ class AuctionController extends Controller {
         {
             return redirect()->back()
                         ->withErrors($validator)
-                        ->withInput()
-                        ->with('registerFail', ['fail']);
+                        ->withInput();
         }
 
         $input = $request->all();
@@ -207,17 +207,18 @@ class AuctionController extends Controller {
    */
   public function showdetails($id)
   {
-    $auction = Auction::with('artist')->with('color')->with('style')->with('category')->findOrFail($id);
+    $auction = Auction::with('artist')->with('color')->with('style')->with('category')->with('bidders')->findOrFail($id);
+/*    $auctionsToCompare = Auction::with('artist')->with('style')->with('category')->get();
 
     $relatedAuctions = Auction::with('artist')
                               ->with('color')
                               ->with('style')
                               ->with('category')
-                              ->where('artist', '=', $auction->artist->name)
+                              ->where('dit item zijn artist zijn naam', '=', $auction->artist->name)
                               ->get();
 
       dd($relatedAuctions);
-/*    $auctionsToCompare = Auction::with('artist')->with('style')->with('category')->get();*/
+*/
 
 /*    foreach($auctionsToCompare as $auctionTocompare)
     {
@@ -227,13 +228,82 @@ class AuctionController extends Controller {
       }
     }*/
 
-    dd($relatedAuctions);
 
     $newestAuction = Auction::orderBy('created_at', 'desc')->first();
 
     return View::make('details')
                   ->with('auction', $auction)
                   ->with('newestAuction', $newestAuction);
+  }
+
+
+
+  public function placeBid($id, Request $request)
+  {
+      $highestbid = Bidder::where('FK_auction_id', '=', $id)->orderBy('bidAmount', 'desc')->first();
+
+      $validator = Validator::make($request->all(), [
+          'bidAmount' => 'required|max:9999999|integer'
+      ]);
+
+      if ($validator->fails()) 
+      {
+          return redirect()->back()
+                      ->withErrors($validator)
+                      ->withInput();
+      }
+
+      $input = $request->all();
+
+      $auction = Auction::find($id);
+
+      if($input['bidAmount'] >= $auction->minPrice && $input['bidAmount'] <= $auction->maxPrice) //tussen de min en max prijs
+      {
+        if($highestbid == null) // is er een highest bid
+        {
+          $bidder = new Bidder();
+          $bidder->FK_user_id = Auth::user()->id;
+          $bidder->FK_auction_id = $id;
+          $bidder->bidAmount = $input['bidAmount'];
+          $bidder->save();
+
+          $auction->currentPrice = $input['bidAmount'];
+          $auction->save();
+
+          $success = 'You have succesfully placed &euro;'.$input['bidAmount'].' on this auction!';
+
+          return redirect()->back()->with('success', $success);
+        }
+        else
+        {
+          if($input['bidAmount'] > $highestbid->bidAmount) //checken of groter dan huidig bod
+          {
+            $bidder = new Bidder();
+            $bidder->FK_user_id = Auth::user()->id;
+            $bidder->FK_auction_id = $id;
+            $bidder->bidAmount = $input['bidAmount'];
+            $bidder->save();
+
+            $auction->currentPrice = $input['bidAmount'];
+            $auction->save();
+
+            $success = 'You have succesfully placed &euro;'.$input['bidAmount'].' on this auction!';
+
+            return redirect()->back()->with('success', $success);
+          }
+          else
+          {
+            $warning = 'The current offer is &euro;'.$highestbid->bidAmount.' place a higher value to bid.';
+            return redirect()->back()->with('warning', $warning);
+          }
+        }
+      }
+      else{
+
+          $warning = 'The minimum price is &euro; '.$auction->minPrice.' and the maximum price is &euro; '.$auction->maxPrice.'.';
+          return redirect()->back()->with('warning', $warning);
+      }
+
   }
 
   /**

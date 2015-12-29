@@ -442,6 +442,11 @@ body {
 }
 
 /* Details  pagina */
+
+.detailMessages {
+    margin-top: 50px;
+}
+
 .details {
 
 
@@ -554,6 +559,10 @@ body {
                     width : 100px;
                     color: black;
                     margin-right: 20px;
+                }
+
+                #bidForm {
+                    margin-top: 0px !important;
                 }
             }
 

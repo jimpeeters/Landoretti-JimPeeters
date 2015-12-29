@@ -5,11 +5,41 @@
 	@include('newest-auction-section')
 
 <div class="container">
+
+@if (count($errors) > 0)
+	<div class="row detailMessages">
+		<div class="col-md-12">
+		    <div class="alert alert-danger">
+		        <ul>
+		            @foreach ($errors->all() as $error)
+		                <li>{{ $error }}</li>
+		            @endforeach
+		        </ul>
+		    </div>
+		</div>
+	</div>
+@endif
+@if (session()->has('success'))
+   	<div class="row detailMessages">
+   		<div class="col-md-12">
+			<div class="alert alert-success">{{ Session::get('success') }}</div>
+		</div>
+	</div>
+@endif
+@if (session()->has('warning'))
+   	<div class="row detailMessages">
+   		<div class="col-md-12">
+			<div class="alert alert-warning">{{ Session::get('warning') }}</div>
+		</div>
+	</div>
+@endif
+
+
 	<div class="details">
 		<div class="row">
 			<div class="col-md-10">
 				<h1>{{$auction->title}}</h1>
-				<p class="top-details">25d 14u 44m <a href="#">(7 bids)</a>  <i class="fa fa-bars"></i></p>
+				<p class="top-details">25d 14u 44m <a href="#">({{count($auction->bidders)}} bids)</a>  <i class="fa fa-bars"></i></p>
 			</div>
 		</div>
 		<div class="row">
@@ -38,13 +68,31 @@
 					<p class="text">{{ str_limit($auction->descriptionEnglish, $limit = 100, $end = '...') }}</p>
 					<a class="more" href="#">more</a>
 					<div class="bid-now">
-						<h5>Estimated Price: </h5>
-						<h3>&euro; {{$auction->minPrice}} - {{$auction->maxPrice}}</h3>
+						@if($auction->currentPrice != null)
+							<h5>Current Price: </h5>
+							<h3>&euro; {{$auction->currentPrice}}</h3>
+						@else
+							<h5>Estimated Price: </h5>
+							<h3>&euro; {{$auction->minPrice}} - {{$auction->maxPrice}}</h3>
+						@endif
 						<a class="buy-now" href="#">Buy now for &euro; {{$auction->buyoutPrice}}</a>
-						<p>bids: 7 </p>
-						<div class="bid-now-sub">
-							<p><input>BID NOW<i class="fa fa-angle-right"></i></p>
-						</div>
+						<p>bids: {{count($auction->bidders)}}</p>
+						@if(Auth::check())
+							@if(Auth::user()->id == $auction->FK_user_id)
+
+							@else
+							<div class="bid-now-sub">
+								{!! Form::open(array('url' => '/auction/bid/'.$auction->id, 'method' => 'post', 'id'=>'bidForm')) !!}
+									<p><input type="text" name="bidAmount" id="bidAmount" placeholder="xxxx" value="{{ old('bidAmount') }}" required> <button type="submit">BID NOW</button><i class="fa fa-angle-right"></i></p>
+								{!! Form::close() !!}
+							</div>
+							@endif
+						@else
+							<div class="bid-now-sub">
+								<p>Login to place a bid</p>
+							</div>
+						@endif
+
 						<p class="add-watchlist"><a href="#"><i class="fa fa-bars"></i>add to my watchlist</a></p>
 					</div>
 			</div>
