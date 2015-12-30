@@ -67,7 +67,7 @@
 				<a href="#">ART</a>
 				<a href="/myAuctions">MYAUCTIONS</a>
 				<a href="/myBids">MYBIDS</a>
-				<a href="#">CONTACT</a>
+				<a href="/contact">CONTACT</a>
 			</div>
 			<div class="col-md-2 col-md-offset-2">
 				<a class="pull-right language-link" href="#">NL</a>

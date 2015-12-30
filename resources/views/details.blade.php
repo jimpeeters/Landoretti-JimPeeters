@@ -117,9 +117,12 @@
 				</p>
 				<h6>Color</h6>
 				<p>{{$auction->color->colorEnglish}}</p>
+
 				<div>
-					<p>ASK A QUESTION</p>
-					<p>ABOUT THIS AUCTION</p>
+					<a href="/contact/{{$auction->id}}">
+						<p>ASK A QUESTION</p>
+						<p>ABOUT THIS AUCTION</p>
+					</a>
 				</div>
 			</div>
 		</div>

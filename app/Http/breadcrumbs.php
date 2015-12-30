@@ -14,6 +14,14 @@ Breadcrumbs::register('FAQ', function($breadcrumbs)
     $breadcrumbs->push('FAQ', route('faq'));
 });
 
+// Home > Contact
+Breadcrumbs::register('Contact', function($breadcrumbs)
+{
+    $breadcrumbs->parent('Home');
+    $breadcrumbs->push('Contact', route('contact'));
+});
+
+
 // Home > Profile
 Breadcrumbs::register('myProfile', function($breadcrumbs)
 {

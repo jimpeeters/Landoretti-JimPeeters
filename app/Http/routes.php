@@ -1,16 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
-
 /* Home */ 
 Route::get('/',array('as' => 'home','uses' => 'HomeController@index'));
 
@@ -20,6 +9,9 @@ Route::post('/register','Auth\AuthController@register');
 
 /* Faq  */ 
 Route::get('/FAQ',array('as' => 'faq','uses' => 'FaqController@index'));
+
+//Show details
+Route::get('/auction/{id}', array('as' => 'auctionDetails','uses' =>'AuctionController@showdetails'));
 
 /* ingelogd */
 Route::group(['middleware' => 'auth'], function () {  
@@ -53,9 +45,14 @@ Route::group(['middleware' => 'auth'], function () {
 
 });
 
-//Show details
-Route::get('/auction/{id}', array('as' => 'auctionDetails','uses' =>'AuctionController@showdetails'));
+/* Contact pagina */
+Route::get('/contact', array('as' => 'contact', 'uses' => 'ContactController@index'));
 
+/* Mail sturen */
+Route::post('contact', array('as' => 'contact_store', 'uses' => 'ContactController@store'));
+
+/* Contact pagina met prefilled auction */ 
+Route::get('/contact/{id}', array('as' => 'contactById', 'uses' => 'ContactController@contactById'));
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
