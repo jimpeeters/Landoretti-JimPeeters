@@ -40,6 +40,9 @@ Route::group(['middleware' => 'auth'], function () {
 	/* Auction aan watchlist toevoegen */
 	Route::get('/watchlist/add/{id}',array('as' => 'addToWatchlist','uses' => 'WatchlistController@addToWatchlist'));
 
+	/* Buy now */
+	Route::get('/auction/buyout/{id}',array('as' => 'buyout','uses' => 'AuctionController@buyout'));
+
 	/* uitloggen */
 	Route::get('auth/logout', 'Auth\AuthController@getLogout');
 

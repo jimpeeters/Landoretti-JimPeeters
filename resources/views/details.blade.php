@@ -70,12 +70,21 @@
 					<div class="bid-now">
 						@if($auction->currentPrice != null)
 							<h5>Current Price: </h5>
-							<h3>&euro; {{$auction->currentPrice}}</h3>
+							<h3>&euro;{{$auction->currentPrice}}</h3>
 						@else
 							<h5>Estimated Price: </h5>
-							<h3>&euro; {{$auction->minPrice}} - {{$auction->maxPrice}}</h3>
+							<h3>&euro;{{$auction->minPrice}} - {{$auction->maxPrice}}</h3>
 						@endif
-						<a class="buy-now" href="#">Buy now for &euro; {{$auction->buyoutPrice}}</a>
+						@if(Auth::check())
+							@if(Auth::user()->id == $auction->FK_user_id)
+							 	<a class="buy-now" href="#">Buyout price &euro;{{$auction->buyoutPrice}}</a>
+							@else
+								<a class="buy-now" href="/auction/buyout/{{$auction->id}}">Buy now for &euro;{{$auction->buyoutPrice}}</a>
+							@endif
+						@else
+							<a class="buy-now" href="#">Buyout price &euro;{{$auction->buyoutPrice}}</a>
+							<p>Login to buy this now</p>
+						@endif
 						<p>bids: {{count($auction->bidders)}}</p>
 						@if(Auth::check())
 							@if(Auth::user()->id == $auction->FK_user_id)

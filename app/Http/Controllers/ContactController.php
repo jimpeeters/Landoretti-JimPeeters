@@ -62,7 +62,7 @@ class ContactController extends Controller
         $auction = Auction::find($auctionid[0]);
 
 
-        Mail::send('email.mail',
+        Mail::send('email.contactmail',
 	        array(
 	            'name' => $input['name'],
 	            'email' => $input['email'],

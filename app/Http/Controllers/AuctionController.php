@@ -14,6 +14,7 @@ use Validator;
 use Input;
 use File;
 use Illuminate\Support\Facades\Redirect;
+use Mail;
 
 
 class AuctionController extends Controller {
@@ -208,7 +209,10 @@ class AuctionController extends Controller {
   public function showdetails($id)
   {
     $auction = Auction::with('artist')->with('color')->with('style')->with('category')->with('bidders')->findOrFail($id);
-/*    $auctionsToCompare = Auction::with('artist')->with('style')->with('category')->get();
+
+/*    RELATED ITEMS Nog te doen
+
+$auctionsToCompare = Auction::with('artist')->with('style')->with('category')->get();
 
     $relatedAuctions = Auction::with('artist')
                               ->with('color')
@@ -306,38 +310,44 @@ class AuctionController extends Controller {
 
   }
 
-  /**
-   * Show the form for editing the specified resource.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-  public function edit($id)
+  public function buyout($id)
   {
-    
+    $newestAuction = Auction::orderBy('created_at', 'desc')->first();
+    $auction = Auction::find($id);
+    $lostbidders = Bidder::where('FK_auction_id', '=', $auction->id)->distinct()->with('user')->get(); //distinct voor duplicate receivers
+
+    if(Auth::user()->id == $auction->FK_user_id) //eigen item 
+    {
+       $warning = 'This is your own item!';
+       return redirect()->back()->with('warning', $warning);
+    }
+
+    //mail sturen naar andere bieders
+    foreach($lostbidders as $bidder)
+    {
+      if($bidder->FK_user_id != Auth::user()->id) //geen mail naar je eigen sturen wanneer je zelf de buyout doet 
+      {
+        //mail sturen naar verliezende bidders
+        Mail::send('email.lostauction',
+            array(
+                'descriptionEnglish' => $auction->descriptionEnglish,
+                'descriptionDutch' => $auction->descriptionDutch,
+                'title' => $auction->title
+            ), function($message)
+        {
+            $message->from('jim.peeters@student.kdg.be');
+            $message->to($bidder->user->email, 'Admin')->subject('You have lost an auction on Landoretti');
+        });
+      }
+    }
+
+    Auction::destroy($id);
+
+    return View::make('buynow')
+              ->with('newestAuction', $newestAuction);
   }
 
-  /**
-   * Update the specified resource in storage.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-  public function update($id)
-  {
-    
-  }
 
-  /**
-   * Remove the specified resource from storage.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-  public function destroy($id)
-  {
-    
-  }
   
 }
 

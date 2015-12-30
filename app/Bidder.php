@@ -13,4 +13,9 @@ class Bidder extends Model
 	{
 		return $this->belongsTo('App\Auction', 'FK_auction_id');
 	}
+
+    public function user()
+    {
+        return $this->belongsTo('App\User', 'FK_user_id');
+    }
 }

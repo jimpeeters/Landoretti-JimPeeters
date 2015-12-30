@@ -14,13 +14,12 @@ class Watchlist extends Model
 
     public function auction()
     {
-        return $this->hasOne('App\Auction', 'FK_auction_id');
+        return $this->belongsTo('App\Auction', 'FK_auction_id');
     }
-
 
     public function user()
     {
-        return $this->hasOne('App\User', 'FK_user_id');
+        return $this->belongsTo('App\User', 'FK_user_id');
     }
 
 }

@@ -1,6 +1,6 @@
 
 <hr>
-<h1>You received a message from Landoretti.dev:</h1>
+<h1>You received a message from Landoretti:</h1>
 
 <p>Name: </p>
 <p>{{ $name }}</p>
