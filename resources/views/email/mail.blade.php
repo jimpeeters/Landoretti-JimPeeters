@@ -1,19 +1,18 @@
 
+<hr>
+<h1>You received a message from Landoretti.dev:</h1>
 
-You received a message from Landoretti.dev:
+<p>Name: </p>
+<p>{{ $name }}</p>
 
-<p>
-Name: {{ $name }}
-</p>
+<p>Email :</p>
+<p>{{ $email }}</p>
 
-<p>
-Email : {{ $email }}
-</p>
+<p>Auction :</p>
+<p>{{$auctionTitle}}</p>
 
-<p>
-Auction : {{$auctionTitle}}
-</p>
+<p>Message : </p>
+<p>{{ $user_message }}</p>
 
-<p>
-Message : {{ $user_message }}
-</p>
+<hr>
+
