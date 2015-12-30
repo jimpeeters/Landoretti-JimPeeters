@@ -26,7 +26,7 @@ Breadcrumbs::register('Contact', function($breadcrumbs)
 Breadcrumbs::register('myProfile', function($breadcrumbs)
 {
     $breadcrumbs->parent('Home');
-    $breadcrumbs->push('My Profile', route('myProfile'));
+    $breadcrumbs->push(Auth::user()->name, route('myProfile'));
 });
 
 // Home > Profile > myAuctions

@@ -60,3 +60,7 @@ Route::get('/contact/{id}', array('as' => 'contactById', 'uses' => 'ContactContr
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
+
+Route::get('/test', function () {
+    return view('overview');
+});

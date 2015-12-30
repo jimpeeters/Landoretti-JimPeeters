@@ -36,7 +36,7 @@
 			</div>
 		</div>
 
-	@if(count($watchlist) > 0)
+	@if(count($watchlists) > 0)
 
 		<div class="row">
 			<div class="col-md-3 col-md-offset-6">
@@ -69,7 +69,7 @@
 					  <th>End date</th>
 					  <th>Remaining time</th>
 					</tr>
-					@foreach($watchlist as $watchedItem)
+					@foreach($watchlists as $watchlist)
 					<tr>
 						<td><input type="checkbox" name="checkbox"></td>
 						<td class="img-preview" style="background-image:url('');"></td>
@@ -98,4 +98,11 @@
 	@endif
 	</div>
 </div>
+
+@foreach($watchlists as $watchlist)
+
+	<p>{{$watchlist->auction->title}}</p>
+
+@endforeach
+
 @stop

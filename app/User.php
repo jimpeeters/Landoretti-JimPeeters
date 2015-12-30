@@ -47,4 +47,9 @@ class User extends Model implements AuthenticatableContract,
         return $this->hasMany('App\Auction', 'FK_user_id');
     }
 
+    public function watchlists()
+    {
+        return $this->hasMany('App\Watchlist', 'FK_auction_id');
+    }
+
 }

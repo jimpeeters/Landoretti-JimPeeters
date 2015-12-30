@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="auction-caption col-md-4 col-md-offset-8">
-				<img class="icon-slider" src="images/icon-slider.png" alt="decorative circle to give attention to the artwork details.">
+				<img class="icon-slider" src="/images/icon-slider.png" alt="decorative circle to give attention to the artwork details.">
 				<h3>{{$newestAuction->title}}</h3>
 				<hr>
 				<p>{{$newestAuction->descriptionEnglish}}</p>

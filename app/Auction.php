@@ -56,5 +56,10 @@ class Auction extends Model {
         return $this->hasMany('App\Bidder', 'FK_auction_id');
     }
 
+    public function watchlists()
+    {
+        return $this->hasMany('App\Watchlist', 'FK_auction_id');
+    }
+
 
 }

@@ -36,13 +36,15 @@ class AuctionController extends Controller {
     $categories = ['default'=>'Choose a category'] + Category::orderby('name', 'ASC')->lists('name', 'id')->all();  
     $colors = ['default'=>'Choose a color'] + Color::orderby('colorEnglish', 'ASC')->lists('colorEnglish', 'id')->all();  
     $styles = ['default'=>'Choose a style'] + Style::orderby('name', 'ASC')->lists('name', 'id')->all();  
+    $newestAuction = Auction::orderBy('created_at', 'desc')->first();
 
     return View::make('create')
               ->with('artists', $artists)
               ->with('eras', $eras)
               ->with('categories', $categories)
               ->with('colors', $colors)
-              ->with('styles', $styles);
+              ->with('styles', $styles)
+              ->with('newestAuction', $newestAuction);
 
   }
 

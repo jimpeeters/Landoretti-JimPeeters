@@ -1,7 +1,7 @@
 
 <div class="section-nav">
 	<div class="container">
-		<img id="main-logo" src="images/logo.png" alt="Landoretti ART logo">
+		<img id="main-logo" src="/images/logo.png" alt="Landoretti ART logo">
 		<div class="navigation row">
 
 			@if(Auth::check()) 

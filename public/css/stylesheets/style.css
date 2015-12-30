@@ -1150,3 +1150,191 @@ form .askquestion a {
 .modal-header {
   border-bottom: 0px !important;
 }
+
+/* Overzicht page */
+/* line 1248, ../sass/style.scss */
+.sorting-container {
+  width: 100%;
+  border-bottom: 1px solid #4e4e4e;
+}
+/* line 1253, ../sass/style.scss */
+.sorting-container .basic-sort {
+  display: inline-block;
+  line-height: 80px;
+}
+/* line 1257, ../sass/style.scss */
+.sorting-container .basic-sort .sort-by {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+/* line 1262, ../sass/style.scss */
+.sorting-container .basic-sort a {
+  color: #4e4e4e;
+  font-weight: normal;
+  text-transform: lowercase;
+  text-decoration: none;
+  padding: 5px;
+}
+/* line 1269, ../sass/style.scss */
+.sorting-container .basic-sort a:active, .sorting-container .basic-sort a:hover {
+  color: black;
+  border-bottom: 3px solid #eaeaea;
+}
+/* line 1277, ../sass/style.scss */
+.sorting-container .advanced-sort {
+  float: right;
+  display: inline-block;
+}
+/* line 1281, ../sass/style.scss */
+.sorting-container .advanced-sort a {
+  color: #21398b;
+  line-height: 80px;
+  text-decoration: none;
+}
+/* line 1287, ../sass/style.scss */
+.sorting-container .advanced-sort .arrow {
+  display: inline-flex;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #343434;
+}
+/* line 1294, ../sass/style.scss */
+.sorting-container .advanced-sort .arrow i {
+  width: 100%;
+  color: white;
+  line-height: 20px;
+  text-align: center;
+}
+/* line 1303, ../sass/style.scss */
+.sorting-container .advanced-sort-container {
+  max-height: 0px;
+  overflow: hidden;
+  font-size: 1.4rem;
+  transition: all 0.5s ease;
+}
+/* line 1310, ../sass/style.scss */
+.sorting-container .advanced-sort-container.active {
+  max-height: 600px;
+  margin: 40px 0;
+}
+/* line 1315, ../sass/style.scss */
+.sorting-container .advanced-sort-container p {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+/* line 1319, ../sass/style.scss */
+.sorting-container .advanced-sort-container ul {
+  padding-left: 10px;
+  margin-bottom: 30px;
+}
+/* line 1323, ../sass/style.scss */
+.sorting-container .advanced-sort-container li {
+  list-style: none;
+}
+
+/* line 1331, ../sass/style.scss */
+.art-page .big-preview,
+.art-page .small-previews {
+  width: 50%;
+}
+/* line 1336, ../sass/style.scss */
+.art-page .big-preview {
+  float: left;
+  height: 840px;
+  margin-bottom: 60px;
+  padding: 0 3px;
+}
+/* line 1342, ../sass/style.scss */
+.art-page .big-preview .big-image {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+/* line 1352, ../sass/style.scss */
+.art-page .big-preview .overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+/* line 1359, ../sass/style.scss */
+.art-page .big-preview .overlay-content {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+/* line 1365, ../sass/style.scss */
+.art-page .big-preview h2 {
+  margin: 20px 50px;
+  vertical-align: bottom;
+  color: black;
+}
+/* line 1370, ../sass/style.scss */
+.art-page .big-preview p {
+  margin: 20px 50px 50px;
+  vertical-align: bottom;
+  color: black;
+}
+/* line 1377, ../sass/style.scss */
+.art-page .small-previews {
+  float: right;
+  height: 900px;
+}
+/* line 1381, ../sass/style.scss */
+.art-page .small-previews .auction-preview {
+  width: 50%;
+  margin-bottom: 60px;
+}
+/* line 1385, ../sass/style.scss */
+.art-page .small-previews .auction-info {
+  padding-bottom: 0;
+}
+
+/* line 1392, ../sass/style.scss */
+.pagination-container {
+  margin-top: -72px;
+}
+/* line 1395, ../sass/style.scss */
+.pagination-container .pagination {
+  margin-top: 10px;
+}
+
+/* line 1400, ../sass/style.scss */
+.pagination {
+  display: block;
+  float: right;
+}
+/* line 1404, ../sass/style.scss */
+.pagination .disabled {
+  display: none;
+}
+/* line 1408, ../sass/style.scss */
+.pagination li span,
+.pagination li a {
+  color: #4e4e4e;
+  border: none;
+  padding: 2px;
+  margin: 3px;
+}
+/* line 1415, ../sass/style.scss */
+.pagination li span:hover, .pagination li span:focus,
+.pagination li a:hover,
+.pagination li a:focus {
+  background-color: transparent;
+  color: #009e9c;
+}
+/* line 1422, ../sass/style.scss */
+.pagination .active span {
+  background-color: transparent;
+  color: #4e4e4e;
+  font-weight: bold;
+}
+/* line 1427, ../sass/style.scss */
+.pagination .active span:hover, .pagination .active span:focus {
+  background-color: transparent;
+  color: #4e4e4e;
+}

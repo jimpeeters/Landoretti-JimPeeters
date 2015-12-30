@@ -75,10 +75,10 @@
 					<p><i class="fa fa-phone"></i> +xx (0)x xxx xx xx</p>
 					<p><i class="fa fa-envelope-o"></i> <a class="email-link" href="#">info&amp;landorettiart.com</a>
 					<p class="social-logos">
-						<img src="images/icon-facebook.png" alt="facebook icon">
-						<img src="images/icon-twitter.png" alt="facebook icon">
-						<img src="images/icon-youtube.png" alt="facebook icon">
-						<img src="images/icon-google.png" alt="facebook icon">
+						<img src="/images/icon-facebook.png" alt="facebook icon">
+						<img src="/images/icon-twitter.png" alt="facebook icon">
+						<img src="/images/icon-youtube.png" alt="facebook icon">
+						<img src="/images/icon-google.png" alt="facebook icon">
 					</p>
 					<p class="copyright-text">&copy; 2013 Studio6, Inc. All rights reserved</p>
 				</div>
@@ -89,7 +89,7 @@
 <div class="section-subnav section-footer-subnav">
 	<div class="container">
 		<div class="sub-navigation row">
-			<img id="footer-logo" src="images/logo.png" alt="Landoretti ART logo">
+			<img id="footer-logo" src="/images/logo.png" alt="Landoretti ART logo">
 			<div class="col-md-6 col-md-offset-2">
 				<a href="/">HOME</a>
 				<a href="#">ART</a>

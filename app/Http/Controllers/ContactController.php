@@ -74,13 +74,14 @@ class ContactController extends Controller
 	        $message->to('jim.peeters@student.kdg.be', 'Admin')->subject('Landoretti Question');
 	    });
 
-	  
+	    $auctions = ['default'=>'Choose an auction'] + Auction::orderby('title', 'ASC')->lists('title', 'id')->all(); 
 	  	$success = 'Thanks for contacting us!';
 	  	$newestAuction = Auction::orderBy('created_at', 'desc')->first();
 
   		        return view('contact')
         				->with('newestAuction', $newestAuction)
-        				->with('success', $success);
+        				->with('success', $success)
+                        ->with('auctions', $auctions);
   }
 
     
