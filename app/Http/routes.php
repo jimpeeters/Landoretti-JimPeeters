@@ -10,6 +10,9 @@ Route::post('/register','Auth\AuthController@register');
 /* Faq  */ 
 Route::get('/FAQ',array('as' => 'faq','uses' => 'FaqController@index'));
 
+/* Art pagina  */ 
+Route::get('/auctions',array('as' => 'auctions','uses' => 'OverviewController@index'));
+
 //Show details
 Route::get('/auction/{id}', array('as' => 'auctionDetails','uses' =>'AuctionController@showdetails'));
 

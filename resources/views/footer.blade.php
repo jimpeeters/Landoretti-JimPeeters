@@ -92,7 +92,7 @@
 			<img id="footer-logo" src="/images/logo.png" alt="Landoretti ART logo">
 			<div class="col-md-6 col-md-offset-2">
 				<a href="/">HOME</a>
-				<a href="#">ART</a>
+				<a href="/auctions">ART</a>
 				<a href="/myAuctions">MYAUCTIONS</a>
 				<a href="/myBids">MYBIDS</a>
 				<a href="/contact">CONTACT</a>

@@ -1,10 +1,8 @@
 @extends('layouts.master')
 
-@section('title', 'Art')
-
 @section('content')
 
-
+	@include('newest-auction-section')
 
 	<div class="sorting-container">
 		<div class="container">
@@ -88,7 +86,14 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
-			{!! Breadcrumbs::render('addAuction') !!}
+			{!! Breadcrumbs::render('Auctions') !!}
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			{!! $auctions->render() !!}
 		</div>
 	</div>
 </div>
@@ -97,84 +102,46 @@
 
 		<div class="row">
 			<div class="col-md-12">
-
-				<div class="big-preview">
-					<a href="#" class="big-image" style="background-image:url('http://lorempixel.com/400/800/');">
-						<span class="overlay">
-							<span class="overlay-content">
-								<h2>&ldquo;Lorem ipsum dolor&rdquo;</h2>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut distinctio labore placeat quaerat. Accusamus adipisci alias aliquam assumenda deserunt dolore dolorum illum neque nesciunt qui, quibusdam rem sequi sint. Nesciunt?</p>
+				@foreach($auctions as $key => $auction)
+					@if($key == 0)
+					<div class="big-preview">
+						<a href="/auction/{{$auction->id}}" class="big-image" style="background-image:url('{{$auction->imageArtwork}}');">
+							<span class="overlay">
+								<span class="overlay-content">
+									<h2>&ldquo;{{ str_limit($auction->title, $limit = 20, $end = '...') }}&rdquo;</h2>
+									<p>{{ str_limit($auction->descriptionEnglish, $limit = 200, $end = '...') }}</p>
+								</span>
 							</span>
-						</span>
-					</a>
-				</div>
-
+						</a>
+					</div>
+					@endif
+				@endforeach
 				<div class="small-previews">
+				@foreach($auctions as $key => $auction)
+					@if($key > 0 && $key <= 4)
+						<div class="auction-preview">
+							<a href="/auction/{{$auction->id}}" class="auction-image" style="background-image:url('{{$auction->imageArtwork}}');"><span class="overlay"><i class="fa fa-search"></i></span></a>
 
-					<div class="auction-preview">
-						<a href="#" class="auction-image" style="background-image:url('http://lorempixel.com/400/400/');"><span class="overlay"><i class="fa fa-search"></i></span></a>
+							<div class="auction-info">
+								<span class="artist">{{$auction->year}}, {{$auction->artist->name}}</span>
+								<span class="title">{{$auction->title}}</span>
+								<span class="price">&euro;
+									@if($auction->currentPrice == null)
+										{{$auction->minPrice}}
+									@else
+										{{$auction->currentPrice}}
+									@endif
+								</span>
 
-						<div class="auction-info">
-							<span class="artist">1979, Salvador Dali</span>
-							<span class="title">Dance of Time III</span>
-							<span class="price">&euro; 8.900</span>
+								<div class="call-to-action clearfix">
+									<span class="timeleft">25d 14u 44m</span>
 
-							<div class="call-to-action clearfix">
-								<span class="timeleft">25d 14u 44m</span>
-
-								<a href="#" class="btn btn-visit-auction">Visit Auction <i class="fa fa-angle-right"></i></a>
+									<a href="/auction/{{$auction->id}}" class="btn btn-visit-auction">Visit Auction <i class="fa fa-angle-right"></i></a>
+								</div>
 							</div>
 						</div>
-					</div>
-
-					<div class="auction-preview">
-						<a href="#" class="auction-image" style="background-image:url('http://lorempixel.com/400/400/');"><span class="overlay"><i class="fa fa-search"></i></span></a>
-
-						<div class="auction-info">
-							<span class="artist">1979, Salvador Dali</span>
-							<span class="title">Dance of Time III</span>
-							<span class="price">&euro; 8.900</span>
-
-							<div class="call-to-action clearfix">
-								<span class="timeleft">25d 14u 44m</span>
-
-								<a href="#" class="btn btn-visit-auction">Visit Auction <i class="fa fa-angle-right"></i></a>
-							</div>
-						</div>
-					</div>
-
-					<div class="auction-preview">
-						<a href="#" class="auction-image" style="background-image:url('http://lorempixel.com/400/400/');"><span class="overlay"><i class="fa fa-search"></i></span></a>
-
-						<div class="auction-info">
-							<span class="artist">1979, Salvador Dali</span>
-							<span class="title">Dance of Time III</span>
-							<span class="price">&euro; 8.900</span>
-
-							<div class="call-to-action clearfix">
-								<span class="timeleft">25d 14u 44m</span>
-
-								<a href="#" class="btn btn-visit-auction">Visit Auction <i class="fa fa-angle-right"></i></a>
-							</div>
-						</div>
-					</div>
-
-					<div class="auction-preview">
-						<a href="#" class="auction-image" style="background-image:url('http://lorempixel.com/400/400/');"><span class="overlay"><i class="fa fa-search"></i></span></a>
-
-						<div class="auction-info">
-							<span class="artist">1979, Salvador Dali</span>
-							<span class="title">Dance of Time III</span>
-							<span class="price">&euro; 8.900</span>
-
-							<div class="call-to-action clearfix">
-								<span class="timeleft">25d 14u 44m</span>
-
-								<a href="#" class="btn btn-visit-auction">Visit Auction <i class="fa fa-angle-right"></i></a>
-							</div>
-						</div>
-					</div>
-
+					@endif
+				@endforeach
 				</div>
 
 			</div>
@@ -182,74 +149,43 @@
 
 		<div class="row">
 			<div class="col-md-12">
-				<div class="auction-preview">
-					<a href="#" class="auction-image" style="background-image:url('http://lorempixel.com/400/400/');"><span class="overlay"><i class="fa fa-search"></i></span></a>
+				@foreach($auctions as $key => $auction)
+					@if($key > 4 && $key <= 8)
+						<div class="auction-preview">
+							<a href="/auction/{{$auction->id}}" class="auction-image" style="background-image:url('{{$auction->imageArtwork}}');"><span class="overlay"><i class="fa fa-search"></i></span></a>
 
-					<div class="auction-info">
-						<span class="artist">1979, Salvador Dali</span>
-						<span class="title">Dance of Time III</span>
-						<span class="price">&euro; 8.900</span>
+							<div class="auction-info">
+								<span class="artist">{{$auction->year}}, {{$auction->artist->name}}</span>
+								<span class="title">{{$auction->title}}</span>
+								<span class="price">&euro;
+									@if($auction->currentPrice == null)
+										{{$auction->minPrice}}
+									@else
+										{{$auction->currentPrice}}
+									@endif
+								</span>
 
-						<div class="call-to-action clearfix">
-							<span class="timeleft">25d 14u 44m</span>
+								<div class="call-to-action clearfix">
+									<span class="timeleft">25d 14u 44m</span>
 
-							<a href="#" class="btn btn-visit-auction">Visit Auction <i class="fa fa-angle-right"></i></a>
+									<a href="/auction/{{$auction->id}}" class="btn btn-visit-auction">Visit Auction <i class="fa fa-angle-right"></i></a>
+								</div>
+							</div>
 						</div>
-					</div>
-				</div>
-
-				<div class="auction-preview">
-					<a href="#" class="auction-image" style="background-image:url('http://lorempixel.com/400/400/');"><span class="overlay"><i class="fa fa-search"></i></span></a>
-
-					<div class="auction-info">
-						<span class="artist">1979, Salvador Dali</span>
-						<span class="title">Dance of Time III</span>
-						<span class="price">&euro; 8.900</span>
-
-						<div class="call-to-action clearfix">
-							<span class="timeleft">25d 14u 44m</span>
-
-							<a href="#" class="btn btn-visit-auction">Visit Auction <i class="fa fa-angle-right"></i></a>
-						</div>
-					</div>
-				</div>
-
-				<div class="auction-preview">
-					<a href="#" class="auction-image" style="background-image:url('http://lorempixel.com/400/400/');"><span class="overlay"><i class="fa fa-search"></i></span></a>
-
-					<div class="auction-info">
-						<span class="artist">1979, Salvador Dali</span>
-						<span class="title">Dance of Time III</span>
-						<span class="price">&euro; 8.900</span>
-
-						<div class="call-to-action clearfix">
-							<span class="timeleft">25d 14u 44m</span>
-
-							<a href="#" class="btn btn-visit-auction">Visit Auction <i class="fa fa-angle-right"></i></a>
-						</div>
-					</div>
-				</div>
-
-				<div class="auction-preview">
-					<a href="#" class="auction-image" style="background-image:url('http://lorempixel.com/400/400/');"><span class="overlay"><i class="fa fa-search"></i></span></a>
-
-					<div class="auction-info">
-						<span class="artist">1979, Salvador Dali</span>
-						<span class="title">Dance of Time III</span>
-						<span class="price">&euro; 8.900</span>
-
-						<div class="call-to-action clearfix">
-							<span class="timeleft">25d 14u 44m</span>
-
-							<a href="#" class="btn btn-visit-auction">Visit Auction <i class="fa fa-angle-right"></i></a>
-						</div>
-					</div>
-				</div>
-
+					@endif
+				@endforeach
 			</div>
 		</div>
 
 	</div>
+	
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			{!! $auctions->render() !!}
+		</div>
+	</div>
+</div>
 
 @stop
 

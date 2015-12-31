@@ -5,6 +5,14 @@
 	@include('newest-auction-section')
 
 <div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			{!! Breadcrumbs::render('Details') !!}
+		</div>
+	</div>
+</div>
+
+<div class="container">
 
 @if (count($errors) > 0)
 	<div class="row detailMessages">
