@@ -7,7 +7,7 @@
 			@if(Auth::check()) 
 				<div class="col-md-6 col-md-offset-2 dashboard">
 					<a href="/myWatchlist"><i class="fa fa-bars"></i>WATCHLIST</a>
-					<a href="/myProfile"><i class="fa fa-user"></i>PROFILE</a>
+					<a href="/myProfile"><i class="fa fa-user"></i>{{trans('navigation.login')}}</a>
 					<a href="/auth/logout">LOGOUT</a>
 				</div>
 
@@ -70,8 +70,8 @@
 				<a href="/contact">CONTACT</a>
 			</div>
 			<div class="col-md-2 col-md-offset-2">
-				<a class="pull-right language-link" href="#">NL</a>
-				<a class="pull-right language-link" href="#">EN</a>
+					<a class="pull-right language-link" href="#">NL</a>
+					<a class="pull-right language-link" href="#">EN</a>
 			</div>
 		</div>
 	</div>

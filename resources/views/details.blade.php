@@ -61,7 +61,7 @@
 					@if($auction->imageOptional != null)
 					<div  class="small-image" style="background-image:url('{{$auction->imageOptional}}');">
 					@else
-
+					<div  class="small-image" style="">
 					@endif
 					</div>
 				</div>

@@ -3,10 +3,6 @@
 /* Home */ 
 Route::get('/',array('as' => 'home','uses' => 'HomeController@index'));
 
-/* Registreren */ 
-Route::get('/register',array('as' => 'register','uses' => 'Auth\AuthController@index'));
-Route::post('/register','Auth\AuthController@register');
-
 /* Faq  */ 
 Route::get('/FAQ',array('as' => 'faq','uses' => 'FaqController@index'));
 
@@ -60,10 +56,11 @@ Route::post('contact', array('as' => 'contact_store', 'uses' => 'ContactControll
 /* Contact pagina met prefilled auction */ 
 Route::get('/contact/{id}', array('as' => 'contactById', 'uses' => 'ContactController@contactById'));
 
+
+/* Registreren */ 
+Route::get('/register',array('as' => 'register','uses' => 'Auth\AuthController@index'));
+Route::post('/register','Auth\AuthController@register');
+
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
-
-Route::get('/test', function () {
-    return view('overview');
-});
