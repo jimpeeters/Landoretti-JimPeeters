@@ -21,12 +21,15 @@
 
 						<p>Price</p>
 						<ul>
-							<li>Up to 5,000</li>
-							<li>5,000-10,000</li>
-							<li>10,000-25,000</li>
-							<li>25,000-50,000</li>
-							<li>50,000-100,000</li>
-							<li>Above</li>
+							<form action="/priceFilter" method="post">
+							    <button type="submit" name="type" value="<5000">Up to 5,000</button>
+							    <button type="submit" name="type" value="<10000">5,000-10,000</button>
+							    <button type="submit" name="type" value="<25000">10,000-25,000</button>
+							    <button type="submit" name="type" value="<50000">25,000-50,000</button>
+							    <button type="submit" name="type" value="<100000">50,000-100,000</button>
+							    <button type="submit" name="type" value=">100000">Above</button>
+							    <input type="hidden" value="{{ csrf_token() }}" name="_token">
+							</form>
 						</ul>
 
 						<p>Ending</p>

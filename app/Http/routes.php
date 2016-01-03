@@ -65,7 +65,9 @@ Route::post('/register','Auth\AuthController@register');
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
 
+/* Price filter */
+Route::post('/priceFilter', 'OverviewController@priceFilter');
+
 
 /* Search */
-
 Route::post('/search',array('as' => 'search','uses' => 'QueryController@search'));
