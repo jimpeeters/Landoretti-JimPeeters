@@ -1,8 +1,8 @@
 <?php 
 
 return array(
-	'register' => 'registreren',
-	'login' => 'inloggen',
+	'register' => 'REGISTREREN',
+	'login' => 'INLOGGEN',
 	'search' => 'zoek',
 	'watchlist' => 'watchlist',
 	'profile' => 'profiel',

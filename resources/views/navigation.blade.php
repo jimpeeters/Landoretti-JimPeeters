@@ -7,14 +7,14 @@
 			@if(Auth::check()) 
 				<div class="col-md-6 col-md-offset-2 dashboard">
 					<a href="/myWatchlist"><i class="fa fa-bars"></i>WATCHLIST</a>
-					<a href="/myProfile"><i class="fa fa-user"></i>{{trans('navigation.login')}}</a>
+					<a href="/myProfile"><i class="fa fa-user"></i>PROFILE</a>
 					<a href="/auth/logout">LOGOUT</a>
 				</div>
 
 			@else
 				<div class="col-md-6 col-md-offset-2">
 					<a href="/register">REGISTER </a>
-					<a id="login-button" href="#">LOGIN</a>
+					<a id="login-button" href="#">{{trans('navigation.login')}}</a>
 
 					<div class="login-block hide">
 
@@ -28,8 +28,13 @@
 				</div>
 			@endif
 			<div class="col-md-3 col-md-offset-1">
-				<i class="fa fa-search pull-right"></i>
-					<input class="search-field pull-right" placeholder="Search">
+				{!! Form::open(array('url' => '/search', 'class'=>'form navbar-form navbar-right searchform', 'method' => 'post')) !!}
+				    <button type="submit" class="pull-right"><i class="fa fa-search"></i></button>
+				    {!! Form::text('search', null,
+   												array('required',
+				                                'class'=>'search-field pull-right',
+				                                'placeholder'=>'Search')) !!}
+				 {!! Form::close() !!}
 			</div>
 
 				@section('scripts')

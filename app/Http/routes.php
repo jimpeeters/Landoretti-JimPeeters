@@ -64,3 +64,8 @@ Route::post('/register','Auth\AuthController@register');
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
+
+
+/* Search */
+
+Route::post('/search',array('as' => 'search','uses' => 'QueryController@search'));
