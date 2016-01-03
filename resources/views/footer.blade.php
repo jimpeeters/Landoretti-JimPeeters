@@ -9,7 +9,7 @@
 					<h4>HELP</h4>
 					<a href="#">Terms of Service</a>
 					<a href="#">Privacy Policy</a>
-					<a href="/FAQ">FAQ</a>
+					<a href="{{route('faq')}}">FAQ</a>
 					<a href="#">Contact Us</a>
 					<a href="#">About Us</a>
 					<br>
@@ -91,11 +91,11 @@
 		<div class="sub-navigation row">
 			<img id="footer-logo" src="/images/logo.png" alt="Landoretti ART logo">
 			<div class="col-md-6 col-md-offset-2">
-				<a href="/">HOME</a>
-				<a href="/auctions">ART</a>
-				<a href="/myAuctions">MYAUCTIONS</a>
-				<a href="/myBids">MYBIDS</a>
-				<a href="/contact">CONTACT</a>
+				<a href="{{route('home')}}">HOME</a>
+				<a href="{{route('auctions')}}">ART</a>
+				<a href="{{route('myAuctions')}}">MYAUCTIONS</a>
+				<a href="{{route('myBids')}}">MYBIDS</a>
+				<a href="{{route('contact')}}t">CONTACT</a>
 			</div>
 			<div class="col-md-2 col-md-offset-2">
 				<a class="pull-right language-link" href="#">NL</a>

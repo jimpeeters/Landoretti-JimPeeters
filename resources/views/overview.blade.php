@@ -108,7 +108,7 @@
 				@foreach($auctions as $key => $auction)
 					@if($key == 0)
 					<div class="big-preview">
-						<a href="/auction/{{$auction->id}}" class="big-image" style="background-image:url('{{$auction->imageArtwork}}');">
+						<a href="{{route('auctionDetails', $auction->id)}}" class="big-image" style="background-image:url('{{$auction->imageArtwork}}');">
 							<span class="overlay">
 								<span class="overlay-content">
 									<h2>&ldquo;{{ str_limit($auction->title, $limit = 20, $end = '...') }}&rdquo;</h2>
@@ -123,7 +123,7 @@
 				@foreach($auctions as $key => $auction)
 					@if($key > 0 && $key <= 4)
 						<div class="auction-preview">
-							<a href="/auction/{{$auction->id}}" class="auction-image" style="background-image:url('{{$auction->imageArtwork}}');"><span class="overlay"><i class="fa fa-search"></i></span></a>
+							<a href="{{route('auctionDetails', $auction->id)}}" class="auction-image" style="background-image:url('{{$auction->imageArtwork}}');"><span class="overlay"><i class="fa fa-search"></i></span></a>
 
 							<div class="auction-info">
 								<span class="artist">{{$auction->year}}, {{$auction->artist->name}}</span>
@@ -139,7 +139,7 @@
 								<div class="call-to-action clearfix">
 									<span class="timeleft">25d 14u 44m</span>
 
-									<a href="/auction/{{$auction->id}}" class="btn btn-visit-auction">Visit Auction <i class="fa fa-angle-right"></i></a>
+									<a href="{{route('auctionDetails', $auction->id)}}" class="btn btn-visit-auction">Visit Auction <i class="fa fa-angle-right"></i></a>
 								</div>
 							</div>
 						</div>
@@ -155,7 +155,7 @@
 				@foreach($auctions as $key => $auction)
 					@if($key > 4 && $key <= 8)
 						<div class="auction-preview">
-							<a href="/auction/{{$auction->id}}" class="auction-image" style="background-image:url('{{$auction->imageArtwork}}');"><span class="overlay"><i class="fa fa-search"></i></span></a>
+							<a href="{{route('auctionDetails', $auction->id)}}" class="auction-image" style="background-image:url('{{$auction->imageArtwork}}');"><span class="overlay"><i class="fa fa-search"></i></span></a>
 
 							<div class="auction-info">
 								<span class="artist">{{$auction->year}}, {{$auction->artist->name}}</span>
@@ -171,7 +171,7 @@
 								<div class="call-to-action clearfix">
 									<span class="timeleft">25d 14u 44m</span>
 
-									<a href="/auction/{{$auction->id}}" class="btn btn-visit-auction">Visit Auction <i class="fa fa-angle-right"></i></a>
+									<a href="{{route('auctionDetails', $auction->id)}}" class="btn btn-visit-auction">Visit Auction <i class="fa fa-angle-right"></i></a>
 								</div>
 							</div>
 						</div>

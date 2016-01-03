@@ -43,7 +43,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/auction/buyout/{id}',array('as' => 'buyout','uses' => 'AuctionController@buyout'));
 
 	/* uitloggen */
-	Route::get('auth/logout', 'Auth\AuthController@getLogout');
+	Route::get('auth/logout', array('as' => 'getLogout','uses' => 'Auth\AuthController@getLogout'));
 
 });
 
@@ -58,16 +58,15 @@ Route::get('/contact/{id}', array('as' => 'contactById', 'uses' => 'ContactContr
 
 
 /* Registreren */ 
-Route::get('/register',array('as' => 'register','uses' => 'Auth\AuthController@index'));
-Route::post('/register','Auth\AuthController@register');
+Route::get('/register',array('as' => 'getRegister','uses' => 'Auth\AuthController@index'));
+Route::post('/register',array('as' => 'postRegister','uses' => 'Auth\AuthController@register'));
 
 // Authentication routes...
-Route::get('auth/login', 'Auth\AuthController@getLogin');
-Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('auth/login', array('as' => 'getLogin','uses' => 'Auth\AuthController@getLogin'));
+Route::post('auth/login', array('as' => 'postLogin','uses' => 'Auth\AuthController@postLogin'));
 
 /* Price filter */
-Route::post('/priceFilter', 'OverviewController@priceFilter');
-
+Route::post('/priceFilter', array('as' => 'priceFilter','uses' => 'OverviewController@priceFilter'));
 
 /* Search */
 Route::post('/search',array('as' => 'search','uses' => 'QueryController@search'));

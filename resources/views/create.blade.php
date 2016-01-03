@@ -40,7 +40,7 @@
 		</div>
 	@endif
 
-	<form action="/myAuctions/add" method="post" enctype="multipart/form-data">
+	<form action="{{route('storeAuction')}}" method="post" enctype="multipart/form-data">
 
 
 		<div class="row">

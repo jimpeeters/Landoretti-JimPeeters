@@ -11,7 +11,7 @@
 		
 		<h1>Register</h1>
 
-		{!! Form::open(array('url' => '/register', 'method' => 'post')) !!}
+		{!! Form::open(array('route' => 'postRegister', 'method' => 'post')) !!}
 
 			@if (count($errors) > 0)
 			<div class="row">

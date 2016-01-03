@@ -6,19 +6,19 @@
 
 			@if(Auth::check()) 
 				<div class="col-md-6 col-md-offset-2 dashboard">
-					<a href="/myWatchlist"><i class="fa fa-bars"></i>WATCHLIST</a>
-					<a href="/myProfile"><i class="fa fa-user"></i>PROFILE</a>
-					<a href="/auth/logout">LOGOUT</a>
+					<a href="{{route('myWatchlist')}}"><i class="fa fa-bars"></i>WATCHLIST</a>
+					<a href="{{route('myProfile')}}"><i class="fa fa-user"></i>PROFILE</a>
+					<a href="{{route('getLogout')}}">LOGOUT</a>
 				</div>
 
 			@else
 				<div class="col-md-6 col-md-offset-2">
-					<a href="/register">REGISTER </a>
+					<a href="{{route('getRegister')}}">REGISTER </a>
 					<a id="login-button" href="#">{{trans('navigation.login')}}</a>
 
 					<div class="login-block hide">
 
-					{!! Form::open(array('url' => 'auth/login', 'method' => 'post')) !!}
+					{!! Form::open(array('route' => 'postLogin', 'method' => 'post')) !!}
 						<input type="email" name="email" class="form-control" id="email" placeholder="User">
 						<input type="password" name="password" class="form-control" id="password" placeholder="Password">
 						<button type="submit">Login</button>
@@ -28,7 +28,7 @@
 				</div>
 			@endif
 			<div class="col-md-3 col-md-offset-1">
-				{!! Form::open(array('url' => '/search', 'class'=>'form navbar-form navbar-right searchform', 'method' => 'post')) !!}
+				{!! Form::open(array('route' => 'search', 'class'=>'form navbar-form navbar-right searchform', 'method' => 'post')) !!}
 				    <button type="submit" class="pull-right"><i class="fa fa-search"></i></button>
 				    {!! Form::text('search', null,
    												array('required',
@@ -68,11 +68,11 @@
 	<div class="container">
 		<div class="sub-navigation row">
 			<div class="col-md-6 col-md-offset-2">
-				<a href="/">HOME</a>
-				<a href="/auctions">ART</a>
-				<a href="/myAuctions">MYAUCTIONS</a>
-				<a href="/myBids">MYBIDS</a>
-				<a href="/contact">CONTACT</a>
+				<a href="{{route('home')}}">HOME</a>
+				<a href="{{route('auctions')}}">ART</a>
+				<a href="{{route('myAuctions')}}">MYAUCTIONS</a>
+				<a href="{{route('myBids')}}">MYBIDS</a>
+				<a href="{{route('contact')}}">CONTACT</a>
 			</div>
 			<div class="col-md-2 col-md-offset-2">
 					<a class="pull-right language-link" href="#">NL</a>

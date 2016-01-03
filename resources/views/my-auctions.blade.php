@@ -23,7 +23,7 @@
 		</div>
 		<div class="row">
 			<div class="col-md-3 col-md-offset-9">
-				<a href="/myAuctions/add" class="add-button">
+				<a href="{{route('createAuction')}}" class="add-button">
 					ADD NEW AUCTION<i class="fa fa-angle-right"></i>
 				</a>
 			</div>

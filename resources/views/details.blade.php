@@ -87,7 +87,7 @@
 							@if(Auth::user()->id == $auction->FK_user_id)
 							 	<a class="buy-now" href="#">Buyout price &euro;{{$auction->buyoutPrice}}</a>
 							@else
-								<a class="buy-now" href="/auction/buyout/{{$auction->id}}">Buy now for &euro;{{$auction->buyoutPrice}}</a>
+								<a class="buy-now" href="{{route('buyout', $auction->id)}}">Buy now for &euro;{{$auction->buyoutPrice}}</a>
 							@endif
 						@else
 							<a class="buy-now" href="#">Buyout price &euro;{{$auction->buyoutPrice}}</a>
@@ -99,9 +99,10 @@
 
 							@else
 							<div class="bid-now-sub">
-								{!! Form::open(array('url' => '/auction/bid/'.$auction->id, 'method' => 'post', 'id'=>'bidForm')) !!}
+								<form action="{{route('placeBid', $auction->id)}}" method="post" id="bidForm">
 									<p><input type="text" name="bidAmount" id="bidAmount" placeholder="xxxx" value="{{ old('bidAmount') }}" required> <button type="submit">BID NOW</button><i class="fa fa-angle-right"></i></p>
-								{!! Form::close() !!}
+									<input type="hidden" value="{{ csrf_token() }}" name="_token">
+								</form>
 							</div>
 							@endif
 						@else
@@ -111,7 +112,7 @@
 						@endif
 
 						@if(Auth::check())
-							<p class="add-watchlist"><a href="/watchlist/add/{{$auction->id}}"><i class="fa fa-bars"></i>add to my watchlist</a></p>
+							<p class="add-watchlist"><a href="{{route('addToWatchlist', $auction->id)}}"><i class="fa fa-bars"></i>add to my watchlist</a></p>
 						@else
 							<p>Make an account to own a watchlist</p>
 						@endif
@@ -140,7 +141,7 @@
 				<p>{{$auction->color->colorEnglish}}</p>
 
 				<div>
-					<a href="/contact/{{$auction->id}}">
+					<a href="{{route('contact', $auction->id)}}">
 						<p>ASK A QUESTION</p>
 						<p>ABOUT THIS AUCTION</p>
 					</a>

@@ -25,7 +25,7 @@
                     <div class="fill" style="background-image:url('{{$recentAuction->imageArtwork}}');"></div>
                     <div class="carousel-caption">
                     	<img class="icon-slider" src="/images/icon-slider.png" alt="decorative circle to give attention to the artwork details.">
-                        <p><a href="/auction/{{$recentAuction->id}}">{{$recentAuction->descriptionEnglish}}</a></p>
+                        <p><a href="{{route('auctionDetails', $recentAuction->id)}}">{{$recentAuction->descriptionEnglish}}</a></p>
                     </div>
                 </div>
                 @endforeach

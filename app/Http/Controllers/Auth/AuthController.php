@@ -92,7 +92,7 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-        return redirect('/')->with('success','Account successvol aangemaakt!');
+        redirect()->route('home')->with('success','Account successvol aangemaakt!');
     }
 
     public function login(request $request)
@@ -101,11 +101,11 @@ class AuthController extends Controller
 
         if (Auth::attempt(['email' => $input['email'], 'password' => $input['password']]))
         {
-            return redirect('/');
+            redirect()->route('home');
         }
         else
         {
-            return redirect('/')->with('loginFail', ['fail']);
+            redirect()->route('home')->with('loginFail', ['fail']);
         }
     }
 
