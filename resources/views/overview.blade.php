@@ -8,7 +8,16 @@
 		<div class="container">
 
 			<div class="basic-sort">
-				<span class="sort-by">Sort by:</span> <a href="#">ending soonest</a> | <a href="#">ending latest</a> | <a href="#">new auctions</a> | <a href="#">popular auctions</a>
+				<span class="sort-by">Sort by:</span> 
+				<form id="sort-form" action="{{route('sortBy')}}" method="post">
+
+					<button class="button-clean" type="submit" name="type" value="soonest">ending soonest</button> |
+					<button class="button-clean" type="submit" name="type" value="latest">ending latest</button> |
+					<button class="button-clean" type="submit" name="type" value="new">new auctions</button> |
+					<button class="button-clean" type="submit" name="type" value="popular">popular auctions</button>
+
+					<input type="hidden" value="{{ csrf_token() }}" name="_token">
+				</form>
 			</div>
 
 			<div class="advanced-sort">
@@ -21,22 +30,25 @@
 
 						<p>Price</p>
 						<ul>
-							<form action="/priceFilter" method="post">
-							    <button type="submit" name="type" value="<5000">Up to 5,000</button>
-							    <button type="submit" name="type" value="<10000">5,000-10,000</button>
-							    <button type="submit" name="type" value="<25000">10,000-25,000</button>
-							    <button type="submit" name="type" value="<50000">25,000-50,000</button>
-							    <button type="submit" name="type" value="<100000">50,000-100,000</button>
-							    <button type="submit" name="type" value=">100000">Above</button>
+							<form id="sort-form" action="{{route('priceFilter')}}" method="post">
+							    <button class="button-clean" type="submit" name="type" value="<5000">Up to 5,000</button>
+							    <button class="button-clean" type="submit" name="type" value="<10000">5,000-10,000</button>
+							    <button class="button-clean" type="submit" name="type" value="<25000">10,000-25,000</button>
+							    <button class="button-clean" type="submit" name="type" value="<50000">25,000-50,000</button>
+							    <button class="button-clean" type="submit" name="type" value="<100000">50,000-100,000</button>
+							    <button class="button-clean" type="submit" name="type" value=">100000">Above</button>
 							    <input type="hidden" value="{{ csrf_token() }}" name="_token">
 							</form>
 						</ul>
 
 						<p>Ending</p>
 						<ul>
-							<li>Ending this Week</li>
-							<li>Newly Listed</li>
-							<li>Purchase Now</li>
+							<form id="sort-form" action="{{route('endingFilter')}}" method="post">
+								<button class="button-clean" type="submit" name="type" value="thisweek">Ending this Week</button>
+								<button class="button-clean" type="submit" name="type" value="newlisted">Newly Listed</button>
+								<button class="button-clean" type="submit" name="type" value="purchasenow">Purchase Now</button>
+								<input type="hidden" value="{{ csrf_token() }}" name="_token">
+							</form>
 						</ul>
 
 					</div>
@@ -45,19 +57,25 @@
 
 						<p>Era</p>
 						<ul>
-							<li>Pre-War</li>
-							<li>1940s-1950s</li>
-							<li>1960s-1980s</li>
-							<li>1990s-Present</li>
+							<form id="sort-form" action="{{route('eraFilter')}}" method="post">
+								<button class="button-clean" type="submit" name="type" value="1">Pre-War</button>
+								<button class="button-clean" type="submit" name="type" value="2">1940s-1950s</button>
+								<button class="button-clean" type="submit" name="type" value="3">1960s-1980s</button>
+								<button class="button-clean" type="submit" name="type" value="4">1990s-Present</button>
+								<input type="hidden" value="{{ csrf_token() }}" name="_token">
+							</form>
 						</ul>
 
 						<p>Media</p>
 						<ul>
-							<li>Design</li>
-							<li>paintings and Works on Paper</li>
-							<li>Photographs</li>
-							<li>Prints and Multiples</li>
-							<li>Sculpture</li>
+							<form id="sort-form" action="{{route('categoryFilter')}}" method="post">
+								<button class="button-clean" type="submit" name="type" value="1">Design</button>
+								<button class="button-clean" type="submit" name="type" value="2">Paintings and Works on Paper</button>
+								<button class="button-clean" type="submit" name="type" value="3">Photographs</button>
+								<button class="button-clean" type="submit" name="type" value="4">Prints and Multiples</button>
+								<button class="button-clean" type="submit" name="type" value="5">Sculpture</button>
+								<input type="hidden" value="{{ csrf_token() }}" name="_token">
+							</form>
 						</ul>
 
 					</div>
@@ -66,18 +84,22 @@
 
 						<p>Style</p>
 						<ul>
-							<li>Abstract</li>
-							<li>African American</li>
-							<li>Asian Contemporary</li>
-							<li>Conceptual</li>
-							<li>test</li>
-							<li>test</li>
-							<li>test</li>
-							<li>test</li>
-							<li>test</li>
-							<li>test</li>
-							<li>test</li>
-							<li>test</li>
+							<form id="sort-form" action="{{route('styleFilter')}}" method="post">
+								<button class="button-clean" type="submit" name="type" value="1">Abstract</button>
+								<button class="button-clean" type="submit" name="type" value="2">African American</button>
+								<button class="button-clean" type="submit" name="type" value="3">Asian Contemporary</button>
+								<button class="button-clean" type="submit" name="type" value="4">Conceptual</button>
+								<button class="button-clean" type="submit" name="type" value="5">Contemporary</button>
+								<button class="button-clean" type="submit" name="type" value="6">Emerging Artists</button>
+								<button class="button-clean" type="submit" name="type" value="7">Figurative</button>
+								<button class="button-clean" type="submit" name="type" value="8">Middle Eastern Contemporary</button>
+								<button class="button-clean" type="submit" name="type" value="9">Minimalism</button>
+								<button class="button-clean" type="submit" name="type" value="10">Modern</button>
+								<button class="button-clean" type="submit" name="type" value="11">Pop</button>
+								<button class="button-clean" type="submit" name="type" value="12">Urban</button>
+								<button class="button-clean" type="submit" name="type" value="13">Vintage Photographs</button>
+								<input type="hidden" value="{{ csrf_token() }}" name="_token">
+							</form>
 						</ul>
 					</div>
 				</div>

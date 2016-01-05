@@ -27,6 +27,10 @@ class StyleTableSeeder extends Seeder {
 			),
 
 		array(
+				'name' => 'Contemporary'
+			),
+
+		array(
 				'name' => 'Emerging Artists'
 			),
 

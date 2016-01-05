@@ -7,6 +7,14 @@ $txtcolor : #4e4e4e;
 
 /* Main classes */
 
+.button-clean {
+     background:none!important;
+     border:none; 
+     padding:0!important;
+     font: inherit;
+     cursor: pointer;
+}
+
 .container {
     position: relative;
     width : 1030px;
@@ -1247,29 +1255,43 @@ form {
 
 .sorting-container {
     width: 100%;
-
     border-bottom: 1px solid $txtcolor;
+    
+    #sort-form {
+            margin-top: 0px !important;
+    }
 
     .basic-sort {
+        margin-top: 22px;
         display: inline-block;
-        line-height: 80px;
+        line-height: 35px;
+        width : 80%;
 
         .sort-by {
             text-transform: uppercase;
             font-weight: bold;
+            display: inline-block;
+            float :left;
+            padding-right: 5px;
         }
 
-        a {
+        button {
             color: $txtcolor;
             font-weight: normal;
             text-transform: lowercase;
             text-decoration: none;
             padding: 5px;
+            display: inline-block;
+            border-bottom: 3px solid white;
 
             &:active,
             &:hover {
-                color: black;
+                color: black !important;
                 border-bottom: 3px solid $border;
+            }
+            
+            &:active {
+                font-weight: bold;
             }
         }
     }
@@ -1308,7 +1330,7 @@ form {
         transition: all 0.5s ease;
         
         &.active {
-            max-height: 600px;
+            max-height: 300px;
             margin: 40px 0;
         }
 
@@ -1316,12 +1338,17 @@ form {
             margin-bottom: 5px;
             font-weight: bold;
         }
+        
+        button {
+            display: block;
+            padding-bottom: 3px;
+            
+
+        }
+        
         ul {
             padding-left: 10px;
             margin-bottom: 30px;
-        }
-        li {
-            list-style: none;
         }
     }
 }

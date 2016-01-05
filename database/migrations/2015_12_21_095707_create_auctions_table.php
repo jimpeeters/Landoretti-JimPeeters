@@ -33,7 +33,7 @@ class CreateAuctionsTable extends Migration {
 			$table->Integer('maxPrice');
 			$table->Integer('buyoutPrice');
 			$table->Integer('currentPrice')->nullable();
-			$table->date('enddate');
+			$table->dateTime('enddate');
 			$table->string('originDutch', 255);
 			$table->string('originEnglish', 255);
 		});

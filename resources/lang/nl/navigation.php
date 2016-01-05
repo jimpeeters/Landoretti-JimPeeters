@@ -3,7 +3,7 @@
 return array(
 	'register' => 'REGISTREREN',
 	'login' => 'INLOGGEN',
-	'search' => 'zoek',
+	'search' => 'Zoek',
 	'watchlist' => 'watchlist',
 	'profile' => 'profiel',
 	'logout' => 'uitloggen',

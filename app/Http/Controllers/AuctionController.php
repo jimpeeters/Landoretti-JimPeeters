@@ -101,6 +101,7 @@ class AuctionController extends Controller {
         $auction->originEnglish = $input['originEnglish'];
         $auction->originDutch = $input['originDutch'];
         $auction->minPrice = $input['minPrice'];
+        $auction->currentPrice = $input['minPrice']; //de huidige prijs op de minimum prijs zetten
         $auction->maxPrice = $input['maxPrice'];
         $auction->buyoutPrice = $input['buyoutPrice'];
         $auction->enddate = $input['enddate'];

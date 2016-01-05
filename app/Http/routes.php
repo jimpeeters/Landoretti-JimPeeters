@@ -65,8 +65,26 @@ Route::post('/register',array('as' => 'postRegister','uses' => 'Auth\AuthControl
 Route::get('auth/login', array('as' => 'getLogin','uses' => 'Auth\AuthController@getLogin'));
 Route::post('auth/login', array('as' => 'postLogin','uses' => 'Auth\AuthController@postLogin'));
 
+/* --- filters --- */ 
+
+/* Sort by */ 
+Route::post('/sortBy', array('as' => 'sortBy','uses' => 'OverviewController@sortBy'));
+
 /* Price filter */
 Route::post('/priceFilter', array('as' => 'priceFilter','uses' => 'OverviewController@priceFilter'));
+
+/* Ending filter */
+Route::post('/endingFilter', array('as' => 'endingFilter','uses' => 'OverviewController@endingFilter'));
+
+/* Era filter */
+Route::post('/eraFilter', array('as' => 'eraFilter','uses' => 'OverviewController@eraFilter'));
+
+/* Category filter */
+Route::post('/categoryFilter', array('as' => 'categoryFilter','uses' => 'OverviewController@categoryFilter'));
+
+/* Style filter */
+Route::post('/styleFilter', array('as' => 'styleFilter','uses' => 'OverviewController@styleFilter'));
+
 
 /* Search */
 Route::post('/search',array('as' => 'search','uses' => 'QueryController@search'));

@@ -51,7 +51,7 @@ class Auction extends Model {
 		return $this->belongsTo('App\User', 'FK_user_id');
 	}
 
-	public function bidders()
+   	public function bidders()
     {
         return $this->hasMany('App\Bidder', 'FK_auction_id');
     }
