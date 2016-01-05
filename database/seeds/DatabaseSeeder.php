@@ -39,6 +39,8 @@ class DatabaseSeeder extends Seeder {
 		$this->call('UserTableSeeder');
 		$this->call('StatusTableSeeder');
 		$this->call('AuctionTableSeeder');
+		$this->call('BidderTableSeeder');
+
 
         Model::reguard();
 	}

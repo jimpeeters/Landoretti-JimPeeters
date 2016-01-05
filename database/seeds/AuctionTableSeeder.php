@@ -76,7 +76,7 @@ class AuctionTableSeeder extends Seeder
 				'updated_at' => new DateTime,
 			),
 		array(
-				'FK_user_id' => '1',
+				'FK_user_id' => '3',
 				'FK_artist_id' => '2',
 				'FK_color_id' => '1',
 				'FK_style_id' => '1',
@@ -286,7 +286,7 @@ class AuctionTableSeeder extends Seeder
 				'updated_at' => new DateTime,
 			),
 		array(
-				'FK_user_id' => '1',
+				'FK_user_id' => '3',
 				'FK_artist_id' => '1',
 				'FK_color_id' => '1',
 				'FK_style_id' => '1',
@@ -316,7 +316,7 @@ class AuctionTableSeeder extends Seeder
 				'updated_at' => new DateTime,
 			),
 		array(
-				'FK_user_id' => '1',
+				'FK_user_id' => '3',
 				'FK_artist_id' => '2',
 				'FK_color_id' => '1',
 				'FK_style_id' => '1',

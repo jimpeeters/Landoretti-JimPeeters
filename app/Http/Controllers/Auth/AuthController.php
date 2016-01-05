@@ -13,6 +13,8 @@ use View;
 use Illuminate\Http\Request;
 use Hash;
 use App\Country;
+use App\Auction;
+use Redirect;
 
 class AuthController extends Controller
 {
@@ -34,11 +36,13 @@ class AuthController extends Controller
 
     public function index()
     {
+        $newestAuction = Auction::orderBy('created_at', 'desc')->first();
         $countries =  ['default'=>'Kies een land'] + Country::orderby('nameDutch', 'ASC')->lists('nameDutch', 'id')->all();  
        // $countriesEnglish = ['default'=>'Choose a country'] + Country::orderby('nameEnglish', 'ASC')->lists('nameEnglish', 'id')->all();  
 
         return View::make('register')
-            ->with('countries', $countries);
+            ->with('countries', $countries)
+            ->with('newestAuction', $newestAuction);
     }
 
     /**
@@ -86,13 +90,15 @@ class AuthController extends Controller
         $user->password  = Hash::make($input['password']);
 
         $country = explode(',', $input['country']);
-        $user->country     = $country[0];
+        $user->FK_country_id     = $country[0];
 
         $user->save();
 
         Auth::login($user);
 
-        redirect()->route('home')->with('success','Account successvol aangemaakt!');
+
+        return Redirect::route('home')->with('success','Account successfully made!');
+        
     }
 
     public function login(request $request)
@@ -101,11 +107,11 @@ class AuthController extends Controller
 
         if (Auth::attempt(['email' => $input['email'], 'password' => $input['password']]))
         {
-            redirect()->route('home');
+            return Redirect::route('home');
         }
         else
         {
-            redirect()->route('home')->with('loginFail', ['fail']);
+            return Redirect::route('home')->with('loginFail', ['fail']);
         }
     }
 

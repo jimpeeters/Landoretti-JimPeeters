@@ -15,6 +15,13 @@ class HomeController extends Controller
     {
     	$recentAuctions = Auction::orderBy('created_at', 'desc')->take(4)->get();
 
-        return View::make('home')->with('recentAuctions', $recentAuctions);
+        $popularAuctions = Auction::with('bidders')->get()->sortBy(function($auction)
+		{
+		    return $auction->bidders->count();
+		})->take(3);
+
+        return View::make('home')
+        				->with('recentAuctions', $recentAuctions)
+        				->with('popularAuctions', $popularAuctions);
     }
 }

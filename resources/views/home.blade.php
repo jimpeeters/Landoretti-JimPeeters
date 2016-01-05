@@ -4,6 +4,17 @@
 
 
 @section('content')
+
+<div class="container">
+    @if (session()->has('success'))
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-success">{{ Session::get('success') }}</div>
+            </div>
+        </div>
+    @endif
+</div>
+
 <div class="container-full">
          <header id="myCarousel" class="carousel slide">
             <!-- Indicators -->
@@ -70,11 +81,22 @@
         	<div class="popular-home col-md-12">
         		<h1>Most popular this week</h1>
         		<div class="col-md-4 popular-left">
-                    <a href="#" class="popular-image" style="background-image:url('http://lorempixel.com/400/400/');"><span class="overlay"><i class="fa fa-search"></i></span></a>
-        			<a href="#" class="popular-image" style="background-image:url('http://lorempixel.com/400/400/');"><span class="overlay"><i class="fa fa-search"></i></span></a>
+                @foreach($popularAuctions as $key => $auction)
+                    @if($key == 1)
+                        <a href="{{route('auctionDetails', $auction->id)}}" class="popular-image" style="background-image:url('{{$auction->imageArtwork}}');"><span class="overlay"><i class="fa fa-search"></i></span></a>
+                    @endif
+
+                    @if($key == 2)
+        			    <a href="{{route('auctionDetails', $auction->id)}}" class="popular-image" style="background-image:url('{{$auction->imageArtwork}}');"><span class="overlay"><i class="fa fa-search"></i></span></a>
+                    @endif
+                @endforeach
         		</div>
         		<div class="col-md-8 popular-right">
-                    <a href="#" class="popular-image" style="background-image:url('http://lorempixel.com/400/400/');"><span class="overlay"><i class="fa fa-search"></i></span></a>
+                @foreach($popularAuctions as $key => $auction)
+                    @if($key == 0)
+                        <a href="{{route('auctionDetails', $auction->id)}}" class="popular-image" style="background-image:url('{{$auction->imageArtwork}}');"><span class="overlay"><i class="fa fa-search"></i></span></a>
+                    @endif
+                @endforeach
         		</div>
         	</div>
         </div>
