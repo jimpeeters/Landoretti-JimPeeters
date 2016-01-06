@@ -3,73 +3,86 @@
 		<div class="footer row">
 				<div class="col-md-3">
 					<h4>HELP</h4>
-					<a href="#">Login</a>
-					<a href="#">Register</a>
+					<a href="#">{{trans('footer.login')}}</a>
+					<a href="#">{{trans('footer.register')}}</a>
 					<br>
 					<h4>HELP</h4>
-					<a href="#">Terms of Service</a>
-					<a href="#">Privacy Policy</a>
-					<a href="{{route('faq')}}">FAQ</a>
-					<a href="#">Contact Us</a>
-					<a href="#">About Us</a>
+					<a href="#">{{trans('footer.tos')}}</a>
+					<a href="#">{{trans('footer.privacy')}}</a>
+					<a href="{{route('faq')}}">{{trans('footer.faq')}}</a>
+					<a href="#">{{trans('footer.contact')}}</a>
+					<a href="#">{{trans('footer.about')}}</a>
 					<br>
-					<h4>LANGUAGES</h4>
-					<a href="#">Nederlands</a>
-					<a href="#">English</a>
+					<h4>{{trans('footer.languages')}}</h4>
+					<a href="/nl">{{trans('footer.dutch')}}</a>
+					<a href="/en">{{trans('footer.english')}}</a>
 				</div>
 				<div class="col-md-3">
-					<h4>STYLE</h4>
-					<!-- alle styles uit DB halen -->
-					<a href="#">Abstract</a>
-					<a href="#">African American</a>
-					<a href="#">Asian Contemporary</a>
-					<a href="#">Conceptual</a>
-					<a href="#">test</a>
-					<a href="#">test</a>
-					<a href="#">test</a>
-					<a href="#">test</a>
-					<a href="#">test</a>
-					<a href="#">test</a>
-					<a href="#">test</a>
-					<a href="#">test</a>
-					<br>
-					<h4>STYLE</h4>
-					<!-- alle categorien uit DB halen -->
-					<a href="#">test</a>
-					<a href="#">test</a>
-					<a href="#">test</a>
-					<a href="#">test</a>
-					<a href="#">test</a>
+					<h4>{{trans('footer.style')}}</h4>
+						<form id="sort-form" action="{{route('styleFilter')}}" method="post">
+							<button class="button-clean" type="submit" name="type" value="1">{{trans('footer.abstract')}}</button>
+							<button class="button-clean" type="submit" name="type" value="2">{{trans('footer.africana')}}</button>
+							<button class="button-clean" type="submit" name="type" value="3">{{trans('footer.asianc')}}</button>
+							<button class="button-clean" type="submit" name="type" value="4">{{trans('footer.conceptual')}}</button>
+							<button class="button-clean" type="submit" name="type" value="5">{{trans('footer.contemporary')}}</button>
+							<button class="button-clean" type="submit" name="type" value="6">{{trans('footer.emerginga')}}</button>
+							<button class="button-clean" type="submit" name="type" value="7">{{trans('footer.figurative')}}</button>
+							<button class="button-clean" type="submit" name="type" value="8">{{trans('footer.middleec')}}</button>
+							<button class="button-clean" type="submit" name="type" value="9">{{trans('footer.minimalism')}}</button>
+							<button class="button-clean" type="submit" name="type" value="10">{{trans('footer.modern')}}</button>
+							<button class="button-clean" type="submit" name="type" value="11">{{trans('footer.pop')}}</button>
+							<button class="button-clean" type="submit" name="type" value="12">{{trans('footer.urban')}}</button>
+							<button class="button-clean" type="submit" name="type" value="13">{{trans('footer.vintage')}}</button>
+							<input type="hidden" value="{{ csrf_token() }}" name="_token">
+						</form>
+					<h4>{{trans('footer.media')}}</h4>
+						<form id="sort-form" action="{{route('categoryFilter')}}" method="post">
+							<button class="button-clean" type="submit" name="type" value="1">{{trans('footer.design')}}</button>
+							<button class="button-clean" type="submit" name="type" value="2">{{trans('footer.paintings')}}</button>
+							<button class="button-clean" type="submit" name="type" value="3">{{trans('footer.photographs')}}</button>
+							<button class="button-clean" type="submit" name="type" value="4">{{trans('footer.prints')}}</button>
+							<button class="button-clean" type="submit" name="type" value="5">{{trans('footer.sculpture')}}</button>
+							<input type="hidden" value="{{ csrf_token() }}" name="_token">
+						</form>
 				</div>
 				<div class="col-md-3">
-					<h4>PRICE</h4>
-					<a href="#">Up to 5,000</a>
-					<a href="#">5,000 - 10,000</a>
-					<a href="#">10,000 - 25,000</a>
-					<a href="#">25,000 - 50,000</a>
-					<a href="#">50,000 - 100,000</a>
-					<a href="#">Above</a>
+					<h4>{{trans('footer.price')}}</h4>
+						<form id="sort-form" action="{{route('priceFilter')}}" method="post">
+						    <button class="button-clean" type="submit" name="type" value="<5000">{{trans('footer.upto')}} 5,000</button>
+						    <button class="button-clean" type="submit" name="type" value="<10000">5,000-10,000</button>
+						    <button class="button-clean" type="submit" name="type" value="<25000">10,000-25,000</button>
+						    <button class="button-clean" type="submit" name="type" value="<50000">25,000-50,000</button>
+						    <button class="button-clean" type="submit" name="type" value="<100000">50,000-100,000</button>
+						    <button class="button-clean" type="submit" name="type" value=">100000">{{trans('footer.above')}}</button>
+						    <input type="hidden" value="{{ csrf_token() }}" name="_token">
+						</form>
 					<br>
-					<h4>ERA</h4>
-					<a href="#">Pre-War</a>
-					<a href="#">1940s - 1950s</a>
-					<a href="#">1960s - 1980s</a>
-					<a href="#">1990s - Present</a>
+					<h4>{{trans('footer.era')}}</h4>
+						<form id="sort-form" action="{{route('eraFilter')}}" method="post">
+							<button class="button-clean" type="submit" name="type" value="1">{{trans('footer.prewar')}}</button>
+							<button class="button-clean" type="submit" name="type" value="2">1940s-1950s</button>
+							<button class="button-clean" type="submit" name="type" value="3">1960s-1980s</button>
+							<button class="button-clean" type="submit" name="type" value="4">{{trans('footer.present')}}</button>
+							<input type="hidden" value="{{ csrf_token() }}" name="_token">
+						</form>
 					<br>
-					<h4>ENDINGS</h4>
-					<a href="#">Ending this Week</a>
-					<a href="#">Newly Listed</a>
-					<a href="#">Purchase Now</a>
+					<h4>{{trans('footer.endings')}}</h4>
+						<form id="sort-form" action="{{route('endingFilter')}}" method="post">
+							<button class="button-clean" type="submit" name="type" value="thisweek">{{trans('footer.endingtw')}}</button>
+							<button class="button-clean" type="submit" name="type" value="newlisted">{{trans('footer.new')}}</button>
+							<button class="button-clean" type="submit" name="type" value="purchasenow">{{trans('footer.purchasen')}}</button>
+							<input type="hidden" value="{{ csrf_token() }}" name="_token">
+						</form>
 				</div>
 				<div class="left-border col-md-3">
-					<h4>FIND WHAT YOU NEED.</h4>
+					<h4>{{trans('footer.find')}}</h4>
 					<input class="search-field" placeholder="Search">
 					<i class="fa fa-search"></i>
 					<br>
 					<br>
-					<h4>CONTACT</h4>
+					<h4>{{trans('footer.contact')}}</h4>
 					<p>Landoretti ART</p>
-					<p>Straatnaam xxx</p>
+					<p>Landorettilaan xxx</p>
 					<p>xxxx, Oostende</p>
 					<br>
 					<p><i class="fa fa-phone"></i> +xx (0)x xxx xx xx</p>
@@ -91,11 +104,11 @@
 		<div class="sub-navigation row">
 			<img id="footer-logo" src="/images/logo.png" alt="Landoretti ART logo">
 			<div class="col-md-6 col-md-offset-2">
-				<a href="{{route('home')}}">HOME</a>
-				<a href="{{route('auctions')}}">ART</a>
-				<a href="{{route('myAuctions')}}">MYAUCTIONS</a>
-				<a href="{{route('myBids')}}">MYBIDS</a>
-				<a href="{{route('contact')}}t">CONTACT</a>
+				<a href="{{route('home')}}">{{trans('footer.home')}}</a>
+				<a href="{{route('auctions')}}">{{trans('footer.art')}}</a>
+				<a href="{{route('myAuctions')}}">{{trans('footer.myauctions')}}</a>
+				<a href="{{route('myBids')}}">{{trans('footer.mybids')}}</a>
+				<a href="{{route('contact')}}t">{{trans('footer.contact')}}</a>
 			</div>
 			<div class="col-md-2 col-md-offset-2">
 				<a class="pull-right language-link" href="#">NL</a>

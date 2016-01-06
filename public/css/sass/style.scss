@@ -53,6 +53,7 @@ body {
     z-index: 100;
 }
 
+
 /* NAVIGATION */ 
 
 .loginBtn {
@@ -358,7 +359,12 @@ body {
 }
 
 .footer {
-    a {
+    
+    #sort-form{
+        margin-top: 0px !important;
+    }
+    
+    button, a {
         color: $groen;
         text-align: left;
         width: 100%;
@@ -1266,6 +1272,12 @@ form {
     
     #sort-form {
             margin-top: 0px !important;
+        button {
+            &:hover {
+                text-decoration: underline;
+
+            }
+        }
     }
 
     .basic-sort {
