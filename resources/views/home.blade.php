@@ -15,6 +15,17 @@
     @endif
 </div>
 
+<div class="container">
+    @if (session()->has('unauthorized'))
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-danger">{{ Session::get('unauthorized') }}</div>
+            </div>
+        </div>
+    @endif
+</div>
+
+
 <div class="container-full">
          <header id="myCarousel" class="carousel slide">
             <!-- Indicators -->
@@ -36,7 +47,13 @@
                     <div class="fill" style="background-image:url('{{$recentAuction->imageArtwork}}');"></div>
                     <div class="carousel-caption">
                     	<img class="icon-slider" src="/images/icon-slider.png" alt="decorative circle to give attention to the artwork details.">
-                        <p><a href="{{route('auctionDetails', $recentAuction->id)}}">{{$recentAuction->descriptionEnglish}}</a></p>
+                        <p><a href="{{route('auctionDetails', $recentAuction->id)}}">
+                            @if(Lang::getLocale() == 'en')
+                                {{$recentAuction->descriptionEnglish}}
+                            @else
+                                {{$recentAuction->descriptionDutch}}
+                            @endif
+                        </a></p>
                     </div>
                 </div>
                 @endforeach
@@ -56,21 +73,21 @@
 <div class="container">
     <div class="row">
     	<div class="info-home col-md-12">
-    		<h1>How does it work?</h1>
+    		<h1>{{trans('home.how')}}</h1>
     		<div class="col-md-4">
     			<img src="images/icon-pencil.png" alt="an icon shaped as a pencil">
-    			<h3>Sign up</h3>
-    			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt debitis excepturi.</p>
+    			<h3>{{trans('home.sign')}}</h3>
+    			<p>{{trans('home.signtxt')}}</p>
     		</div>
     		<div class="col-md-4">
     			<img src="images/icon-check.png" alt="an icon shaped as a check mark">
-    			<h3>Make deals</h3>
-    			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt debitis excepturi.</p>
+    			<h3>{{trans('home.deal')}}</h3>
+    			<p>{{trans('home.dealtxt')}}</p>
     		</div>
     		<div class="col-md-4">
     			<img src="images/icon-smiley.png" alt="an icon shaped as a smiley">
-    			<h3>Everyone happy!</h3>
-    			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt debitis excepturi.</p>
+    			<h3>{{trans('home.happy')}}</h3>
+    			<p>{{trans('home.happytxt')}}</p>
     		</div>
     	</div>
     </div>
@@ -79,7 +96,7 @@
     <div class="container">
         <div class="row">
         	<div class="popular-home col-md-12">
-        		<h1>Most popular this week</h1>
+        		<h1>{{trans('home.popular')}}</h1>
         		<div class="col-md-4 popular-left">
                 @foreach($popularAuctions as $key => $auction)
                     @if($key == 1)

@@ -36,7 +36,7 @@
 			</div>
 		</div>
 
-	@if(count($watchlists) > 0)
+	@if(count($watchlist) > 0)
 
 		<div class="row">
 			<div class="col-md-3 col-md-offset-6">
@@ -69,20 +69,20 @@
 					  <th>End date</th>
 					  <th>Remaining time</th>
 					</tr>
-					@foreach($watchlists as $watchlist)
+					@foreach($watchlist as $item)
 					<tr>
 						<td><input type="checkbox" name="checkbox"></td>
-						<td class="img-preview" style="background-image:url('');"></td>
+						<td class="img-preview" style="background-image:url('{{$item->auction->imageArtwork}}');"></td>
 						<td>
-							<h3></h3>
-							<p class="age">1979, Salvador Dali</p>
+							<h3>{{$item->auction->title}}</h3>
+							<p class="age">{{$item->auction->artist->age}}, {{$item->auction->artist->name}}</p>
 						</td>
 						<td>
-							<h3>&euro; </h3>
+							<h3>&euro; {{$item->auction->currentPrice}}</h3>
 						</td>
 						<td>
-							<p class="date">September 09, 2013</p>
-							<p class="date">13:00 p.m. (EST)</p>
+							<p class="date"> {{ date('F d, Y', strtotime($item->auction->enddate)) }}</p>
+							<p class="date">{{ date('H:i a (e)', strtotime($item->auction->enddate)) }}</p>
 						</td>
 						<td>
 							<p>25d 14u 44m</p>
@@ -98,11 +98,5 @@
 	@endif
 	</div>
 </div>
-
-@foreach($watchlists as $watchlist)
-
-	<p>{{$watchlist->auction->title}}</p>
-
-@endforeach
 
 @stop

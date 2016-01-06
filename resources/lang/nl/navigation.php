@@ -3,14 +3,14 @@
 return array(
 	'register' => 'REGISTREREN',
 	'login' => 'INLOGGEN',
-	'search' => 'Zoek',
-	'watchlist' => 'watchlist',
-	'profile' => 'profiel',
-	'logout' => 'uitloggen',
-	'HOME' => 'HOME',
-	'ART' => 'KUNST',
-	'MYAUCTIONS' => 'MIJNVEILINGEN',
-	'MYBIDS' => 'MIJNBIEDINGEN',
-	'CONTACT' => 'CONTACT'
+	'search' => 'Zoeken',
+	'watchlist' => 'WATCHLIST',
+	'profile' => 'PROFIEL',
+	'logout' => 'UITLOGGEN',
+	'home' => 'HOME',
+	'art' => 'KUNST',
+	'myauctions' => 'VEILINGEN',
+	'mybids' => 'BIEDINGEN',
+	'contact' => 'CONTACT',
 
 	);

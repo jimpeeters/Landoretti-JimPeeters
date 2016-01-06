@@ -148,7 +148,7 @@
 							<a href="{{route('auctionDetails', $auction->id)}}" class="auction-image" style="background-image:url('{{$auction->imageArtwork}}');"><span class="overlay"><i class="fa fa-search"></i></span></a>
 
 							<div class="auction-info">
-								<span class="artist">{{$auction->year}}, {{$auction->artist->name}}</span>
+								<span class="artist">{{$auction->artist->age}}, {{$auction->artist->name}}</span>
 								<span class="title">{{$auction->title}}</span>
 								<span class="price">&euro;
 									@if($auction->currentPrice == null)
@@ -180,7 +180,7 @@
 							<a href="{{route('auctionDetails', $auction->id)}}" class="auction-image" style="background-image:url('{{$auction->imageArtwork}}');"><span class="overlay"><i class="fa fa-search"></i></span></a>
 
 							<div class="auction-info">
-								<span class="artist">{{$auction->year}}, {{$auction->artist->name}}</span>
+								<span class="artist">{{$auction->artist->age}}, {{$auction->artist->name}}</span>
 								<span class="title">{{$auction->title}}</span>
 								<span class="price">&euro;
 									@if($auction->currentPrice == null)

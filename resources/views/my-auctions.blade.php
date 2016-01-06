@@ -56,8 +56,8 @@
 									<h3>&euro;{{$auction->minPrice}}</h3>
 								</td>
 								<td>
-									<p class="date">{{$auction->enddate}}</p>
-									<p class="date">13:00 p.m. (EST)</p>
+									<p class="date"> {{ date('F d, Y', strtotime($auction->enddate)) }}</p>
+									<p class="date">{{ date('H:i a (e)', strtotime($auction->enddate)) }}</p>
 								</td>
 								<td>
 									<p>25d 14u 44m</p>

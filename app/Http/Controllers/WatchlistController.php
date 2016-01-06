@@ -16,18 +16,18 @@ class WatchlistController extends Controller
 {
     public function index()
     {
-        $watchlists = Watchlist::where('FK_user_id' , '=' , Auth::user()->id)->get();
+        $watchlist = Watchlist::where('FK_user_id' , '=' , Auth::user()->id)->get();
 
         //$watchlists = Auth::user()->watchlists;
 
-        foreach($watchlists as $watchlist)
+/*        foreach($watchlists as $watchlist)
         {
            echo ($watchlist->auction->title);
-        }
+        }*/
 
         $newestAuction = Auction::orderBy('created_at', 'desc')->first();
 
-        return view('watchlist')->with('watchlists', $watchlists)->with('newestAuction', $newestAuction);
+        return view('watchlist')->with('watchlist', $watchlist)->with('newestAuction', $newestAuction);
     }
 
     public function addToWatchlist($id)

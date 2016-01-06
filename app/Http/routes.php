@@ -47,6 +47,16 @@ Route::group(['middleware' => 'auth'], function () {
 
 });
 
+// AUTH FILTER
+Route::filter('auth', function()
+{
+    if (Auth::guest())
+    {
+    	return Redirect::route('home');
+    } 
+});
+
+
 /* Contact pagina */
 Route::get('/contact', array('as' => 'contact', 'uses' => 'ContactController@index'));
 

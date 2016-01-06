@@ -3,14 +3,14 @@
 return array(
 	'register' => 'REGISTER',
 	'login' => 'LOGIN',
-	'search' => 'search',
-	'watchlist' => 'watchlist',
-	'profile' => 'profile',
-	'logout' => 'logout',
-	'HOME' => 'HOME',
-	'ART' => 'ART',
-	'MYAUCTIONS' => 'MYAUCTIONS',
-	'MYBIDS' => 'MYBIDS',
-	'CONTACT' => 'CONTACT'
+	'search' => 'Search',
+	'watchlist' => 'WATCHLIST',
+	'profile' => 'PROFILE',
+	'logout' => 'LOGOUT',
+	'home' => 'HOME',
+	'art' => 'ART',
+	'myauctions' => 'MYAUCTIONS',
+	'mybids' => 'MYBIDS',
+	'contact' => 'CONTACT',
 
 	);

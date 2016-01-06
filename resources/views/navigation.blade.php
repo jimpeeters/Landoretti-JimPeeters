@@ -6,14 +6,14 @@
 
 			@if(Auth::check()) 
 				<div class="col-md-6 col-md-offset-2 dashboard">
-					<a href="{{route('myWatchlist')}}"><i class="fa fa-bars"></i>WATCHLIST</a>
-					<a href="{{route('myProfile')}}"><i class="fa fa-user"></i>PROFILE</a>
-					<a href="{{route('getLogout')}}">LOGOUT</a>
+					<a href="{{route('myWatchlist')}}"><i class="fa fa-bars"></i>{{trans('navigation.watchlist')}}</a>
+					<a href="{{route('myProfile')}}"><i class="fa fa-user"></i>{{trans('navigation.profile')}}</a>
+					<a href="{{route('getLogout')}}">{{trans('navigation.logout')}}</a>
 				</div>
 
 			@else
 				<div class="col-md-6 col-md-offset-2">
-					<a href="{{route('getRegister')}}">REGISTER </a>
+					<a href="{{route('getRegister')}}">{{trans('navigation.register')}} </a>
 					<a id="login-button" href="#">{{trans('navigation.login')}}</a>
 
 					<div class="login-block hide">
@@ -21,7 +21,7 @@
 					{!! Form::open(array('route' => 'postLogin', 'method' => 'post')) !!}
 						<input type="email" name="email" class="form-control" id="email" placeholder="User">
 						<input type="password" name="password" class="form-control" id="password" placeholder="Password">
-						<button type="submit">Login</button>
+						<button class="button-clean loginBtn" type="submit">></button>
 						<input type="hidden" value="{{ csrf_token() }}" name="_token">
 					{!! Form::close() !!}
 					</div>
@@ -29,11 +29,11 @@
 			@endif
 			<div class="col-md-3 col-md-offset-1">
 				{!! Form::open(array('route' => 'search', 'class'=>'form navbar-form navbar-right searchform', 'method' => 'post')) !!}
-				    <button type="submit" class="pull-right"><i class="fa fa-search"></i></button>
+				    <button type="submit" class="pull-right button-clean"><i style="margin-left: 5px;"class="fa fa-search"></i></button>
 				    {!! Form::text('search', null,
    												array('required',
 				                                'class'=>'search-field pull-right',
-				                                'placeholder'=>'Search')) !!}
+				                                'placeholder'=>trans('navigation.search'))) !!}
 				 {!! Form::close() !!}
 			</div>
 
@@ -68,15 +68,15 @@
 	<div class="container">
 		<div class="sub-navigation row">
 			<div class="col-md-6 col-md-offset-2">
-				<a href="{{route('home')}}">HOME</a>
-				<a href="{{route('auctions')}}">ART</a>
-				<a href="{{route('myAuctions')}}">MYAUCTIONS</a>
-				<a href="{{route('myBids')}}">MYBIDS</a>
-				<a href="{{route('contact')}}">CONTACT</a>
+				<a href="{{route('home')}}">{{trans('navigation.home')}}</a>
+				<a href="{{route('auctions')}}">{{trans('navigation.art')}}</a>
+				<a href="{{route('myAuctions')}}">{{trans('navigation.myauctions')}}</a>
+				<a href="{{route('myBids')}}">{{trans('navigation.mybids')}}</a>
+				<a href="{{route('contact')}}">{{trans('navigation.contact')}}</a>
 			</div>
 			<div class="col-md-2 col-md-offset-2">
-					<a class="pull-right language-link" href="#">NL</a>
-					<a class="pull-right language-link" href="#">EN</a>
+					<a class="pull-right language-link" href="/nl">NL</a>
+					<a class="pull-right language-link" href="/en">EN</a>
 			</div>
 		</div>
 	</div>

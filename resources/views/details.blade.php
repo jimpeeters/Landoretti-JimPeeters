@@ -71,9 +71,13 @@
 					<p class="age">{{$auction->year}}, {{$auction->artist->name}}</p>
 					<hr>
 					<p class="time-left">25d 14u 44m left</p>
-					<p class="date">{{$auction->enddate}}</p>
+					<p class="date">{{ date('F d, Y, H:i a (e)', strtotime($auction->enddate)) }}</p>
 					<hr>
-					<p class="text">{{ str_limit($auction->descriptionEnglish, $limit = 100, $end = '...') }}</p>
+					@if(Lang::getLocale() == 'en')
+						<p class="text">{{ str_limit($auction->descriptionEnglish, $limit = 100, $end = '...') }}</p>
+					@else
+						<p class="text">{{ str_limit($auction->descriptionDutch, $limit = 100, $end = '...') }}</p>
+					@endif
 					<a class="more" href="#">more</a>
 					<div class="bid-now">
 						@if($auction->currentPrice != null)
@@ -85,12 +89,12 @@
 						@endif
 						@if(Auth::check())
 							@if(Auth::user()->id == $auction->FK_user_id)
-							 	<a class="buy-now" href="#">Buyout price &euro;{{$auction->buyoutPrice}}</a>
+							 	<p class="buy-now">Buyout price &euro;{{$auction->buyoutPrice}}</p>
 							@else
 								<a class="buy-now" href="{{route('buyout', $auction->id)}}">Buy now for &euro;{{$auction->buyoutPrice}}</a>
 							@endif
 						@else
-							<a class="buy-now" href="#">Buyout price &euro;{{$auction->buyoutPrice}}</a>
+							<p class="buy-now">Buyout price &euro;{{$auction->buyoutPrice}}</p>
 							<p>Login to buy this now</p>
 						@endif
 						<p>bids: {{count($auction->bidders)}}</p>
@@ -100,7 +104,7 @@
 							@else
 							<div class="bid-now-sub">
 								<form action="{{route('placeBid', $auction->id)}}" method="post" id="bidForm">
-									<p><input type="text" name="bidAmount" id="bidAmount" placeholder="xxxx" value="{{ old('bidAmount') }}" required> <button type="submit">BID NOW</button><i class="fa fa-angle-right"></i></p>
+									<p><input type="text" name="bidAmount" id="bidAmount" placeholder="xxxx" value="{{ old('bidAmount') }}" required> <button class="button-clean" type="submit">BID NOW</button><i class="fa fa-angle-right"></i></p>
 									<input type="hidden" value="{{ csrf_token() }}" name="_token">
 								</form>
 							</div>
@@ -121,10 +125,18 @@
 		</div>
 		<div class="row description-auction">
 			<div class="col-md-8 description-left">
-				<h6>Description</h6>
-				<p>{{$auction->descriptionEnglish}}</p>
-				<h6>Condition</h6>
-				<p>{{$auction->conditionEnglish}}</p>
+				@if(Lang::getLocale() == 'en')
+					<h6>Description</h6>
+					<p>{{$auction->descriptionEnglish}}</p>
+					<h6>Condition</h6>
+					<p>{{$auction->conditionEnglish}}</p>
+				@else
+					<h6>Beschrijving</h6>
+					<p>{{$auction->descriptionDutch}}</p>
+					<h6>Staat van het kunstwerk</h6>
+					<p>{{$auction->conditionDutch}}</p>
+				@endif
+
 			</div>
 			<div class="col-md-4 description-right">
 				<h6>Artist</h6>
@@ -141,7 +153,7 @@
 				<p>{{$auction->color->colorEnglish}}</p>
 
 				<div>
-					<a href="{{route('contact', $auction->id)}}">
+					<a href="{{route('contactById', $auction->id)}}">
 						<p>ASK A QUESTION</p>
 						<p>ABOUT THIS AUCTION</p>
 					</a>
