@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'My watchlist')
+@section('title', 'Your landoretti watchlist')
 
 @section('content')
 

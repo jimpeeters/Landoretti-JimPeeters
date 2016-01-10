@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Contact')
+@section('title', 'Contact Landoretti personel')
 
 @section('content')
 

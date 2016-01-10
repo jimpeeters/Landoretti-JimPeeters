@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Profile')
+@section('title', 'Your Landoretti profile')
 
 @section('content')
 
