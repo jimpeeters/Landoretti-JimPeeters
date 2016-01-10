@@ -18,8 +18,8 @@ class ContactController extends Controller
 {
     public function index()
     {
-    	$newestAuction = Auction::orderBy('created_at', 'desc')->first();
-    	$auctions = ['default'=>'Choose an auction'] + Auction::orderby('title', 'ASC')->lists('title', 'id')->all(); 
+    	$newestAuction = Auction::where('FK_status_id','=', 1)->orWhere('FK_status_id','=', 3)->orderBy('created_at', 'desc')->first();
+    	$auctions = ['default'=>'Choose an auction'] + Auction::orderby('title', 'ASC')->where('FK_status_id','=', 1)->where('FK_status_id','=', 3)->lists('title', 'id')->all(); 
 
         return view('contact')
         				->with('newestAuction', $newestAuction)
@@ -28,7 +28,7 @@ class ContactController extends Controller
 
     public function contactById($id)
     {
-    	$newestAuction = Auction::orderBy('created_at', 'desc')->first();
+        $newestAuction = Auction::where('FK_status_id','=', 1)->orWhere('FK_status_id','=', 3)->orderBy('created_at', 'desc')->first();
     	$auctions = ['default'=>'Choose an auction'] + Auction::orderby('title', 'ASC')->lists('title', 'id')->all(); 
 
     	$auctionid = $id;
@@ -76,7 +76,7 @@ class ContactController extends Controller
 
 	    $auctions = ['default'=>'Choose an auction'] + Auction::orderby('title', 'ASC')->lists('title', 'id')->all(); 
 	  	$success = 'Thanks for contacting us!';
-	  	$newestAuction = Auction::orderBy('created_at', 'desc')->first();
+        $newestAuction = Auction::where('FK_status_id','=', 1)->orWhere('FK_status_id','=', 3)->orderBy('created_at', 'desc')->first();
 
   		        return view('contact')
         				->with('newestAuction', $newestAuction)

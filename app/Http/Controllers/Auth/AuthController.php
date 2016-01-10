@@ -36,7 +36,7 @@ class AuthController extends Controller
 
     public function index()
     {
-        $newestAuction = Auction::orderBy('created_at', 'desc')->first();
+        $newestAuction = Auction::where('FK_status_id','=', 1)->orWhere('FK_status_id','=', 3)->orderBy('created_at', 'desc')->first();
         $countries =  ['default'=>'Kies een land'] + Country::orderby('nameDutch', 'ASC')->lists('nameDutch', 'id')->all();  
        // $countriesEnglish = ['default'=>'Choose a country'] + Country::orderby('nameEnglish', 'ASC')->lists('nameEnglish', 'id')->all();  
 

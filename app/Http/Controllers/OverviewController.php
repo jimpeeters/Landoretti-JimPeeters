@@ -18,7 +18,7 @@ class OverviewController extends Controller
 {
     public function index()
     {
-        $newestAuction = Auction::orderBy('created_at', 'desc')->first();
+        $newestAuction = Auction::where('FK_status_id','=', 1)->orWhere('FK_status_id','=', 3)->orderBy('created_at', 'desc')->first();
 
         $auctions = Auction::orderBy('created_at', 'desc')->paginate(9);
 
@@ -29,7 +29,7 @@ class OverviewController extends Controller
 
     public function sortBy()
 	{
-		$newestAuction = Auction::orderBy('created_at', 'desc')->first();
+        $newestAuction = Auction::where('FK_status_id','=', 1)->orWhere('FK_status_id','=', 3)->orderBy('created_at', 'desc')->first();
 
 		switch(Input::get('type')) {
 
@@ -59,7 +59,7 @@ class OverviewController extends Controller
 
     public function priceFilter()
     {
-    	$newestAuction = Auction::orderBy('created_at', 'desc')->first();
+        $newestAuction = Auction::where('FK_status_id','=', 1)->orWhere('FK_status_id','=', 3)->orderBy('created_at', 'desc')->first();
 
     	switch(Input::get('type')) {
 
@@ -90,7 +90,7 @@ class OverviewController extends Controller
 
 	public function endingFilter()
 	{
-		$newestAuction = Auction::orderBy('created_at', 'desc')->first();
+        $newestAuction = Auction::where('FK_status_id','=', 1)->orWhere('FK_status_id','=', 3)->orderBy('created_at', 'desc')->first();
 
 		switch(Input::get('type')) {
 
@@ -113,7 +113,7 @@ class OverviewController extends Controller
 
 	public function eraFilter()
     {
-    	$newestAuction = Auction::orderBy('created_at', 'desc')->first();
+        $newestAuction = Auction::where('FK_status_id','=', 1)->orWhere('FK_status_id','=', 3)->orderBy('created_at', 'desc')->first();
 
     	switch(Input::get('type')) {
     		
@@ -138,7 +138,7 @@ class OverviewController extends Controller
 
 	public function categoryFilter()
     {
-    	$newestAuction = Auction::orderBy('created_at', 'desc')->first();
+        $newestAuction = Auction::where('FK_status_id','=', 1)->orWhere('FK_status_id','=', 3)->orderBy('created_at', 'desc')->first();
 
 		if (Input::get('type') == '1')
 		{
@@ -172,7 +172,7 @@ class OverviewController extends Controller
 
 	public function styleFilter()
 	{
-		$newestAuction = Auction::orderBy('created_at', 'desc')->first();
+        $newestAuction = Auction::where('FK_status_id','=', 1)->orWhere('FK_status_id','=', 3)->orderBy('created_at', 'desc')->first();
 
     	switch(Input::get('type')) {
         case '1':

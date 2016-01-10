@@ -25,7 +25,7 @@ class WatchlistController extends Controller
            echo ($watchlist->auction->title);
         }*/
 
-        $newestAuction = Auction::orderBy('created_at', 'desc')->first();
+        $newestAuction = Auction::where('FK_status_id','=', 1)->orWhere('FK_status_id','=', 3)->orderBy('created_at', 'desc')->first();
 
         return view('watchlist')->with('watchlist', $watchlist)->with('newestAuction', $newestAuction);
     }
@@ -33,7 +33,7 @@ class WatchlistController extends Controller
     public function addToWatchlist($id)
     {
         $watchlistcheck = Watchlist::where('FK_auction_id' , '=' , $id)->where('FK_user_id' , '=' , Auth::user()->id)->first();
-        $newestAuction = Auction::orderBy('created_at', 'desc')->first();
+        $newestAuction = Auction::where('FK_status_id','=', 1)->orWhere('FK_status_id','=', 3)->orderBy('created_at', 'desc')->first();
 
         if($watchlistcheck == null) //deze bestaat nog niet
         {

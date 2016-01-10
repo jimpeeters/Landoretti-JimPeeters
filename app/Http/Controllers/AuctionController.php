@@ -22,7 +22,7 @@ class AuctionController extends Controller {
   public function index()
   {
     $auctions = Auction::where('FK_user_id','=', Auth::user()->id)->with('artist')->get();
-    $newestAuction = Auction::orderBy('created_at', 'desc')->first();
+    $newestAuction = Auction::where('FK_status_id','=', 1)->orWhere('FK_status_id','=', 3)->orderBy('created_at', 'desc')->first();
 
     return View::make('my-auctions')
               ->with('auctions', $auctions)
@@ -36,7 +36,7 @@ class AuctionController extends Controller {
     $categories = ['default'=>'Choose a category'] + Category::orderby('name', 'ASC')->lists('name', 'id')->all();  
     $colors = ['default'=>'Choose a color'] + Color::orderby('colorEnglish', 'ASC')->lists('colorEnglish', 'id')->all();  
     $styles = ['default'=>'Choose a style'] + Style::orderby('name', 'ASC')->lists('name', 'id')->all();  
-    $newestAuction = Auction::orderBy('created_at', 'desc')->first();
+    $newestAuction = Auction::where('FK_status_id','=', 1)->orWhere('FK_status_id','=', 3)->orderBy('created_at', 'desc')->first();
 
     return View::make('create')
               ->with('artists', $artists)
@@ -213,7 +213,7 @@ class AuctionController extends Controller {
   {
     $auction = Auction::with('artist')->with('color')->with('style')->with('category')->with('bidders')->findOrFail($id);
 
-    $newestAuction = Auction::orderBy('created_at', 'desc')->first();
+    $newestAuction = Auction::where('FK_status_id','=', 1)->orWhere('FK_status_id','=', 3)->orderBy('created_at', 'desc')->first();
 
     return View::make('details')
                   ->with('auction', $auction)
@@ -252,6 +252,7 @@ class AuctionController extends Controller {
           $bidder->save();
 
           $auction->currentPrice = $input['bidAmount'];
+          $auction->FK_status_id = '3'; //active
           $auction->save();
 
           $success = 'You have succesfully placed &euro;'.$input['bidAmount'].' on this auction!';
@@ -292,7 +293,7 @@ class AuctionController extends Controller {
 
   public function buyout($id)
   {
-    $newestAuction = Auction::orderBy('created_at', 'desc')->first();
+    $newestAuction = Auction::where('FK_status_id','=', 1)->orWhere('FK_status_id','=', 3)->orderBy('created_at', 'desc')->first();
     $auction = Auction::find($id);
     $lostbidders = Bidder::where('FK_auction_id', '=', $auction->id)->distinct()->with('user')->get(); //distinct voor duplicate receivers
 
@@ -301,6 +302,10 @@ class AuctionController extends Controller {
        $warning = 'This is your own item!';
        return redirect()->back()->with('warning', $warning);
     }
+    
+            
+          $auction->FK_status_id = '5'; //sold
+          $auction->save();
 
     //mail sturen naar andere bieders
     foreach($lostbidders as $bidder)
@@ -318,10 +323,10 @@ class AuctionController extends Controller {
             $message->from('jim.peeters@student.kdg.be');
             $message->to($bidder->user->email, 'Admin')->subject('You have lost an auction on Landoretti');
         });
+
+        
       }
     }
-
-    Auction::destroy($id);
 
     return View::make('buynow')
               ->with('newestAuction', $newestAuction);

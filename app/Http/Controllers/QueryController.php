@@ -22,7 +22,7 @@ class QueryController extends Controller
 
 	    DB::enableQueryLog();
 
-	  	$auctions = Auction::where('title', 'LIKE', '%' . $query . '%')->get();
+	  	$auctions = Auction::where('title', 'LIKE', '%' . $query . '%')->where('FK_status_id','=', 1)->orWhere('FK_status_id','=', 3)->get();
 
 	  	$queries = DB::getQueryLog();
 		$last_query = end($queries);
