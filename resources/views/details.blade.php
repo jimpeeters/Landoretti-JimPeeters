@@ -54,14 +54,14 @@
 		</div>
 		<div class="row">
 			<div class="col-md-8">
-				<div class="col-md-12 big-image" style="background-image:url('{{$auction->imageArtwork}}');"></div>
+				<div class="col-md-12 big-image" title="{{$auction->title}}" style="background-image:url('{{$auction->imageArtwork}}');"></div>
 				<div class="col-md-12 small-images">
-					<div  class="small-image" style="background-image:url('{{$auction->imageArtwork}}');">
+					<div  class="small-image" title="{{$auction->title}}" style="background-image:url('{{$auction->imageArtwork}}');">
 					</div>
-					<div  class="small-image" style="background-image:url('{{$auction->imageSignature}}');">
+					<div  class="small-image" title="{{$auction->title}}" style="background-image:url('{{$auction->imageSignature}}');">
 					</div>
 					@if($auction->imageOptional != null)
-					<div  class="small-image" style="background-image:url('{{$auction->imageOptional}}');">
+					<div  class="small-image" title="{{$auction->title}}" style="background-image:url('{{$auction->imageOptional}}');">
 					@else
 					<div  class="small-image" style="">
 					@endif

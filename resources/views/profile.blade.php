@@ -39,7 +39,7 @@
 
 				@foreach($user->auctions as $auction)
 
-				<div class="auction-preview">
+				<div class="auction-preview" title="{{$auction->title}}">
 					<a href="#" class="auction-image" style="background-image:url('{{$auction->imageArtwork}}');"><span class="overlay"><i class="fa fa-search"></i></span></a>
 
 					<div class="auction-info">
