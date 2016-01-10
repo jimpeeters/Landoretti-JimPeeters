@@ -9,20 +9,44 @@ use App\Http\Controllers\Controller;
 use Input;
 use App\Auction;
 use View;
+use App\Faq;
+use DB;
 
 class QueryController extends Controller
 {
    public function search(Request $request)
 	{
-	   	// Gets the query string from our form submission 
 	   	$input = $request->all();
 
 	    $query = $input['search'];
-	    // Returns an array of articles that have the query string located somewhere within 
-	    // our articles titles. Paginates them so we can break up lots of search results.
-	  	$auctions = Auction::where('title', 'LIKE', '%' . $query . '%')->paginate(10);
+
+	    DB::enableQueryLog();
+
+	  	$auctions = Auction::where('title', 'LIKE', '%' . $query . '%')->get();
+
+	  	$queries = DB::getQueryLog();
+		$last_query = end($queries);
+
+		dd($last_query);
+
+	    return view('search')->with('auctions', $auctions)->with('last_query', $last_query);
+	 }
+
+	public function searchfaq(Request $request)
+	{
+	   	$input = $request->all();
+
+	    $query = $input['search'];
+
+	    DB::enableQueryLog();
+
+	  	$faqs = Faq::where('question', 'LIKE', '%' . $query . '%')->get();
+
+	  	$queries = DB::getQueryLog();
+		$last_query = end($queries);
+
+		dd($last_query);
 	        
-		// returns a view and passes the view the list of articles and the original query.
-	    return view('search', compact('auctions', 'query'));
+	    return view('faqs-search')->with('faqs', $faqs)->with('last_query', $last_query);
 	 }
 }

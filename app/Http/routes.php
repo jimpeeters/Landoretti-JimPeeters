@@ -98,3 +98,6 @@ Route::post('/styleFilter', array('as' => 'styleFilter','uses' => 'OverviewContr
 
 /* Search */
 Route::post('/search',array('as' => 'search','uses' => 'QueryController@search'));
+
+/* Faq search */ 
+Route::post('/faqsearch',array('as' => 'searchfaq','uses' => 'QueryController@searchfaq'));

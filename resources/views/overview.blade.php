@@ -1,5 +1,7 @@
 @extends('layouts.master')
 
+@section('title', 'Art Overview')
+
 @section('content')
 
 	@include('newest-auction-section')

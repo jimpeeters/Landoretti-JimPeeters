@@ -213,29 +213,6 @@ class AuctionController extends Controller {
   {
     $auction = Auction::with('artist')->with('color')->with('style')->with('category')->with('bidders')->findOrFail($id);
 
-/*    RELATED ITEMS Nog te doen
-
-$auctionsToCompare = Auction::with('artist')->with('style')->with('category')->get();
-
-    $relatedAuctions = Auction::with('artist')
-                              ->with('color')
-                              ->with('style')
-                              ->with('category')
-                              ->where('dit item zijn artist zijn naam', '=', $auction->artist->name)
-                              ->get();
-
-      dd($relatedAuctions);
-*/
-
-/*    foreach($auctionsToCompare as $auctionTocompare)
-    {
-      if($auctionTocompare->artist->name == $auction->artist->name)
-      {
-        $relatedAuctions->push($auctionTocompare);
-      }
-    }*/
-
-
     $newestAuction = Auction::orderBy('created_at', 'desc')->first();
 
     return View::make('details')
