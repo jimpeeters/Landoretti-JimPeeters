@@ -25,15 +25,22 @@
     @endif
 </div>
 
-
+@if(count($recentAuctions) != 0)
 <div class="container-full">
          <header id="myCarousel" class="carousel slide">
             <!-- Indicators -->
             <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
-                <li data-target="#myCarousel" data-slide-to="3"></li>
+                @foreach($recentAuctions as $key => $recentAuction)
+                    @if($key == 0)
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    @elseif($key == 1)
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    @elseif($key == 2)
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                    @elseif($key == 3)
+                    <li data-target="#myCarousel" data-slide-to="3"></li>
+                    @endif
+                @endforeach
             </ol>
 
             <!-- Wrapper for Slides -->
@@ -47,7 +54,7 @@
                     <div class="fill" style="background-image:url('{{$recentAuction->imageArtwork}}');"></div>
                     <div class="carousel-caption">
                     	<img class="icon-slider" src="/images/icon-slider.png" alt="decorative circle to give attention to the artwork details.">
-                        <p><a href="{{route('auctionDetails', $recentAuction->id)}}">
+                        <p><a href="{{route('auctionDetails', $recentAuction->slug)}}">
                             @if(Lang::getLocale() == 'en')
                                 {{$recentAuction->descriptionEnglish}}
                             @else
@@ -69,6 +76,7 @@
 
         </header>
 </div>
+@endif
 
 <div class="container">
     <div class="row">
@@ -100,18 +108,18 @@
         		<div class="col-md-4 popular-left">
                 @foreach($popularAuctions as $key => $auction)
                     @if($key == 1)
-                        <a href="{{route('auctionDetails', $auction->id)}}" class="popular-image" style="background-image:url('{{$auction->imageArtwork}}');"><span class="overlay"><i class="fa fa-search"></i></span></a>
+                        <a href="{{route('auctionDetails', $auction->slug)}}" class="popular-image" style="background-image:url('{{$auction->imageArtwork}}');"><span class="overlay"><i class="fa fa-search"></i></span></a>
                     @endif
 
                     @if($key == 2)
-        			    <a href="{{route('auctionDetails', $auction->id)}}" class="popular-image" style="background-image:url('{{$auction->imageArtwork}}');"><span class="overlay"><i class="fa fa-search"></i></span></a>
+        			    <a href="{{route('auctionDetails', $auction->slug)}}" class="popular-image" style="background-image:url('{{$auction->imageArtwork}}');"><span class="overlay"><i class="fa fa-search"></i></span></a>
                     @endif
                 @endforeach
         		</div>
         		<div class="col-md-8 popular-right">
                 @foreach($popularAuctions as $key => $auction)
                     @if($key == 0)
-                        <a href="{{route('auctionDetails', $auction->id)}}" class="popular-image" style="background-image:url('{{$auction->imageArtwork}}');"><span class="overlay"><i class="fa fa-search"></i></span></a>
+                        <a href="{{route('auctionDetails', $auction->slug)}}" class="popular-image" style="background-image:url('{{$auction->imageArtwork}}');"><span class="overlay"><i class="fa fa-search"></i></span></a>
                     @endif
                 @endforeach
         		</div>

@@ -21,7 +21,7 @@
 				@foreach($bids as $bid)
 				<div class="bid">
 					<h4>&euro;{{$bid->bidAmount}}</h4>
-					<p>Bid placed on : <a href="{{route('auctionDetails', $bid->FK_auction_id)}}">{{$bid->auction->title}}</a></p>
+					<p>Bid placed on : <a href="{{route('auctionDetails', $bid->auction->slug)}}">{{$bid->auction->title}}</a></p>
 					@if($bid->bidAmount < $bid->auction->currentPrice)
 						<p class="negative">There is currently a higher bid on this auction!</p>	
 					@else

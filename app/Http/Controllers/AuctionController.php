@@ -15,6 +15,7 @@ use Input;
 use File;
 use Illuminate\Support\Facades\Redirect;
 use Mail;
+use Carbon\Carbon;
 
 
 class AuctionController extends Controller {
@@ -50,10 +51,8 @@ class AuctionController extends Controller {
 
   public function store(Request $request)
   {
-
-
         $validator = Validator::make($request->all(), [
-            'title' => 'required|max:255|alpha_dash',
+            'title' => 'required|max:255|regex:/(^[A-Za-z0-9 ]+$)+/',
             'width' => 'required|max:20',
             'year' => 'required|integer|max:2016',
             'height' => 'required|max:20',
@@ -141,7 +140,7 @@ class AuctionController extends Controller {
 
                Input::file('imageArtwork')->move($directory, $filename);
 
-               $auction->imageArtwork  = $directory.$filename;
+               $auction->imageArtwork  = '/images/uploads/'.Auth::user()->email.'/'.$filename;
             }
         }
 
@@ -166,7 +165,7 @@ class AuctionController extends Controller {
 
                Input::file('imageSignature')->move($directory, $filename);
 
-               $auction->imageSignature = $directory.$filename;
+               $auction->imageSignature = '/images/uploads/'.Auth::user()->email.'/'.$filename;
             }
         }
 
@@ -193,7 +192,7 @@ class AuctionController extends Controller {
 
                      Input::file('imageOptional')->move($directory, $filename);
 
-                     $auction->imageOptional = $directory.$filename;
+                     $auction->imageOptional = '/images/uploads/'.Auth::user()->email.'/'.$filename;
                   }
               }
         }
@@ -209,9 +208,9 @@ class AuctionController extends Controller {
    * @param  int  $id
    * @return Response
    */
-  public function showdetails($id)
+  public function showdetails($slug)
   {
-    $auction = Auction::with('artist')->with('color')->with('style')->with('category')->with('bidders')->findOrFail($id);
+    $auction = Auction::findBySlug($slug);
 
     $newestAuction = Auction::where('FK_status_id','=', 1)->orWhere('FK_status_id','=', 3)->orderBy('created_at', 'desc')->first();
 

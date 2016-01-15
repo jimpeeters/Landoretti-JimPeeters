@@ -56,7 +56,7 @@
 						<div class="call-to-action clearfix">
 							<span class="timeleft">25d 14u 44m</span>
 
-							<a href="#" class="btn btn-visit-auction">Visit Auction ></a>
+							<a href="{{route('auctionDetails', $auction->slug)}}" class="btn btn-visit-auction">Visit Auction ></a>
 						</div>
 					</div>
 				</div>

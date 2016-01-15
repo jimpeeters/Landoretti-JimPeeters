@@ -10,7 +10,7 @@ Route::get('/FAQ',array('as' => 'faq','uses' => 'FaqController@index'));
 Route::get('/auctions',array('as' => 'auctions','uses' => 'OverviewController@index'));
 
 //Show details
-Route::get('/auction/{id}', array('as' => 'auctionDetails','uses' =>'AuctionController@showdetails'));
+Route::get('/auction/{title}', array('as' => 'auctionDetails','uses' =>'AuctionController@showdetails'));
 
 /* ingelogd */
 Route::group(['middleware' => 'auth'], function () {  

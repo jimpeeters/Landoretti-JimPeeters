@@ -14,7 +14,7 @@
 					@endif
 				</p>
 				<div class="visit-auction">
-					<a href="{{route('auctionDetails', $newestAuction->id)}}">VISIT AUCTION<i class="fa fa-angle-right"></i></a>
+					<a href="{{route('auctionDetails', $newestAuction->slug)}}">VISIT AUCTION<i class="fa fa-angle-right"></i></a>
 				</div>
 			</div>
 			<div class="col-md-2">

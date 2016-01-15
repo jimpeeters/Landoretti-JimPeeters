@@ -5,6 +5,7 @@ namespace App\Console;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use App\Auction;
+use Carbon\Carbon;
 
 class Kernel extends ConsoleKernel
 {
@@ -26,7 +27,22 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->call(function () {
-            $auctions = Auction::with('artist')->with('status')->get();
+            
+            $auctions = Auction::get();
+            
+            $mytime = Carbon::now()->addDays(2);
+            $timenow = $mytime->toDateTimeString();
+            
+            foreach($auctions as $auction)
+            {
+                if($auction->enddate < $timenow) //als enddate vroeger is als nu 
+                {
+                    $auction->FK_status_id = '4';
+                    $auction->save();
+                }
+            }
+            
+            
         })->everyMinute();
     }
 }

@@ -16,7 +16,7 @@
 	@elseif (count($auctions) >= 1)
 	    @foreach($auctions as $auction)
 	    <div class="col-md-12">
-	  		<a href="{{route('auctionDetails', $auction->id)}}">{{$auction->title}}</a>
+	  		<a href="{{route('auctionDetails', $auction->slug)}}">{{$auction->title}}</a>
 	  		<p> {{$auction->descriptionEnglish}} </p>
 	  	</div>
 	    @endforeach

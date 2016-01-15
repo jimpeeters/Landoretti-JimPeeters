@@ -147,6 +147,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
         'Illuminate\Html\HtmlServiceProvider',
+        'Cviebrock\EloquentSluggable\SluggableServiceProvider',
 
     ],
 

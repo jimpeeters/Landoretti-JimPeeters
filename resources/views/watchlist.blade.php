@@ -76,7 +76,7 @@
 						<td><input type="checkbox" name="checkbox"></td>
 						<td class="img-preview" style="background-image:url('{{$item->auction->imageArtwork}}');"></td>
 						<td>
-							<h3>{{$item->auction->title}}</h3>
+							<h3><a href="{{route('auctionDetails', $item->auction->slug)}}">{{$item->auction->title}}</a></h3>
 							<p class="age">{{$item->auction->artist->age}}, {{$item->auction->artist->name}}</p>
 						</td>
 						<td>
