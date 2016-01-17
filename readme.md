@@ -1,12 +1,17 @@
 ## Deploy document
 
-1) maak een account op c9 
+1) maak een account op c9
+
 2) pull uw git repository met laravel project
+
 3) kies php als template
+
 4) doe de composer update command in uw root folder
+
 5) bij setting klik op ‘show hidden files’
  
 6) rename de file env.example naar env
+
 7) maak een nieuwe application key aan met deze command: 
 	php artisan key:generate
 	
