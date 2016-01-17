@@ -83,8 +83,20 @@ class AuctionController extends Controller {
                         ->withErrors($validator)
                         ->withInput();
         }
+        
+
+        
 
         $input = $request->all();
+        
+        if($input['minPrice'] > $input['maxPrice'])
+        {
+          return redirect()->back()->with('priceError', 'The minimum price must be lower as the maximum price!')->withInput();
+        }
+        if($input['maxPrice'] > $input['buyoutPrice'])
+        {
+          return redirect()->back()->with('priceError', 'The buyout price must be higher as the maximum price!')->withInput();
+        }
 
         $auction = new Auction();
         $auction->FK_user_id = Auth::user()->id;
@@ -242,7 +254,7 @@ class AuctionController extends Controller {
 
       if($input['bidAmount'] >= $auction->minPrice && $input['bidAmount'] <= $auction->maxPrice) //tussen de min en max prijs
       {
-        if($highestbid == null) // is er een highest bid
+        if($highestbid == null) // als er geen highest bid is
         {
           $bidder = new Bidder();
           $bidder->FK_user_id = Auth::user()->id;
@@ -258,7 +270,7 @@ class AuctionController extends Controller {
 
           return redirect()->back()->with('success', $success);
         }
-        else
+        else // als er wel een bod is
         {
           if($input['bidAmount'] > $highestbid->bidAmount) //checken of groter dan huidig bod
           {

@@ -8,6 +8,11 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use View;
 use App\Auction;
+use Carbon\Carbon;
+use App\Bidder;
+use Mail;
+use App\User;
+
 
 class HomeController extends Controller
 {

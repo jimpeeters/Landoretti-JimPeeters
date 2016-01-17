@@ -36,6 +36,7 @@ class CreateAuctionsTable extends Migration {
 			$table->dateTime('enddate');
 			$table->string('originDutch', 255);
 			$table->string('originEnglish', 255);
+			$table->string('slug')->nullable();
 		});
 	}
 

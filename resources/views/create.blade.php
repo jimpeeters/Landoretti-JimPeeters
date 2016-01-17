@@ -18,6 +18,14 @@
 <div class="container">
 	
 	<h1>Add a new auction</h1>
+	
+	@if (session()->has('priceError'))
+	   	<div class="row detailMessages">
+	   		<div class="col-md-12">
+				<div class="alert alert-danger">{{ Session::get('priceError') }}</div>
+			</div>
+		</div>
+	@endif
 
 	@if (count($errors) > 0)
 	<div class="row">
