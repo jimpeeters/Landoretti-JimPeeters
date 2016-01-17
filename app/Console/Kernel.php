@@ -32,7 +32,7 @@ class Kernel extends ConsoleKernel
             
             $auctions = Auction::where('FK_status_id', '!=', '4')->get(); //alle auctions ophalen die niet expired zijn
             
-            $mytime = Carbon::now()->addDays(2); //de datum nu 
+            $mytime = Carbon::now(); //de datum nu 
             $timenow = $mytime->toDateTimeString();
             
             foreach($auctions as $auction) //elke auction checken

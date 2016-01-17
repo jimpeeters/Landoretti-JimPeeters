@@ -38,6 +38,9 @@ class AuctionController extends Controller {
     $colors = ['default'=>'Choose a color'] + Color::orderby('colorEnglish', 'ASC')->lists('colorEnglish', 'id')->all();  
     $styles = ['default'=>'Choose a style'] + Style::orderby('name', 'ASC')->lists('name', 'id')->all();  
     $newestAuction = Auction::where('FK_status_id','=', 1)->orWhere('FK_status_id','=', 3)->orderBy('created_at', 'desc')->first();
+    
+    
+    $timenow = Carbon::now()->addDays(1)->toDateString(); //de datum nu 
 
     return View::make('create')
               ->with('artists', $artists)
@@ -45,7 +48,8 @@ class AuctionController extends Controller {
               ->with('categories', $categories)
               ->with('colors', $colors)
               ->with('styles', $styles)
-              ->with('newestAuction', $newestAuction);
+              ->with('newestAuction', $newestAuction)
+              ->with('timenow', $timenow);
 
   }
 

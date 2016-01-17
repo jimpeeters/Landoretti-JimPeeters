@@ -227,7 +227,7 @@
 			<div class="col-md-3">
 				<div class="form-group">
 					<label for="enddate">End date</label>
-					<input type="date" name="enddate" class="form-control" id="enddate" placeholder="DD/MM/YY" value="{{ old('enddate') }}" required>
+					<input type="date" min="{{$timenow}}" name="enddate" class="form-control" id="enddate" placeholder="DD/MM/YY" value="{{ old('enddate') }}" required>
 				</div>
 			</div>
 			<div class="col-md-6">
