@@ -1,27 +1,46 @@
-## Laravel PHP Framework
+## Deploy document
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+1) maak een account op c9 
+2) pull uw git repository met laravel project
+3) kies php als template
+4) doe de composer update command in uw root folder
+5) bij setting klik op ‘show hidden files’
+ 
+6) rename de file env.example naar env
+7) maak een nieuwe application key aan met deze command: 
+	php artisan key:generate
+	
+8) zet uw public folder als rootfolder bij apache :
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+cat /etc/apache2/sites-enabled/001-cloud9.conf
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+zet bij /home/ubuntu/workspace (of andere root directory)  => /public 
+ 
+9) open de database.php file uit de config folder
+10) verander settings bij mysql: 
+ 
+host => 127.0.0.1
+database => c9
+username => root
+password => 
 
-## Official Documentation
+11) doe volgende commands : 
+mysql-ctl cli  
+use c9;
+ctrl + c (om eruit te gaan)
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+12) doe volgende commands :
+php artisan migrate
+php artisan db:seed
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+13) activeer cronjob (om de minuut checken of een auction verlopen is): 
 
-## Security Vulnerabilities
+crontab -e
+maak document leeg en typ : 
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+* * * * * php /home/ubuntu/workspace/artisan schedule:run
 
-### License
+ctrl+o (write out + save)
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+
