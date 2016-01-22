@@ -95,9 +95,16 @@ Route::post('/categoryFilter', array('as' => 'categoryFilter','uses' => 'Overvie
 /* Style filter */
 Route::post('/styleFilter', array('as' => 'styleFilter','uses' => 'OverviewController@styleFilter'));
 
+/* --- filters  ---*/
+
 
 /* Search */
 Route::post('/search',array('as' => 'search','uses' => 'QueryController@search'));
 
 /* Faq search */ 
 Route::post('/faqsearch',array('as' => 'searchfaq','uses' => 'QueryController@searchfaq'));
+
+Route::get('/faqsearchtest', function()
+{
+    return view('faqs-search');
+});

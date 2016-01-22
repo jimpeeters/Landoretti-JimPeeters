@@ -44,7 +44,7 @@ php artisan db:seed
 crontab -e
 maak document leeg en typ : 
 
-* * * * * php /home/ubuntu/workspace/artisan schedule:run
+ * * * * * php /home/ubuntu/workspace/artisan schedule:run
 
 ctrl+o (write out + save)
 

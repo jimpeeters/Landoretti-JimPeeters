@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/css/dropzone.min.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/stylesheets/style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/icon.png">
 
 
 </head>

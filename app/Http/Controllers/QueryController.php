@@ -10,7 +10,6 @@ use Input;
 use App\Auction;
 use View;
 use App\Faq;
-use DB;
 
 class QueryController extends Controller
 {
@@ -20,16 +19,10 @@ class QueryController extends Controller
 
 	    $query = $input['search'];
 
-	    DB::enableQueryLog();
-
 	  	$auctions = Auction::where('title', 'LIKE', '%' . $query . '%')->where('FK_status_id','=', 1)->orWhere('FK_status_id','=', 3)->get();
 
-	  	$queries = DB::getQueryLog();
-		$last_query = end($queries);
 
-		dd($last_query);
-
-	    return view('search')->with('auctions', $auctions)->with('last_query', $last_query);
+	    return view('search')->with('auctions', $auctions)->with('query', $query);
 	 }
 
 	public function searchfaq(Request $request)
@@ -38,15 +31,8 @@ class QueryController extends Controller
 
 	    $query = $input['search'];
 
-	    DB::enableQueryLog();
-
 	  	$faqs = Faq::where('question', 'LIKE', '%' . $query . '%')->get();
 
-	  	$queries = DB::getQueryLog();
-		$last_query = end($queries);
-
-		dd($last_query);
-	        
-	    return view('faqs-search')->with('faqs', $faqs)->with('last_query', $last_query);
+	    return view('faqs-search')->with('faqs', $faqs)->with('query', $query);
 	 }
 }
